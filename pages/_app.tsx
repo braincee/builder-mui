@@ -4,7 +4,9 @@ import '@fontsource/public-sans';
 import type { AppProps } from 'next/app';
 import { builder, Builder, withChildren } from '@builder.io/react';
 import { Header } from '../components/Header';
-import { Button } from '@mui/joy';
+import { Button } from "@mui/joy";
+import { TextField } from "@mui/joy";
+
 // Initialize builder with your apiKey
 builder.init('29e2b58dd1f648f48966fef7096634b2');
 
@@ -78,6 +80,28 @@ Builder.registerComponent(withChildren(Button), {
     },
   ]
 });
+
+Builder.registerComponent(withChildren(TextField), {
+  name: 'MuiTextField',
+  inputs: [
+    {
+      name: 'label',
+      type: 'string',
+    },
+    {
+      name: 'variant',
+      type: 'text',
+      enum: ['standard', 'outlined', 'filled'],
+    },
+  ],
+  defaultChildren: [
+    {
+      '@type': '@builder.io/sdk:Element',
+      component: { name: 'MuiTypography', options: { variant: 'body1', content: 'Default Text' } },
+    },
+  ],
+});
+
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   return <Component {...pageProps} />;
