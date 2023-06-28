@@ -4,8 +4,7 @@ import '@fontsource/public-sans';
 import type { AppProps } from 'next/app';
 import { builder, Builder, withChildren } from '@builder.io/react';
 import { Header } from '../components/Header';
-import { Button } from "@mui/joy";
-import { TextField } from "@mui/joy";
+import { Button, Checkbox, Input, Radio, Slider, Switch } from '@mui/joy';
 
 // Initialize builder with your apiKey
 builder.init('29e2b58dd1f648f48966fef7096634b2');
@@ -81,27 +80,193 @@ Builder.registerComponent(withChildren(Button), {
   ]
 });
 
-Builder.registerComponent(withChildren(TextField), {
-  name: 'MuiTextField',
+Builder.registerComponent(withChildren(Checkbox), {
+  name: 'Checkbox',
   inputs: [
     {
       name: 'label',
       type: 'string',
     },
     {
+      name: 'checked',
+      type: 'boolean',
+      defaultValue: false,
+    },
+    {
       name: 'variant',
       type: 'text',
-      enum: ['standard', 'outlined', 'filled'],
+      enum: ['solid', 'soft', 'outlined', 'plain']
+    },
+    {
+      name: 'size',
+      type: 'text',
+      enum: ['sm', 'md', 'lg']
+    },
+    {
+      name: 'color',
+      type: 'text',
+      enum: ['primary', 'neutral', 'danger', 'success', 'warning', 'info']
+    },
+    {
+      name: 'disabled',
+      type: 'boolean'
     },
   ],
   defaultChildren: [
     {
       '@type': '@builder.io/sdk:Element',
-      component: { name: 'MuiTypography', options: { variant: 'body1', content: 'Default Text' } },
+      component: { name: 'Text', options: { text: 'Default Label' } },
     },
   ],
 });
 
+Builder.registerComponent(withChildren(Input), {
+  name: 'Input',
+  inputs: [
+    {
+      name: 'type',
+      type: 'text',
+      defaultValue: 'text',
+    },
+    {
+      name: 'placeholder',
+      type: 'string',
+    },
+    {
+      name: 'value',
+      type: 'string',
+    },
+    {
+      name: 'variant',
+      type: 'text',
+      enum: ['solid', 'soft', 'outlined', 'plain']
+    },
+    {
+      name: 'size',
+      type: 'text',
+      enum: ['sm', 'md', 'lg']
+    },
+    {
+      name: 'color',
+      type: 'text',
+      enum: ['primary', 'neutral', 'danger', 'success', 'warning', 'info']
+    },
+    
+  ],
+  defaultChildren: [
+    {
+      '@type': '@builder.io/sdk:Element',
+      component: { name: 'Text', options: { text: 'Default Label' } },
+    },
+  ],
+});
+
+Builder.registerComponent(withChildren(Radio), {
+  name: 'Radio',
+  inputs: [
+    {
+      name: 'type',
+      type: 'text',
+      defaultValue: 'text',
+    },
+    {
+      name: 'placeholder',
+      type: 'string',
+    },
+    {
+      name: 'value',
+      type: 'string',
+    },
+    {
+      name: 'variant',
+      type: 'text',
+      enum: ['solid', 'soft', 'outlined', 'plain']
+    },
+    {
+      name: 'size',
+      type: 'text',
+      enum: ['sm', 'md', 'lg']
+    },
+    {
+      name: 'color',
+      type: 'text',
+      enum: ['primary', 'neutral', 'danger', 'success', 'warning', 'info']
+    },
+    
+  ],
+  defaultChildren: [
+    {
+      '@type': '@builder.io/sdk:Element',
+      component: { name: 'Text', options: { text: 'Default Label' } },
+    },
+  ],
+});
+
+Builder.registerComponent(withChildren(Slider), {
+  name: 'Slider',
+  inputs: [
+    {
+      name: 'type',
+      type: 'slider',
+      defaultValue: 'text',
+    },
+    {
+      name: 'variant',
+      type: 'text',
+      enum: ['solid', 'soft', 'outlined', 'plain']
+    },
+    {
+      name: 'size',
+      type: 'text',
+      enum: ['sm', 'md', 'lg']
+    },
+    {
+      name: 'color',
+      type: 'text',
+      enum: ['primary', 'neutral', 'danger', 'success', 'warning', 'info']
+    },
+
+  ],
+  defaultChildren: [
+    { 
+      '@type': '@builder.io/sdk:Element',
+      component: { name: 'Text', options: { text: 'Default Value' } }
+    },
+  ]
+});
+
+Builder.registerComponent(withChildren(Switch), {
+  name: 'Switch',
+  inputs: [
+    {
+      name: 'type',
+      type: 'switch',
+      defaultValue: 'text',
+    },
+    {
+      name: 'variant',
+      type: 'text',
+      enum: ['solid', 'soft', 'outlined', 'plain']
+    },
+    {
+      name: 'size',
+      type: 'text',
+      enum: ['sm', 'md', 'lg']
+    },
+    {
+      name: 'color',
+      type: 'text',
+      enum: ['primary', 'neutral', 'danger', 'success', 'warning', 'info']
+    },
+
+  ],
+  defaultChildren: [
+    { 
+      '@type': '@builder.io/sdk:Element',
+      component: { name: 'Text', options: { text: 'Default Value' } }
+    },
+  ]
+});
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   return <Component {...pageProps} />;
