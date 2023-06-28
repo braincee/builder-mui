@@ -4,7 +4,7 @@ import '@fontsource/public-sans';
 import type { AppProps } from 'next/app';
 import { builder, Builder, withChildren } from '@builder.io/react';
 import { Header } from '../components/Header';
-import { Button, Checkbox, Input, Radio, Slider, Switch, Textarea } from '@mui/joy';
+import { Button, Checkbox, Input, Radio, Slider, Switch, Textarea, Select } from '@mui/joy';
 
 // Initialize builder with your apiKey
 builder.init('29e2b58dd1f648f48966fef7096634b2');
@@ -322,6 +322,37 @@ Builder.registerComponent(Textarea, {
       component: { name: 'Text', options: { text: 'Default Value' } }
     },
   ]
+});
+
+Builder.registerComponent(withChildren(Select), {
+  name: 'Select',
+  inputs: [
+    {
+      name: 'type',
+      type: 'text'
+    },
+    {
+      name: 'placeholder',
+      type: 'string',
+      defaultValue: 'Choose one…',
+    },
+    {
+      name: 'variant',
+      type: 'text',
+      enum: ['solid', 'soft', 'outlined', 'plain']
+    },
+    {
+      name: 'indicator',
+      type: 'string'
+    },
+    
+  ],
+  defaultChildren: [
+    {
+      '@type': '@builder.io/sdk:Element',
+      component: { name: 'Text', options: { text: 'Default Label' } },
+    },
+  ],
 });
 
 export default function MyApp({ Component, pageProps }: AppProps) {
