@@ -4,7 +4,7 @@ import '@fontsource/public-sans';
 import type { AppProps } from 'next/app';
 import { builder, Builder, withChildren } from '@builder.io/react';
 import { Header } from '../components/Header';
-import { Button, Checkbox, Input, Radio, Slider, Switch, Textarea, Select } from '@mui/joy';
+import { Button, Checkbox, Input, Radio, Slider, Switch, Textarea, Select, Autocomplete } from '@mui/joy';
 
 // Initialize builder with your apiKey
 builder.init('29e2b58dd1f648f48966fef7096634b2');
@@ -353,6 +353,26 @@ Builder.registerComponent(withChildren(Select), {
       component: { name: 'Text', options: { text: 'Default Label' } },
     },
   ],
+});
+
+Builder.registerComponent(Autocomplete, {
+  name: 'Autocomplete',
+  inputs: [
+    {
+      name: 'placeholder',
+      type: 'string',
+    },
+    {
+      name: 'variant',
+      type: 'text',
+      enum: ['solid', 'soft', 'outlined', 'plain']
+    },
+    {
+      name: 'loading',
+      type: 'boolean'
+    },
+    
+  ]
 });
 
 export default function MyApp({ Component, pageProps }: AppProps) {
