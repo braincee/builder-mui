@@ -65,11 +65,11 @@ Builder.registerComponent(withChildren(Button), {
     },
     {
       name: 'loading',
-      type: 'boolean'
+      type: 'boolean',
     },
     {
       name: 'aria-label',
-      type: 'string'
+      type: 'string',
     }
   ],
   defaultChildren: [
@@ -240,7 +240,7 @@ Builder.registerComponent(withChildren(Switch), {
   inputs: [
     {
       name: 'type',
-      type: 'switch',
+      type: 'text',
       defaultValue: 'text',
     },
     {
@@ -273,8 +273,11 @@ Builder.registerComponent(Textarea, {
   inputs: [
     {
       name: 'type',
-      type: 'longText',
-      defaultValue: 'Type anything…',
+      type: 'text',
+    },
+    {
+      name: 'placeholder',
+      type: 'text',
     },
     {
       name: 'variant',
@@ -284,27 +287,27 @@ Builder.registerComponent(Textarea, {
     {
       name: 'size',
       type: 'text',
-      enum: ['sm', 'md', 'lg']
+      enum: ['sm', 'md', 'lg'],
     },
     {
       name: 'color',
       type: 'text',
-      enum: ['primary', 'neutral', 'danger', 'success', 'warning', 'info']
+      enum: ['primary', 'neutral', 'danger', 'success', 'warning', 'info'],
     },
     {
       name: 'required',
       type: 'boolean',
-      defaultValue: "false"
+      defaultValue: "false",
     },
     {
       name: 'disabled',
       type: 'boolean',
-      defaultValue: "false"
+      defaultValue: "false",
     },
     {
       name: 'error',
       type: 'boolean',
-      defaultValue: "false"
+      defaultValue: "false",
     },
     {
       name: 'minRows',
@@ -314,14 +317,7 @@ Builder.registerComponent(Textarea, {
       name: 'maxRows',
       type: 'number',
     },
-
   ],
-  defaultChildren: [
-    { 
-      '@type': '@builder.io/sdk:Element',
-      component: { name: 'Text', options: { text: 'Default Value' } }
-    },
-  ]
 });
 
 Builder.registerComponent(withChildren(Select), {
@@ -334,7 +330,6 @@ Builder.registerComponent(withChildren(Select), {
     {
       name: 'placeholder',
       type: 'string',
-      defaultValue: 'Choose one…',
     },
     {
       name: 'variant',
