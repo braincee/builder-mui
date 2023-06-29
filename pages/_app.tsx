@@ -4,7 +4,7 @@ import '@fontsource/public-sans';
 import type { AppProps } from 'next/app';
 import { builder, Builder, withChildren } from '@builder.io/react';
 import { Header } from '../components/Header';
-import { Button, Checkbox, Input, Radio, Slider, Switch, Textarea, Select, ButtonGroup, CircularProgress } from '@mui/joy';
+import { Button, Checkbox, Input, Radio, Slider, Switch, Textarea, Select, ButtonGroup, CircularProgress, LinearProgress, Alert } from '@mui/joy';
 
 // Initialize builder with your apiKey
 builder.init('29e2b58dd1f648f48966fef7096634b2');
@@ -503,6 +503,11 @@ Builder.registerComponent(withChildren(CircularProgress), {
     },
     {
       name: 'determinate',
+      type: 'boolean',
+      defaultValue: 'false',
+    },
+    {
+      name: 'value',
       type: 'number',
     },
   ],
@@ -510,6 +515,70 @@ Builder.registerComponent(withChildren(CircularProgress), {
     {
       '@type': '@builder.io/sdk:Element',
       component: { name: 'Icon', options: { text: 'Icon' } },
+    },
+  ],
+});
+
+Builder.registerComponent(LinearProgress, {
+  name: 'LinearProgress',
+  inputs: [
+    {
+      name: 'variant',
+      type: 'text',
+      enum: ['solid', 'soft', 'outlined', 'plain']
+    },
+    {
+      name: 'size',
+      type: 'text',
+      enum: ['sm', 'md', 'lg'],
+    },
+    {
+      name: 'color',
+      type: 'text',
+      enum: ['primary', 'neutral', 'danger', 'success', 'warning', 'info'],
+    },
+    {
+      name: 'thickness',
+      type: 'number',
+    },
+    {
+      name: 'determinate',
+      type: 'boolean',
+      defaultValue: 'false',
+    },
+    {
+      name: 'value',
+      type: 'number',
+    },
+  ],
+});
+
+Builder.registerComponent(Alert, {
+  name: 'Alert',
+  inputs: [
+    {
+      name: 'role',
+      type: 'string',
+    },
+    {
+      name: 'variant',
+      type: 'text',
+      enum: ['solid', 'soft', 'outlined', 'plain']
+    },
+    {
+      name: 'size',
+      type: 'text',
+      enum: ['sm', 'md', 'lg'],
+    },
+    {
+      name: 'color',
+      type: 'text',
+      enum: ['primary', 'neutral', 'danger', 'success', 'warning', 'info'],
+    },
+    {
+      name: 'invertedColors',
+      type: 'boolean',
+      defaultValue: 'false',
     },
   ],
 });
@@ -537,8 +606,8 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 //! 15. Add Tooltip
 //! 16. Add Typography
 //! 17. Add Alert
-//! 18. Add CircularProgress
-//! 19. Add LinearProgress
+//! 18. Add CircularProgress --done
+//! 19. Add LinearProgress  --done
 //! 20. Add Sheet
 //! 21. Add Link
 //! 22. Add Grid
