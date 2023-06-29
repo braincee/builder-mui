@@ -4,7 +4,7 @@ import '@fontsource/public-sans';
 import type { AppProps } from 'next/app';
 import { builder, Builder, withChildren } from '@builder.io/react';
 import { Header } from '../components/Header';
-import { Button, Checkbox, Input, Radio, Slider, Switch, Textarea, Select, ButtonGroup, CircularProgress, LinearProgress, Alert } from '@mui/joy';
+import { Button, Checkbox, Input, Radio, Slider, Switch, Textarea, Select, ButtonGroup, CircularProgress, LinearProgress, Alert, Link, Typography } from '@mui/joy';
 
 // Initialize builder with your apiKey
 builder.init('29e2b58dd1f648f48966fef7096634b2');
@@ -583,6 +583,101 @@ Builder.registerComponent(Alert, {
   ],
 });
 
+Builder.registerComponent(withChildren(Link), {
+  name: 'Link',
+  inputs: [
+    {
+      name: 'underline',
+      type: 'text',
+      defaultValue: 'hover',
+    },
+    {
+      name: 'variant',
+      type: 'text',
+      enum: ['solid', 'soft', 'outlined', 'plain']
+    },
+    {
+      name: 'color',
+      type: 'text',
+      enum: ['primary', 'neutral', 'danger', 'success', 'warning', 'info'],
+    },
+    {
+      name: 'textColor',
+      type: 'text',
+    },
+    {
+      name: 'overlay',
+      type: 'boolean',
+      defaultValue: 'false',
+    },
+    {
+      name: 'disabled',
+      type: 'boolean',
+      defaultValue: 'false',
+    },
+    {
+      name: 'level',
+      type: 'text',
+      defaultValue: 'body1',
+    },
+    {
+      name: 'component',
+      type: 'string',
+    },
+  ],
+  defaultChildren: [
+    {
+      '@type': '@builder.io/sdk:Element',
+      component: { name: 'Text', options: { text: 'Value' } },
+    },
+  ],
+});
+
+Builder.registerComponent(withChildren(Typography), {
+  name: 'Typography',
+  inputs: [
+    {
+      name: 'gutterBottom',
+      type: 'boolean',
+      defaultValue: 'false',
+    },
+    {
+      name: 'noWrap',
+      type: 'boolean',
+      defaultValue: 'false',
+    },
+    {
+      name: 'variant',
+      type: 'text',
+      enum: ['solid', 'soft', 'outlined', 'plain']
+    },
+    {
+      name: 'color',
+      type: 'text',
+      enum: ['primary', 'neutral', 'danger', 'success', 'warning', 'info'],
+    },
+    {
+      name: 'textColor',
+      type: 'text',
+    },
+    {
+      name: 'level',
+      type: 'text',
+      defaultValue: 'body1',
+    },
+    {
+      name: 'component',
+      type: 'string',
+    },
+  ],
+  defaultChildren: [
+    {
+      '@type': '@builder.io/sdk:Element',
+      component: { name: 'Text', options: { text: 'Value' } },
+    },
+  ],
+});
+
 export default function MyApp({ Component, pageProps }: AppProps) {
   return <Component {...pageProps} />;
 }
@@ -604,12 +699,12 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 //! 13. Add ChipDelete
 //! 14. Add Divider
 //! 15. Add Tooltip
-//! 16. Add Typography
-//! 17. Add Alert
-//! 18. Add CircularProgress --done
-//! 19. Add LinearProgress  --done
+//! 16. Add Typography          --done
+//! 17. Add Alert               --done
+//! 18. Add CircularProgress    --done
+//! 19. Add LinearProgress      --done
 //! 20. Add Sheet
-//! 21. Add Link
+//! 21. Add Link                --done
 //! 22. Add Grid
 //! 23. Add Stack
 //! DEADLINE: Satuday evening
