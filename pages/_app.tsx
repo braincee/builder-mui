@@ -355,26 +355,6 @@ Builder.registerComponent(withChildren(Select), {
   ],
 });
 
-Builder.registerComponent(Autocomplete, {
-  name: 'Autocomplete',
-  inputs: [
-    {
-      name: 'placeholder',
-      type: 'string',
-    },
-    {
-      name: 'variant',
-      type: 'text',
-      enum: ['solid', 'soft', 'outlined', 'plain']
-    },
-    {
-      name: 'loading',
-      type: 'boolean'
-    },
-    
-  ]
-});
-
 export default function MyApp({ Component, pageProps }: AppProps) {
   return <Component {...pageProps} />;
 }
