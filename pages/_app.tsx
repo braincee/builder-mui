@@ -4,7 +4,7 @@ import '@fontsource/public-sans';
 import type { AppProps } from 'next/app';
 import { builder, Builder, withChildren } from '@builder.io/react';
 import { Header } from '../components/Header';
-import { Button, Checkbox, Input, Radio, Slider, Switch, Textarea, Select, ButtonGroup } from '@mui/joy';
+import { Button, Checkbox, Input, Radio, Slider, Switch, Textarea, Select, ButtonGroup, CircularProgress } from '@mui/joy';
 
 // Initialize builder with your apiKey
 builder.init('29e2b58dd1f648f48966fef7096634b2');
@@ -475,6 +475,41 @@ Builder.registerComponent(withChildren(ButtonGroup), {
     {
       '@type': '@builder.io/sdk:Element',
       component: { name: 'Button', options: { text: 'Button 1', type: 'outlined' } },
+    },
+  ],
+});
+
+Builder.registerComponent(withChildren(CircularProgress), {
+  name: 'CircularProgress',
+  inputs: [
+    {
+      name: 'variant',
+      type: 'text',
+      enum: ['solid', 'soft', 'outlined', 'plain']
+    },
+    {
+      name: 'size',
+      type: 'text',
+      enum: ['sm', 'md', 'lg'],
+    },
+    {
+      name: 'color',
+      type: 'text',
+      enum: ['primary', 'neutral', 'danger', 'success', 'warning', 'info'],
+    },
+    {
+      name: 'thickness',
+      type: 'number',
+    },
+    {
+      name: 'determinate',
+      type: 'number',
+    },
+  ],
+  defaultChildren: [
+    {
+      '@type': '@builder.io/sdk:Element',
+      component: { name: 'Icon', options: { text: 'Icon' } },
     },
   ],
 });
