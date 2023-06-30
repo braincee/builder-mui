@@ -4,7 +4,7 @@ import '@fontsource/public-sans';
 import type { AppProps } from 'next/app';
 import { builder, Builder, withChildren } from '@builder.io/react';
 import { Header } from '../components/Header';
-import { Button, Checkbox, Input, Radio, Slider, Switch, Textarea, Select, ButtonGroup, CircularProgress, LinearProgress, Alert, Link, Typography, Tooltip, Divider, Sheet, ChipDelete } from '@mui/joy';
+import { Button, Checkbox, Input, Radio, Slider, Switch, Textarea, Select, ButtonGroup, CircularProgress, LinearProgress, Alert, Link, Typography, Tooltip, Divider, Sheet, ChipDelete, Stack } from '@mui/joy';
 
 // Initialize builder with your apiKey
 builder.init('29e2b58dd1f648f48966fef7096634b2');
@@ -799,10 +799,12 @@ Builder.registerComponent(withChildren(Divider), {
     {
       name: 'inset',
       type: 'text',
+      enum: ['none', 'context', 'string'],
     },
     {
       name: 'orientation',
       type: 'text',
+      enum: ['horizontal', 'vertical'],
       defaultValue: 'horizontal',
     },
     {
@@ -876,6 +878,36 @@ Builder.registerComponent(withChildren(ChipDelete), {
     {
       '@type': '@builder.io/sdk:Element',
       component: { name: 'Text', options: { text: 'Value' } },
+    },
+  ],
+});
+
+Builder.registerComponent(withChildren(Stack), {
+  name: 'Stack',
+  inputs: [
+    {
+      name: 'useFlexGap',
+      type: 'boolean',
+    },
+    {
+      name: 'direction',
+      type: 'text',
+      enum: ['column-reverse', 'column', 'row-reverse', 'row'],
+    },
+    {
+      name: 'spacing',
+      type: 'number',
+      helperText: 'Space between immediate children',
+    },
+    {
+      name: 'component',
+      type: 'string',
+    },
+  ],
+  defaultChildren: [
+    {
+      '@type': '@builder.io/sdk:Element',
+      component: { name: 'Item', options: { text: 'item' } },
     },
   ],
 });
