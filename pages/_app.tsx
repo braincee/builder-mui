@@ -88,10 +88,6 @@ const MuiChipDelete = buildify(ChipDelete);
 const MuiStack = buildify(Stack);
 const MuiGrid = buildify(Grid);
 
-
-
-
-
 Builder.registerComponent(withChildren(MuiButton), {
   name: 'Button',
   //! STEPHEN
@@ -126,20 +122,24 @@ Builder.registerComponent(withChildren(MuiButton), {
     {
       name: 'color',
       type: 'text',
-      enum: ['primary', 'neutral', 'danger', 'success', 'warning', 'info']
+      enum: ['primary', 'neutral', 'danger', 'success', 'warning', 'info'],
     },
     {
       name: 'loadingPosition',
       type: 'text',
-      enum: ['center', 'start', 'end']
+      enum: ['center', 'start', 'end'],
     },
     {
       name: 'loadingIndicator',
-      type: 'text'
+      type: 'node',
     },
     {
       name: 'disabled',
-      type: 'boolean'
+      type: 'boolean',
+    },
+    {
+      name: 'fullWidth',
+      type: 'boolean',
     },
     {
       name: 'loading',
@@ -148,7 +148,31 @@ Builder.registerComponent(withChildren(MuiButton), {
     {
       name: 'aria-label',
       type: 'string',
-    }
+    },
+    {
+      name: 'startDecorator',
+      type: 'node',
+    },
+    {
+      name: 'endDecorator',
+      type: 'node',
+    },
+    {
+      name: 'component',
+      type: 'elementType',
+    },
+    {
+      name: 'slotProps',
+      type: 'object',
+    },
+    {
+      name: 'slots',
+      type: 'object',
+    },
+    {
+      name: 'action',
+      type: 'func',
+    },
     //! STEPHEN
     //! List all the props that have NOT been added to the component
     //! All props of a components are available in its API page
@@ -169,17 +193,39 @@ Builder.registerComponent(withChildren(MuiButton), {
   ]
 });
 
-Builder.registerComponent(withChildren(MuiCheckbox), {
+Builder.registerComponent(MuiCheckbox, {
   name: 'Checkbox',
+  noWrap: true,
   inputs: [
     {
       name: 'label',
+      type: 'node',
+    },
+    {
+      name: 'name',
       type: 'string',
+    },
+    {
+      name: 'overlay',
+      type: 'boolean',
+      defaultValue: false,
+    },
+    {
+      name: 'className',
+      type: 'string',
+    },
+    {
+      name: 'component',
+      type: 'elementType',
     },
     {
       name: 'checked',
       type: 'boolean',
       defaultValue: false,
+    },
+    {
+      name: 'checkedIcon',
+      type: 'node',
     },
     {
       name: 'variant',
@@ -200,22 +246,63 @@ Builder.registerComponent(withChildren(MuiCheckbox), {
       name: 'disabled',
       type: 'boolean'
     },
-  ],
-  defaultChildren: [
     {
-      '@type': '@builder.io/sdk:Element',
-      component: { name: 'Text', options: { text: 'Default Label' } },
+      name: 'defaultChecked',
+      type: 'boolean'
+    },
+    {
+      name: 'disableIcon',
+      type: 'boolean',
+      defaultValue: 'false',
+    },
+    {
+      name: 'indeterminate',
+      type: 'boolean',
+      defaultValue: 'false',
+    },
+    {
+      name: 'indeterminateIcon',
+      type: 'node',
+    },
+    {
+      name: 'readOnly',
+      type: 'boolean',
+    },
+    {
+      name: 'required',
+      type: 'boolean',
+    },
+    {
+      name: 'uncheckedIcon',
+      type: 'node',
+    },
+    {
+      name: 'value',
+      type: 'string',
+    },
+    {
+      name: 'slotProps',
+      type: 'object',
+    },
+    {
+      name: 'slots',
+      type: 'object',
     },
   ],
 });
 
-Builder.registerComponent(withChildren(MuiInput), {
+Builder.registerComponent(MuiInput, {
   name: 'Input',
+  noWrap: true,
   inputs: [
     {
       name: 'type',
       type: 'text',
       defaultValue: 'text',
+    },
+    {
+      name: 'className',
+      type: 'string',
     },
     {
       name: 'placeholder',
@@ -224,6 +311,22 @@ Builder.registerComponent(withChildren(MuiInput), {
     {
       name: 'value',
       type: 'string',
+    },
+    {
+      name: 'startDecorator',
+      type: 'node',
+    },
+    {
+      name: 'endDecorator',
+      type: 'node',
+    },
+    {
+      name: 'error',
+      type: 'boolean',
+    },
+    {
+      name: 'fullWidth',
+      type: 'boolean',
     },
     {
       name: 'variant',
@@ -241,17 +344,12 @@ Builder.registerComponent(withChildren(MuiInput), {
       enum: ['primary', 'neutral', 'danger', 'success', 'warning', 'info']
     },
     
-  ],
-  defaultChildren: [
-    {
-      '@type': '@builder.io/sdk:Element',
-      component: { name: 'Text', options: { text: 'Default Label' } },
-    },
   ],
 });
 
-Builder.registerComponent(withChildren(MuiRadio), {
+Builder.registerComponent(MuiRadio, {
   name: 'Radio',
+  noWrap: true,
   inputs: [
     {
       name: 'type',
@@ -263,8 +361,66 @@ Builder.registerComponent(withChildren(MuiRadio), {
       type: 'string',
     },
     {
+      name: 'checked',
+      type: 'boolean',
+    },
+    {
+      name: 'checkedIcon',
+      type: 'node',
+    },
+    {
       name: 'value',
       type: 'string',
+    },
+    {
+      name: 'name',
+      type: 'string',
+    },
+    {
+      name: 'className',
+      type: 'string',
+    },
+    {
+      name: 'component',
+      type: 'elementType',
+    },
+    {
+      name: 'defaultChecked',
+      type: 'boolean',
+    },
+    {
+      name: 'disabled',
+      type: 'boolean',
+    },
+    {
+      name: 'disableIcon',
+      type: 'boolean',
+      defaultValue: 'false',
+    },
+    {
+      name: 'label',
+      type: 'node',
+    },
+    {
+      name: 'overlay',
+      type: 'boolean',
+      defaultValue: 'false',
+    },
+    {
+      name: 'onChange',
+      type: 'func',
+    },
+    {
+      name: 'readOnly',
+      type: 'boolean',
+    },
+    {
+      name: 'required',
+      type: 'boolean',
+    },
+    {
+      name: 'uncheckedIcon',
+      type: 'node',
     },
     {
       name: 'variant',
@@ -280,19 +436,14 @@ Builder.registerComponent(withChildren(MuiRadio), {
       name: 'color',
       type: 'text',
       enum: ['primary', 'neutral', 'danger', 'success', 'warning', 'info']
-    },
-    
-  ],
-  defaultChildren: [
-    {
-      '@type': '@builder.io/sdk:Element',
-      component: { name: 'Text', options: { text: 'Default Label' } },
-    },
+    },   
   ],
 });
 
 Builder.registerComponent(withChildren(MuiSlider), {
   name: 'Slider',
+  noWrap: true,
+  canHaveChildren: true, 
   inputs: [
     {
       name: 'type',
@@ -300,19 +451,130 @@ Builder.registerComponent(withChildren(MuiSlider), {
       defaultValue: 'text',
     },
     {
+      name: 'name',
+      type: 'string',
+    },
+    {
+      name: 'aria-label',
+      type: 'string',
+    },
+    {
+      name: 'aria-valuetext',
+      type: 'string',
+    },
+    {
+      name: 'classes',
+      type: 'object',
+    },
+    {
+      name: 'component',
+      type: 'elementType',
+    },
+    {
+      name: 'defaultValue',
+      type: 'number',
+    },
+    {
+      name: 'disabled',
+      type: 'boolean',
+      defaultValue: 'false',
+    },
+    {
+      name: 'disableSwap',
+      type: 'boolean',
+      defaultValue: 'false',
+    },
+    {
+      name: 'getAriaLabel',
+      type: 'func',
+    },
+    {
+      name: 'getAriaValueText',
+      type: 'func',
+    },
+    {
+      name: 'isRtl',
+      type: 'boolean',
+      defaultValue: 'false',
+    },
+    {
+      name: 'isRtl',
+      type: 'boolean',
+      defaultValue: 'false',
+    },
+    {
+      name: 'marks',
+      type: 'boolean',
+      defaultValue: 'false',
+    },
+    {
+      name: 'max',
+      type: 'number',
+      defaultValue: 100,
+    },
+    {
+      name: 'min',
+      type: 'number',
+      defaultValue: 0,
+    },
+    {
+      name: 'onChange',
+      type: 'func',
+    },
+    {
+      name: 'onChangeCommitted',
+      type: 'func',
+    },
+    {
+      name: 'scale',
+      type: 'func',
+    },
+    {
+      name: 'orientation',
+      type: 'text',
+      enum: ['horizontal', 'vertical'],
+    },
+    {
+      name: 'step',
+      type: 'number',
+      defaultValue: 1,
+    },
+    {
+      name: 'tabIndex',
+      type: 'number',
+    },
+    {
+      name: 'value',
+      type: 'number',
+    },
+    {
+      name: 'track',
+      type: 'text',
+      enum: ['inverted', 'normal', 'false'],
+    },
+    {
+      name: 'valueLabelDisplay',
+      type: 'text',
+      enum: ['auto', 'off', 'on'],
+    },
+    {
+      name: 'valueLabelFormat',
+      type: 'func',
+    },
+    {
       name: 'variant',
       type: 'text',
-      enum: ['solid', 'soft', 'outlined', 'plain']
+      enum: ['solid', 'soft', 'outlined', 'plain'],
     },
     {
       name: 'size',
       type: 'text',
-      enum: ['sm', 'md', 'lg']
+      enum: ['sm', 'md', 'lg'],
     },
     {
       name: 'color',
       type: 'text',
-      enum: ['primary', 'neutral', 'danger', 'success', 'warning', 'info']
+      enum: ['primary', 'neutral', 'danger', 'success', 'warning', 'info'],
     },
 
   ],
@@ -324,8 +586,9 @@ Builder.registerComponent(withChildren(MuiSlider), {
   ]
 });
 
-Builder.registerComponent(withChildren(MuiSwitch), {
+Builder.registerComponent(MuiSwitch, {
   name: 'Switch',
+  noWrap: true,
   inputs: [
     {
       name: 'type',
@@ -350,18 +613,11 @@ Builder.registerComponent(withChildren(MuiSwitch), {
     //! STEPHEN
     //! For example, the Switch is not working because `checked` is missing.
   ],
-  //! STEPHEN
-  //! The Switch element should not take any children, it's a Switch.
-  defaultChildren: [
-    { 
-      '@type': '@builder.io/sdk:Element',
-      component: { name: 'Text', options: { text: 'Default Value' } }
-    },
-  ]
 });
 
 Builder.registerComponent(MuiTextarea, {
   name: 'Textarea',
+  noWrap: true,
   inputs: [
     {
       name: 'type',
@@ -414,6 +670,8 @@ Builder.registerComponent(MuiTextarea, {
 
 Builder.registerComponent(withChildren(MuiSelect), {
   name: 'Select',
+  noWrap: true,
+  canHaveChildren: true, 
   inputs: [
     {
       name: 'type',
@@ -451,6 +709,8 @@ Builder.registerComponent(withChildren(MuiSelect), {
 
 Builder.registerComponent(withChildren(MuiButtonGroup), {
   name: 'ButtonGroup',
+  noWrap: true,
+  canHaveChildren: true, 
   inputs: [
     {
       name: 'type',
@@ -503,6 +763,8 @@ Builder.registerComponent(withChildren(MuiButtonGroup), {
 
 Builder.registerComponent(withChildren(MuiCircularProgress), {
   name: 'CircularProgress',
+  noWrap: true,
+  canHaveChildren: true, 
   inputs: [
     {
       name: 'variant',
@@ -543,6 +805,7 @@ Builder.registerComponent(withChildren(MuiCircularProgress), {
 
 Builder.registerComponent(MuiLinearProgress, {
   name: 'LinearProgress',
+  noWrap: true,
   inputs: [
     {
       name: 'variant',
@@ -577,6 +840,7 @@ Builder.registerComponent(MuiLinearProgress, {
 
 Builder.registerComponent(MuiAlert, {
   name: 'Alert',
+  noWrap: true,
   inputs: [
     {
       name: 'role',
@@ -607,6 +871,8 @@ Builder.registerComponent(MuiAlert, {
 
 Builder.registerComponent(withChildren(MuiLink), {
   name: 'Link',
+  noWrap: true,
+  canHaveChildren: true, 
   inputs: [
     {
       name: 'underline',
@@ -659,6 +925,8 @@ Builder.registerComponent(withChildren(MuiLink), {
 
 Builder.registerComponent(withChildren(MuiTypography), {
   name: 'Typography',
+  noWrap: true,
+  canHaveChildren: true, 
   inputs: [
     {
       name: 'gutterBottom',
@@ -705,6 +973,8 @@ Builder.registerComponent(withChildren(MuiTypography), {
 
 Builder.registerComponent(withChildren(MuiTooltip), {
   name: 'Tooltip',
+  noWrap: true,
+  canHaveChildren: true, 
   inputs: [
     {
       name: 'arrow',
@@ -817,6 +1087,8 @@ Builder.registerComponent(withChildren(MuiTooltip), {
 
 Builder.registerComponent(withChildren(MuiDivider), {
   name: 'Divider',
+  noWrap: true,
+  canHaveChildren: true, 
   inputs: [
     {
       name: 'gutterBottom',
@@ -849,6 +1121,8 @@ Builder.registerComponent(withChildren(MuiDivider), {
 
 Builder.registerComponent(withChildren(MuiSheet), {
   name: 'Sheet',
+  noWrap: true,
+  canHaveChildren: true, 
   inputs: [
     {
       name: 'invertedColors',
@@ -880,6 +1154,8 @@ Builder.registerComponent(withChildren(MuiSheet), {
 
 Builder.registerComponent(withChildren(MuiChipDelete), {
   name: 'ChipDelete',
+  noWrap: true,
+  canHaveChildren: true, 
   inputs: [
     {
       name: 'disabled',
@@ -911,6 +1187,8 @@ Builder.registerComponent(withChildren(MuiChipDelete), {
 
 Builder.registerComponent(withChildren(MuiStack), {
   name: 'Stack',
+  noWrap: true,
+  canHaveChildren: true, 
   inputs: [
     {
       name: 'useFlexGap',
@@ -941,6 +1219,8 @@ Builder.registerComponent(withChildren(MuiStack), {
 
 Builder.registerComponent(withChildren(MuiGrid), {
   name: 'Grid',
+  noWrap: true,
+  canHaveChildren: true, 
   inputs: [
     {
       name: 'xs',
