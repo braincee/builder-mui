@@ -994,6 +994,52 @@ Builder.registerComponent(withChildren(MuiGrid), {
   ],
 });
 
+Builder.registerComponent(withChildren(MuiIconButton), {
+  name: 'IconButton',
+  noWrap: true,
+  canHaveChildren: true, 
+  inputs: [
+    {
+      name: 'action',
+      type: 'string',
+    },
+    {
+      name: 'color',
+      type: 'text',
+      enum: ['primary', 'neutral', 'danger', 'success', 'warning', 'info'],
+    },
+    {
+      name: 'component',
+      type: 'string',
+    },
+    {
+      name: 'disabled',
+      type: 'boolean',
+      defaultValue: false,
+    },
+    {
+      name: 'focusVisibleClassName',
+      type: 'string',
+    },
+    {
+      name: 'variant',
+      type: 'text',
+      enum: ['solid', 'soft', 'outlined', 'plain'],
+    },
+    {
+      name: 'size',
+      type: 'text',
+      enum: ['sm', 'md', 'lg'],
+    },
+  ],
+
+  defaultChildren: [
+    {
+      '@type': '@builder.io/sdk:Element',
+      component: { name: 'Button', options: { text: 'Icon Button', type: 'outlined' } },
+    },
+  ],
+});
 export default function MyApp({ Component, pageProps }: AppProps) {
   return <Component {...pageProps} />;
 }
@@ -1012,15 +1058,4 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 //! 10. Add SvgIcon
 //! 11. Add Badge
 //! 12. Add Chip
-//! 13. Add ChipDelete          --done
-//! 14. Add Divider             --done
-//! 15. Add Tooltip             --done
-//! 16. Add Typography          --done
-//! 17. Add Alert               --done
-//! 18. Add CircularProgress    --done
-//! 19. Add LinearProgress      --done
-//! 20. Add Sheet               --done
-//! 21. Add Link                --done
-//! 22. Add Grid                --done
-//! 23. Add Stack               --done
 //! DEADLINE: Satuday evening
