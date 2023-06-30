@@ -1201,6 +1201,47 @@ Builder.registerComponent(withChildren(MuiRadioGroup), {
   ],
 });
 
+Builder.registerComponent(withChildren(MuiAspectRatio), {
+  name: 'AspectRatio',
+  noWrap: true,
+  canHaveChildren: true,
+  inputs: [
+   {
+     name: 'ratio',
+     type: 'string',
+   },
+   {
+     name: 'objectFit',
+     type: 'text',
+     enum: ['contain', 'cover', 'fill', 'inherit', 'initial', 'none', 'revert-layer', 'revert', 'scale-down', 'unset']
+   },
+   {
+     name: 'color',
+     type: 'text',
+     enum: ['danger', 'info', 'neutral', 'primary', 'success', 'warning']
+   },
+   {
+     name: 'minHeight',
+     type: 'number',
+   },
+   {
+     name: 'maxHeight',
+     type: 'number',
+   },
+   {
+     name: 'variant',
+     type: 'text',
+     enum: ['outlined', 'plain', 'soft', 'solid']
+   },
+  ],
+ 
+  defaultChildren: [
+   {
+     '@type': '@builder.io/sdk:Element',
+     component: { name: 'Button', options: { text: 'Aspect Ratio', type: 'outlined' } },
+   },
+ ],
+ });
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   return <Component {...pageProps} />;
@@ -1210,7 +1251,6 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 //! 0. Some props are missing from the current components. I'm not referring to `node` type props, I'm referring to props that should have been present. Like `fullWidth` for Button.
 //! 1. See my comments above (tagged STEPHEN) and apply them to the components you've already built, where applicable
 
-//! 6. Add RadioGroup
 //! 7. Add AspectRatio
 //! 8. Add Avatar
 //! 9. Add AvatarGroup
