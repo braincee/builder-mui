@@ -4,7 +4,7 @@ import '@fontsource/public-sans';
 import type { AppProps } from 'next/app';
 import { builder, Builder, withChildren } from '@builder.io/react';
 import { Header } from '../components/Header';
-import { Button, Checkbox, Input, Radio, Slider, Switch, Textarea, Select, ButtonGroup, CircularProgress, LinearProgress, Alert, Link, Typography, Tooltip, Divider } from '@mui/joy';
+import { Button, Checkbox, Input, Radio, Slider, Switch, Textarea, Select, ButtonGroup, CircularProgress, LinearProgress, Alert, Link, Typography, Tooltip, Divider, Sheet, ChipDelete } from '@mui/joy';
 
 // Initialize builder with your apiKey
 builder.init('29e2b58dd1f648f48966fef7096634b2');
@@ -818,6 +818,68 @@ Builder.registerComponent(withChildren(Divider), {
   ],
 });
 
+Builder.registerComponent(withChildren(Sheet), {
+  name: 'Sheet',
+  inputs: [
+    {
+      name: 'invertedColors',
+      type: 'boolean',
+      defaultValue: 'false',
+    },
+    {
+      name: 'variant',
+      type: 'text',
+      enum: ['solid', 'soft', 'outlined', 'plain']
+    },
+    {
+      name: 'color',
+      type: 'text',
+      enum: ['primary', 'neutral', 'danger', 'success', 'warning', 'info'],
+    },
+    {
+      name: 'component',
+      type: 'string',
+    },
+  ],
+  defaultChildren: [
+    {
+      '@type': '@builder.io/sdk:Element',
+      component: { name: 'Text', options: { text: 'Value' } },
+    },
+  ],
+});
+
+Builder.registerComponent(withChildren(ChipDelete), {
+  name: 'ChipDelete',
+  inputs: [
+    {
+      name: 'disabled',
+      type: 'boolean',
+      defaultValue: 'false',
+    },
+    {
+      name: 'variant',
+      type: 'text',
+      enum: ['solid', 'soft', 'outlined', 'plain']
+    },
+    {
+      name: 'color',
+      type: 'text',
+      enum: ['primary', 'neutral', 'danger', 'success', 'warning', 'info'],
+    },
+    {
+      name: 'component',
+      type: 'string',
+    },
+  ],
+  defaultChildren: [
+    {
+      '@type': '@builder.io/sdk:Element',
+      component: { name: 'Text', options: { text: 'Value' } },
+    },
+  ],
+});
+
 export default function MyApp({ Component, pageProps }: AppProps) {
   return <Component {...pageProps} />;
 }
@@ -836,14 +898,14 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 //! 10. Add SvgIcon
 //! 11. Add Badge
 //! 12. Add Chip
-//! 13. Add ChipDelete
-//! 14. Add Divider
+//! 13. Add ChipDelete          --done
+//! 14. Add Divider             --done
 //! 15. Add Tooltip             --done
 //! 16. Add Typography          --done
 //! 17. Add Alert               --done
 //! 18. Add CircularProgress    --done
 //! 19. Add LinearProgress      --done
-//! 20. Add Sheet
+//! 20. Add Sheet               --done
 //! 21. Add Link                --done
 //! 22. Add Grid
 //! 23. Add Stack
