@@ -1113,6 +1113,46 @@ Builder.registerComponent(MuiFormHelperText, {
   },
 });
 
+Builder.registerComponent(MuiFormLabel, {
+  name: 'FormLabel',
+  noWrap: true,
+  canHaveChildren: false,
+  inputs: [
+    {
+      name: 'text',
+      type: 'text',
+      required: true,
+      defaultValue: 'Label',
+    },
+    {
+      name: 'required',
+      type: 'boolean',
+      required: false,
+      defaultValue: false,
+    },
+    {
+      name: 'color',
+      type: 'option',
+      required: false,
+      defaultValue: 'initial',
+      options: [
+        { label: 'Initial', value: 'initial' },
+        { label: 'Inherit', value: 'inherit' },
+        { label: 'Primary', value: 'primary' },
+        { label: 'Secondary', value: 'secondary' },
+        { label: 'Error', value: 'error' },
+        { label: 'Text Primary', value: 'textPrimary' },
+        { label: 'Text Secondary', value: 'textSecondary' },
+        { label: 'Disabled', value: 'disabled' },
+      ],
+    },
+  ],
+  defaultStyles: {
+    marginBottom: '8px',
+    fontWeight: 'bold',
+  },
+});
+
 export default function MyApp({ Component, pageProps }: AppProps) {
   return <Component {...pageProps} />;
 }
@@ -1120,7 +1160,6 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 //! TODO
 //! 0. Some props are missing from the current components. I'm not referring to `node` type props, I'm referring to props that should have been present. Like `fullWidth` for Button.
 //! 1. See my comments above (tagged STEPHEN) and apply them to the components you've already built, where applicable
-//! 4. Add FormHelperText
 //! 5. Add FormLabel
 //! 6. Add RadioGroup
 //! 7. Add AspectRatio
