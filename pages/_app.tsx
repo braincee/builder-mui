@@ -4,7 +4,7 @@ import '@fontsource/public-sans';
 import type { AppProps } from 'next/app';
 import { builder, Builder, withChildren } from '@builder.io/react';
 import { Header } from '../components/Header';
-import { Button, Checkbox, Input, Radio, Slider, Switch, Textarea, Select, ButtonGroup, CircularProgress, LinearProgress, Alert, Link, Typography, Tooltip, Divider, Sheet, ChipDelete, Stack } from '@mui/joy';
+import { Button, Checkbox, Input, Radio, Slider, Switch, Textarea, Select, ButtonGroup, CircularProgress, LinearProgress, Alert, Link, Typography, Tooltip, Divider, Sheet, ChipDelete, Stack, Grid } from '@mui/joy';
 
 // Initialize builder with your apiKey
 builder.init('29e2b58dd1f648f48966fef7096634b2');
@@ -86,6 +86,7 @@ const MuiDivider = buildify(Divider);
 const MuiSheet = buildify(Sheet);
 const MuiChipDelete = buildify(ChipDelete);
 const MuiStack = buildify(Stack);
+const MuiGrid = buildify(Grid);
 
 
 
@@ -938,6 +939,61 @@ Builder.registerComponent(withChildren(MuiStack), {
   ],
 });
 
+Builder.registerComponent(withChildren(MuiGrid), {
+  name: 'Grid',
+  inputs: [
+    {
+      name: 'xs',
+      type: 'number',
+      helperText: 'viewpoint width',
+    },
+    {
+      name: 'md',
+      type: 'number',
+      helperText: 'viewpoint width',
+    },
+    {
+      name: 'sm',
+      type: 'number',
+      helperText: 'viewpoint width',
+    },
+    {
+      name: 'spacing',
+      type: 'number',
+      helperText: 'Space between children',
+    },
+    {
+      name: 'rowSpacing',
+      type: 'number',
+      helperText: 'Gap between rows',
+    },
+    {
+      name: 'columnSpacing',
+      type: 'number',
+      helperText: 'Gap between rows',
+    },
+    {
+      name: 'columns',
+      type: 'number',
+    },
+    {
+      name: 'container',
+      type: 'boolean',
+    },
+    {
+      name: 'direction',
+      type: 'text',
+      enum: ['row', 'row-reverse', 'column', 'column-reverse'],
+    },
+  ],
+  defaultChildren: [
+    {
+      '@type': '@builder.io/sdk:Element',
+      component: { name: 'Item', options: { text: 'item' } },
+    },
+  ],
+});
+
 export default function MyApp({ Component, pageProps }: AppProps) {
   return <Component {...pageProps} />;
 }
@@ -965,6 +1021,6 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 //! 19. Add LinearProgress      --done
 //! 20. Add Sheet               --done
 //! 21. Add Link                --done
-//! 22. Add Grid
+//! 22. Add Grid                --done
 //! 23. Add Stack               --done
 //! DEADLINE: Satuday evening
