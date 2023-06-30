@@ -1326,19 +1326,25 @@ Builder.registerComponent(withChildren(MuiIconButton), {
       enum: ['sm', 'md', 'lg'],
     },
   ],
+  childRequirements: {
+    message: 'You can only put Icons with no text content',
+    query: {
+      'component.name': { $in: ['Icon'] },
+    },
+  },
 
   defaultChildren: [
     {
       '@type': '@builder.io/sdk:Element',
-      component: { name: 'Button', options: { text: 'Icon Button', type: 'outlined' } },
+      component: { name: 'Icon'},
     },
   ],
 });
 
-Builder.registerComponent(MuiFormControl, {
+Builder.registerComponent(withChildren(MuiFormControl), {
   name: 'FormControl',
   noWrap: true,
-  canHaveChildren: false,
+  canHaveChildren: true,
   inputs: [
   {
     name: 'component',
@@ -1362,10 +1368,13 @@ Builder.registerComponent(MuiFormControl, {
   {
     name: 'orientation',
     type: 'string',
+    enum: ['horizontal', 'vertical'],
+    defaultValue: 'horizontal',
   },
   {
     name: 'required',
     type: 'boolean',
+    defaultValue: 'false',
   },
   {
     name: 'size',
@@ -1373,17 +1382,38 @@ Builder.registerComponent(MuiFormControl, {
     enum: ['sm', 'md', 'lg'],
   },
   ],
+  childRequirements: {
+    message: 'You can only put Form Inputs',
+  },
+  defaultChildren: [
+    {
+      '@type': '@builder.io/sdk:Element',
+      component: { name: 'Input', options: { text: 'type here...'} },
+    },
+  ],
 });
 
 
-Builder.registerComponent(MuiFormHelperText, {
+Builder.registerComponent(withChildren(MuiFormHelperText), {
   name: 'FormHelperText',
   noWrap: true,
-  canHaveChildren: false,
+  canHaveChildren: true,
   inputs: [
     {
       name: 'component',
       type: 'string',
+    },
+  ],
+  childRequirements: {
+    message: 'You can only put Text',
+    query: {
+      'component.name': { $in: ['Text'] },
+    },
+  },
+  defaultChildren: [
+    {
+      '@type': '@builder.io/sdk:Element',
+      component: { name: 'Text', options: { text: 'Add text'} },
     },
   ],
   defaultStyles: {
@@ -1392,10 +1422,10 @@ Builder.registerComponent(MuiFormHelperText, {
   },
 });
 
-Builder.registerComponent(MuiFormLabel, {
+Builder.registerComponent(withChildren(MuiFormLabel), {
   name: 'FormLabel',
   noWrap: true,
-  canHaveChildren: false,
+  canHaveChildren: true,
   inputs: [
     {
      name: 'component',
@@ -1405,6 +1435,18 @@ Builder.registerComponent(MuiFormLabel, {
       name: 'required',
       type: 'boolean',
       defaultValue: 'false',
+    },
+  ],
+  childRequirements: {
+    message: 'You can only put Text',
+    query: {
+      'component.name': { $in: ['Text'] },
+    },
+  },
+  defaultChildren: [
+    {
+      '@type': '@builder.io/sdk:Element',
+      component: { name: 'Text', options: { text: 'Add text'} },
     },
   ],
   defaultStyles: {
@@ -1425,6 +1467,11 @@ Builder.registerComponent(withChildren(MuiRadioGroup), {
       defaultValue: 'radio-group',
     },
     {
+      name: 'color',
+      type: 'text',
+      enum: ['danger', 'info', 'neutral', 'primary', 'success', 'warning']
+    },
+    {
       name: 'size',
       type: 'text',
       enum: ['sm', 'md', 'lg']
@@ -1432,6 +1479,23 @@ Builder.registerComponent(withChildren(MuiRadioGroup), {
     {
       name: 'orientation',
       type: 'text',
+      enum: ['horizontal', 'vertical'],
+    },
+    {
+      name: 'className',
+      type: 'string',
+    },
+    {
+      name: 'defaultValue',
+      type: 'string',
+    },
+    {
+      name: 'value',
+      type: 'string',
+    },
+    {
+      name: 'disableIcon',
+      type: 'boolean',
     },
     {
       name: 'variant',
@@ -1452,11 +1516,17 @@ Builder.registerComponent(withChildren(MuiRadioGroup), {
   defaultStyles: {
     margin: '2px',
   },
+  childRequirements: {
+    message: 'You can only put Radio',
+    query: {
+      'component.name': { $in: ['Radio'] },
+    },
+  },
 
   defaultChildren: [
     {
       '@type': '@builder.io/sdk:Element',
-      component: { name: 'Button', options: { text: 'RadioButon1', type: 'outlined' } },
+      component: { name: 'Radio', options: { text: 'RadioButton1', type: 'outlined' } },
     },
   ],
 });
@@ -1469,6 +1539,7 @@ Builder.registerComponent(withChildren(MuiAspectRatio), {
   {
     name: 'ratio',
     type: 'string',
+    defaultValue: '16 / 9',
   },
   {
     name: 'objectFit',
@@ -1498,7 +1569,7 @@ Builder.registerComponent(withChildren(MuiAspectRatio), {
  defaultChildren: [
   {
     '@type': '@builder.io/sdk:Element',
-    component: { name: 'Button', options: { text: 'Aspect Ratio', type: 'outlined' } },
+    component: { name: 'Text', options: { text: 'Aspect Ratio', type: 'outlined' } },
   },
 ],
 });
@@ -1536,11 +1607,17 @@ Builder.registerComponent(withChildren(MuiAvatar), {
     type: 'string',
    },
   ],
+  childRequirements: {
+    message: 'You can only put Text',
+    query: {
+      'component.name': { $in: ['Text'] },
+    },
+  },
 
   defaultChildren: [
     {
       '@type': '@builder.io/sdk:Element',
-      component: { name: 'Button', options: { text: 'Avatar', type: 'outlined' } },
+      component: { name: 'Text', options: { text: 'Avatar', type: 'outlined' } },
     },
   ],
 })
@@ -1571,10 +1648,16 @@ Builder.registerComponent(withChildren(MuiAvatarGroup), {
       enum: ['sm', 'md', 'lg']
      },
   ],
+  childRequirements: {
+    message: 'You can only put Avatars',
+    query: {
+      'component.name': { $in: ['Avatar'] },
+    },
+  },
   defaultChildren: [
     {
       '@type': '@builder.io/sdk:Element',
-      component: { name: 'Button', options: { text: 'Avatar Group', type: 'outlined' } },
+      component: { name: 'Avatar', options: { text: 'Avatar 1',} },
     },
   ],
 })
@@ -1595,7 +1678,7 @@ Builder.registerComponent(withChildren(MuiSvgIcon), {
       enum: ['lg','md', 'sm', 'xl', 'xl2', 'xl3', 'xl4', 'xl5', 'xl6', 'xl7', 'xs', 'xs2', 'xs3']
     },
     {
-      name: 'htmlFor',
+      name: 'htmlColor',
       type: 'string',
     },
     {
@@ -1620,7 +1703,7 @@ Builder.registerComponent(withChildren(MuiSvgIcon), {
   defaultChildren: [
     {
       '@type': '@builder.io/sdk:Element',
-      component: { name: 'Button', options: { text: 'SvgIcon', type: 'outlined' } },
+      component: { name: 'Text', options: { text: 'SvgIcon', type: 'outlined' } },
     },
   ],
 })
@@ -1636,7 +1719,8 @@ Builder.registerComponent(withChildren(MuiBadge), {
     },
     {
       name: 'badgetInsert',
-      type: 'string',
+      type: 'number',
+      defaultValue: 0,
     },
     {
       name: 'color',
@@ -1651,6 +1735,12 @@ Builder.registerComponent(withChildren(MuiBadge), {
     {
       name: 'max',
       type: 'number',
+      defaultValue: 99,
+    },
+    {
+      name: 'showZero',
+      type: 'boolean',
+      defaultValue: 'false',
     },
     {
       name: 'size',
@@ -1666,7 +1756,7 @@ Builder.registerComponent(withChildren(MuiBadge), {
   defaultChildren: [
     {
       '@type': '@builder.io/sdk:Element',
-      component: { name: 'Button', options: { text: 'SvgIcon', type: 'outlined' } },
+      component: { name: 'Icon', options: { text: 'Icon 1' } },
     },
   ],
 })
