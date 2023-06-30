@@ -1153,6 +1153,55 @@ Builder.registerComponent(MuiFormLabel, {
   },
 });
 
+Builder.registerComponent(withChildren(MuiRadioGroup), {
+  name: 'RadioGroup',
+  noWrap: true,
+  canHaveChildren: true,
+  inputs: [
+    {
+      name: 'name',
+      type: 'string',
+      required: true,
+      defaultValue: 'radio-group',
+    },
+    {
+      name: 'size',
+      type: 'text',
+      enum: ['sm', 'md', 'lg']
+    },
+    {
+      name: 'orientation',
+      type: 'text',
+    },
+    {
+      name: 'variant',
+      type: 'text',
+      enum: ['solid', 'soft', 'outlined', 'plain', 'outlined']
+    },
+    {
+      name: 'overlay',
+      type: 'boolean',
+      defaultValue: 'false',
+    },
+    {
+      name: 'disabled',
+      type: 'string',
+      defaultValue: 'false',
+    },
+  ],
+  defaultStyles: {
+    margin: '2px',
+  },
+
+  defaultChildren: [
+    {
+      '@type': '@builder.io/sdk:Element',
+      component: { name: 'Button', options: { text: 'RadioButon1', type: 'outlined' } },
+    },
+  ],
+});
+
+
 export default function MyApp({ Component, pageProps }: AppProps) {
   return <Component {...pageProps} />;
 }
@@ -1160,7 +1209,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 //! TODO
 //! 0. Some props are missing from the current components. I'm not referring to `node` type props, I'm referring to props that should have been present. Like `fullWidth` for Button.
 //! 1. See my comments above (tagged STEPHEN) and apply them to the components you've already built, where applicable
-//! 5. Add FormLabel
+
 //! 6. Add RadioGroup
 //! 7. Add AspectRatio
 //! 8. Add Avatar
