@@ -1318,6 +1318,53 @@ Builder.registerComponent(withChildren(MuiAvatarGroup), {
   ],
 })
 
+Builder.registerComponent(withChildren(MuiSvgIcon), {
+  name: 'SvgIcon',
+  noWrap: true,
+  canHaveChildren: true,
+  inputs: [
+    {
+      name: 'color',
+      type: 'text',
+      enum: ['primary', 'neutral', 'danger', 'success', 'warning', 'info', 'inherit'],
+    },
+    {
+      name: 'fontSize',
+      type: 'text',
+      enum: ['lg','md', 'sm', 'xl', 'xl2', 'xl3', 'xl4', 'xl5', 'xl6', 'xl7', 'xs', 'xs2', 'xs3']
+    },
+    {
+      name: 'htmlFor',
+      type: 'string',
+    },
+    {
+      name: 'inheritViewBox',
+      type: 'boolean',
+      defaultValue: 'false',
+    },
+    {
+      name: 'shapeRendering',
+      type: 'string',
+    },
+    {
+      name: 'titleAccess',
+      type: 'string',
+    },
+    {
+      name: 'viewBox',
+      type: 'string',
+    },
+  ],
+
+  defaultChildren: [
+    {
+      '@type': '@builder.io/sdk:Element',
+      component: { name: 'Button', options: { text: 'SvgIcon', type: 'outlined' } },
+    },
+  ],
+})
+
+
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   return <Component {...pageProps} />;
@@ -1327,7 +1374,6 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 //! 0. Some props are missing from the current components. I'm not referring to `node` type props, I'm referring to props that should have been present. Like `fullWidth` for Button.
 //! 1. See my comments above (tagged STEPHEN) and apply them to the components you've already built, where applicable
 
-//! 9. Add AvatarGroup
 //! 10. Add SvgIcon
 //! 11. Add Badge
 //! 12. Add Chip
