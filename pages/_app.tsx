@@ -68,6 +68,27 @@ const buildify = (Component: any) => (props: any) => {
 //! This will add the sx prop to each component
 //! Keep the name convention the same, eg MuiButton, MuiCheckbox, etc
 const MuiButton = buildify(Button);
+const MuiCheckbox = buildify(Checkbox);
+const MuiInput = buildify(Input);
+const MuiRadio = buildify(Radio);
+const MuiSlider = buildify(Slider);
+const MuiSwitch = buildify(Switch);
+const MuiTextarea = buildify(Textarea);
+const MuiSelect = buildify(Select);
+const MuiButtonGroup = buildify(ButtonGroup);
+const MuiCircularProgress = buildify(CircularProgress);
+const MuiLinearProgress = buildify(LinearProgress);
+const MuiAlert = buildify(Alert);
+const MuiLink = buildify(Link);
+const MuiTypography = buildify(Typography);
+const MuiTooltip = buildify(Tooltip);
+const MuiDivider = buildify(Divider);
+const MuiSheet = buildify(Sheet);
+const MuiChipDelete = buildify(ChipDelete);
+const MuiStack = buildify(Stack);
+
+
+
 
 
 Builder.registerComponent(withChildren(MuiButton), {
@@ -147,7 +168,7 @@ Builder.registerComponent(withChildren(MuiButton), {
   ]
 });
 
-Builder.registerComponent(withChildren(Checkbox), {
+Builder.registerComponent(withChildren(MuiCheckbox), {
   name: 'Checkbox',
   inputs: [
     {
@@ -187,7 +208,7 @@ Builder.registerComponent(withChildren(Checkbox), {
   ],
 });
 
-Builder.registerComponent(withChildren(Input), {
+Builder.registerComponent(withChildren(MuiInput), {
   name: 'Input',
   inputs: [
     {
@@ -228,7 +249,7 @@ Builder.registerComponent(withChildren(Input), {
   ],
 });
 
-Builder.registerComponent(withChildren(Radio), {
+Builder.registerComponent(withChildren(MuiRadio), {
   name: 'Radio',
   inputs: [
     {
@@ -269,7 +290,7 @@ Builder.registerComponent(withChildren(Radio), {
   ],
 });
 
-Builder.registerComponent(withChildren(Slider), {
+Builder.registerComponent(withChildren(MuiSlider), {
   name: 'Slider',
   inputs: [
     {
@@ -302,7 +323,7 @@ Builder.registerComponent(withChildren(Slider), {
   ]
 });
 
-Builder.registerComponent(withChildren(Switch), {
+Builder.registerComponent(withChildren(MuiSwitch), {
   name: 'Switch',
   inputs: [
     {
@@ -338,7 +359,7 @@ Builder.registerComponent(withChildren(Switch), {
   ]
 });
 
-Builder.registerComponent(Textarea, {
+Builder.registerComponent(MuiTextarea, {
   name: 'Textarea',
   inputs: [
     {
@@ -390,7 +411,7 @@ Builder.registerComponent(Textarea, {
   ],
 });
 
-Builder.registerComponent(withChildren(Select), {
+Builder.registerComponent(withChildren(MuiSelect), {
   name: 'Select',
   inputs: [
     {
@@ -427,7 +448,7 @@ Builder.registerComponent(withChildren(Select), {
   ],
 });
 
-Builder.registerComponent(withChildren(ButtonGroup), {
+Builder.registerComponent(withChildren(MuiButtonGroup), {
   name: 'ButtonGroup',
   inputs: [
     {
@@ -479,7 +500,7 @@ Builder.registerComponent(withChildren(ButtonGroup), {
   ],
 });
 
-Builder.registerComponent(withChildren(CircularProgress), {
+Builder.registerComponent(withChildren(MuiCircularProgress), {
   name: 'CircularProgress',
   inputs: [
     {
@@ -519,7 +540,7 @@ Builder.registerComponent(withChildren(CircularProgress), {
   ],
 });
 
-Builder.registerComponent(LinearProgress, {
+Builder.registerComponent(MuiLinearProgress, {
   name: 'LinearProgress',
   inputs: [
     {
@@ -553,7 +574,7 @@ Builder.registerComponent(LinearProgress, {
   ],
 });
 
-Builder.registerComponent(Alert, {
+Builder.registerComponent(MuiAlert, {
   name: 'Alert',
   inputs: [
     {
@@ -583,7 +604,7 @@ Builder.registerComponent(Alert, {
   ],
 });
 
-Builder.registerComponent(withChildren(Link), {
+Builder.registerComponent(withChildren(MuiLink), {
   name: 'Link',
   inputs: [
     {
@@ -635,7 +656,7 @@ Builder.registerComponent(withChildren(Link), {
   ],
 });
 
-Builder.registerComponent(withChildren(Typography), {
+Builder.registerComponent(withChildren(MuiTypography), {
   name: 'Typography',
   inputs: [
     {
@@ -681,7 +702,7 @@ Builder.registerComponent(withChildren(Typography), {
   ],
 });
 
-Builder.registerComponent(withChildren(Tooltip), {
+Builder.registerComponent(withChildren(MuiTooltip), {
   name: 'Tooltip',
   inputs: [
     {
@@ -793,7 +814,7 @@ Builder.registerComponent(withChildren(Tooltip), {
   ],
 });
 
-Builder.registerComponent(withChildren(Divider), {
+Builder.registerComponent(withChildren(MuiDivider), {
   name: 'Divider',
   inputs: [
     {
@@ -825,7 +846,7 @@ Builder.registerComponent(withChildren(Divider), {
   ],
 });
 
-Builder.registerComponent(withChildren(Sheet), {
+Builder.registerComponent(withChildren(MuiSheet), {
   name: 'Sheet',
   inputs: [
     {
@@ -856,7 +877,7 @@ Builder.registerComponent(withChildren(Sheet), {
   ],
 });
 
-Builder.registerComponent(withChildren(ChipDelete), {
+Builder.registerComponent(withChildren(MuiChipDelete), {
   name: 'ChipDelete',
   inputs: [
     {
@@ -887,7 +908,7 @@ Builder.registerComponent(withChildren(ChipDelete), {
   ],
 });
 
-Builder.registerComponent(withChildren(Stack), {
+Builder.registerComponent(withChildren(MuiStack), {
   name: 'Stack',
   inputs: [
     {
