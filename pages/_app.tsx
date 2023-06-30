@@ -130,10 +130,6 @@ Builder.registerComponent(withChildren(MuiButton), {
       enum: ['center', 'start', 'end'],
     },
     {
-      name: 'loadingIndicator',
-      type: 'node',
-    },
-    {
       name: 'disabled',
       type: 'boolean',
     },
@@ -149,30 +145,7 @@ Builder.registerComponent(withChildren(MuiButton), {
       name: 'aria-label',
       type: 'string',
     },
-    {
-      name: 'startDecorator',
-      type: 'node',
-    },
-    {
-      name: 'endDecorator',
-      type: 'node',
-    },
-    {
-      name: 'component',
-      type: 'elementType',
-    },
-    {
-      name: 'slotProps',
-      type: 'object',
-    },
-    {
-      name: 'slots',
-      type: 'object',
-    },
-    {
-      name: 'action',
-      type: 'func',
-    },
+    
     //! STEPHEN
     //! List all the props that have NOT been added to the component
     //! All props of a components are available in its API page
@@ -198,10 +171,6 @@ Builder.registerComponent(MuiCheckbox, {
   noWrap: true,
   inputs: [
     {
-      name: 'label',
-      type: 'node',
-    },
-    {
       name: 'name',
       type: 'string',
     },
@@ -215,17 +184,9 @@ Builder.registerComponent(MuiCheckbox, {
       type: 'string',
     },
     {
-      name: 'component',
-      type: 'elementType',
-    },
-    {
       name: 'checked',
       type: 'boolean',
       defaultValue: false,
-    },
-    {
-      name: 'checkedIcon',
-      type: 'node',
     },
     {
       name: 'variant',
@@ -261,10 +222,6 @@ Builder.registerComponent(MuiCheckbox, {
       defaultValue: 'false',
     },
     {
-      name: 'indeterminateIcon',
-      type: 'node',
-    },
-    {
       name: 'readOnly',
       type: 'boolean',
     },
@@ -273,20 +230,8 @@ Builder.registerComponent(MuiCheckbox, {
       type: 'boolean',
     },
     {
-      name: 'uncheckedIcon',
-      type: 'node',
-    },
-    {
       name: 'value',
       type: 'string',
-    },
-    {
-      name: 'slotProps',
-      type: 'object',
-    },
-    {
-      name: 'slots',
-      type: 'object',
     },
   ],
 });
@@ -311,14 +256,6 @@ Builder.registerComponent(MuiInput, {
     {
       name: 'value',
       type: 'string',
-    },
-    {
-      name: 'startDecorator',
-      type: 'node',
-    },
-    {
-      name: 'endDecorator',
-      type: 'node',
     },
     {
       name: 'error',
@@ -365,10 +302,6 @@ Builder.registerComponent(MuiRadio, {
       type: 'boolean',
     },
     {
-      name: 'checkedIcon',
-      type: 'node',
-    },
-    {
       name: 'value',
       type: 'string',
     },
@@ -379,10 +312,6 @@ Builder.registerComponent(MuiRadio, {
     {
       name: 'className',
       type: 'string',
-    },
-    {
-      name: 'component',
-      type: 'elementType',
     },
     {
       name: 'defaultChecked',
@@ -398,17 +327,9 @@ Builder.registerComponent(MuiRadio, {
       defaultValue: 'false',
     },
     {
-      name: 'label',
-      type: 'node',
-    },
-    {
       name: 'overlay',
       type: 'boolean',
       defaultValue: 'false',
-    },
-    {
-      name: 'onChange',
-      type: 'func',
     },
     {
       name: 'readOnly',
@@ -419,31 +340,26 @@ Builder.registerComponent(MuiRadio, {
       type: 'boolean',
     },
     {
-      name: 'uncheckedIcon',
-      type: 'node',
-    },
-    {
       name: 'variant',
       type: 'text',
-      enum: ['solid', 'soft', 'outlined', 'plain']
+      enum: ['solid', 'soft', 'outlined', 'plain'],
     },
     {
       name: 'size',
       type: 'text',
-      enum: ['sm', 'md', 'lg']
+      enum: ['sm', 'md', 'lg'],
     },
     {
       name: 'color',
       type: 'text',
-      enum: ['primary', 'neutral', 'danger', 'success', 'warning', 'info']
+      enum: ['primary', 'neutral', 'danger', 'success', 'warning', 'info'],
     },   
   ],
 });
 
-Builder.registerComponent(withChildren(MuiSlider), {
+Builder.registerComponent(MuiSlider, {
   name: 'Slider',
   noWrap: true,
-  canHaveChildren: true, 
   inputs: [
     {
       name: 'type',
@@ -463,14 +379,6 @@ Builder.registerComponent(withChildren(MuiSlider), {
       type: 'string',
     },
     {
-      name: 'classes',
-      type: 'object',
-    },
-    {
-      name: 'component',
-      type: 'elementType',
-    },
-    {
       name: 'defaultValue',
       type: 'number',
     },
@@ -483,14 +391,6 @@ Builder.registerComponent(withChildren(MuiSlider), {
       name: 'disableSwap',
       type: 'boolean',
       defaultValue: 'false',
-    },
-    {
-      name: 'getAriaLabel',
-      type: 'func',
-    },
-    {
-      name: 'getAriaValueText',
-      type: 'func',
     },
     {
       name: 'isRtl',
@@ -516,18 +416,6 @@ Builder.registerComponent(withChildren(MuiSlider), {
       name: 'min',
       type: 'number',
       defaultValue: 0,
-    },
-    {
-      name: 'onChange',
-      type: 'func',
-    },
-    {
-      name: 'onChangeCommitted',
-      type: 'func',
-    },
-    {
-      name: 'scale',
-      type: 'func',
     },
     {
       name: 'orientation',
@@ -558,10 +446,6 @@ Builder.registerComponent(withChildren(MuiSlider), {
       enum: ['auto', 'off', 'on'],
     },
     {
-      name: 'valueLabelFormat',
-      type: 'func',
-    },
-    {
       name: 'variant',
       type: 'text',
       enum: ['solid', 'soft', 'outlined', 'plain'],
@@ -578,12 +462,6 @@ Builder.registerComponent(withChildren(MuiSlider), {
     },
 
   ],
-  defaultChildren: [
-    { 
-      '@type': '@builder.io/sdk:Element',
-      component: { name: 'Text', options: { text: 'Default Value' } }
-    },
-  ]
 });
 
 Builder.registerComponent(MuiSwitch, {
@@ -609,6 +487,26 @@ Builder.registerComponent(MuiSwitch, {
       name: 'color',
       type: 'text',
       enum: ['primary', 'neutral', 'danger', 'success', 'warning', 'info']
+    },
+    {
+      name: 'checked',
+      type: 'boolean',
+    },
+    {
+      name: 'defaultChecked',
+      type: 'boolean',
+    },
+    {
+      name: 'disabled',
+      type: 'boolean',
+    },
+    {
+      name: 'readOnly',
+      type: 'boolean',
+    },
+    {
+      name: 'required',
+      type: 'boolean',
     },
     //! STEPHEN
     //! For example, the Switch is not working because `checked` is missing.
@@ -682,6 +580,10 @@ Builder.registerComponent(withChildren(MuiSelect), {
       type: 'string',
     },
     {
+      name: 'name',
+      type: 'string',
+    },
+    {
       name: 'variant',
       type: 'text',
       enum: ['solid', 'soft', 'outlined', 'plain']
@@ -690,7 +592,44 @@ Builder.registerComponent(withChildren(MuiSelect), {
       name: 'indicator',
       type: 'string'
     },
-    
+    {
+      name: 'autoFocus',
+      type: 'boolean',
+    },
+    {
+      name: 'defaultListboxOpen',
+      type: 'boolean',
+    },
+    {
+      name: 'defaultValue',
+      type: 'text',
+    },
+    {
+      name: 'disabled',
+      type: 'boolean',
+    },
+    {
+      name: 'listboxId',
+      type: 'string',
+    },
+    {
+      name: 'listboxOpen',
+      type: 'bool',
+    },
+    {
+      name: 'value',
+      type: 'text',
+    },
+    {
+      name: 'size',
+      type: 'text',
+      enum: ['sm', 'md', 'lg'],
+    },
+    {
+      name: 'color',
+      type: 'text',
+      enum: ['primary', 'neutral', 'danger', 'success', 'warning', 'info'],
+    },
   ],
   childRequirements: {
     message: 'You can only put Options',
@@ -750,9 +689,15 @@ Builder.registerComponent(withChildren(MuiButtonGroup), {
     {
       name: 'buttonFlex',
       type: 'string',
-    },
-    
+    },   
   ],
+  childRequirements: {
+    message: 'You can only put Buttons',
+    query: {
+      'component.name': { $in: ['Button'] },
+    },
+  },
+
   defaultChildren: [
     {
       '@type': '@builder.io/sdk:Element',
@@ -795,10 +740,21 @@ Builder.registerComponent(withChildren(MuiCircularProgress), {
       type: 'number',
     },
   ],
+  childRequirements: {
+    message: 'You can only put Icons and Text',
+    query: {
+      'component.name': { $in: ['Icon', 'Text'] },
+    },
+  },
+
   defaultChildren: [
     {
       '@type': '@builder.io/sdk:Element',
       component: { name: 'Icon', options: { text: 'Icon' } },
+    },
+    {
+      '@type': '@builder.io/sdk:Element',
+      component: { name: 'Text', options: { text: 'Text' } },
     },
   ],
 });
@@ -838,18 +794,20 @@ Builder.registerComponent(MuiLinearProgress, {
   ],
 });
 
-Builder.registerComponent(MuiAlert, {
+Builder.registerComponent(withChildren(MuiAlert), {
   name: 'Alert',
   noWrap: true,
+  canHaveChildren: true,
   inputs: [
     {
       name: 'role',
       type: 'string',
+      defaultValue: 'alert',
     },
     {
       name: 'variant',
       type: 'text',
-      enum: ['solid', 'soft', 'outlined', 'plain']
+      enum: ['solid', 'soft', 'outlined', 'plain'],
     },
     {
       name: 'size',
@@ -865,6 +823,13 @@ Builder.registerComponent(MuiAlert, {
       name: 'invertedColors',
       type: 'boolean',
       defaultValue: 'false',
+    },
+  ],
+
+  defaultChildren: [
+    {
+      '@type': '@builder.io/sdk:Element',
+      component: { name: 'Text', options: { text: 'Text' } },
     },
   ],
 });
@@ -915,6 +880,12 @@ Builder.registerComponent(withChildren(MuiLink), {
       type: 'string',
     },
   ],
+  childRequirements: {
+    message: 'You can only put Text',
+    query: {
+      'component.name': { $in: ['Text'] },
+    },
+  },
   defaultChildren: [
     {
       '@type': '@builder.io/sdk:Element',
@@ -963,10 +934,17 @@ Builder.registerComponent(withChildren(MuiTypography), {
       type: 'string',
     },
   ],
+  childRequirements: {
+    message: 'You can only put Text',
+    query: {
+      'component.name': { $in: ['Text'] },
+    },
+  },
+
   defaultChildren: [
     {
       '@type': '@builder.io/sdk:Element',
-      component: { name: 'Text', options: { text: 'Value' } },
+      component: { name: 'Text', options: { text: 'Text' } },
     },
   ],
 });
@@ -1077,10 +1055,17 @@ Builder.registerComponent(withChildren(MuiTooltip), {
     },
     
   ],
+  childRequirements: {
+    message: 'You can only put Buttons',
+    query: {
+      'component.name': { $in: ['Button'] },
+    },
+  },
+
   defaultChildren: [
     {
       '@type': '@builder.io/sdk:Element',
-      component: { name: 'Text', options: { text: 'Value' } },
+      component: { name: 'Button', options: { text: 'Button 1' } },
     },
   ],
 });
@@ -1090,11 +1075,6 @@ Builder.registerComponent(withChildren(MuiDivider), {
   noWrap: true,
   canHaveChildren: true, 
   inputs: [
-    {
-      name: 'gutterBottom',
-      type: 'boolean',
-      defaultValue: 'false',
-    },
     {
       name: 'inset',
       type: 'text',
@@ -1106,15 +1086,21 @@ Builder.registerComponent(withChildren(MuiDivider), {
       enum: ['horizontal', 'vertical'],
       defaultValue: 'horizontal',
     },
-    {
-      name: 'component',
-      type: 'string',
-    },
   ],
+  childRequirements: {
+    message: 'You can only put Text and Chip',
+    query: {
+      'component.name': { $in: ['Text', 'Chip'] },
+    },
+  },
   defaultChildren: [
     {
       '@type': '@builder.io/sdk:Element',
       component: { name: 'Text', options: { text: 'Value' } },
+    },
+    {
+      '@type': '@builder.io/sdk:Element',
+      component: { name: 'Chip', options: { text: 'Value' } },
     },
   ],
 });
@@ -1139,11 +1125,13 @@ Builder.registerComponent(withChildren(MuiSheet), {
       type: 'text',
       enum: ['primary', 'neutral', 'danger', 'success', 'warning', 'info'],
     },
-    {
-      name: 'component',
-      type: 'string',
-    },
   ],
+  childRequirements: {
+    message: 'You can only put text',
+    query: {
+      'component.name': { $in: ['Text'] },
+    },
+  },
   defaultChildren: [
     {
       '@type': '@builder.io/sdk:Element',
@@ -1177,10 +1165,17 @@ Builder.registerComponent(withChildren(MuiChipDelete), {
       type: 'string',
     },
   ],
+  childRequirements: {
+    message: 'You can only put Icon',
+    query: {
+      'component.name': { $in: ['Icon'] },
+    },
+  },
+
   defaultChildren: [
     {
       '@type': '@builder.io/sdk:Element',
-      component: { name: 'Text', options: { text: 'Value' } },
+      component: { name: 'Icon', options: { text: 'Icon' } },
     },
   ],
 });
@@ -1209,10 +1204,14 @@ Builder.registerComponent(withChildren(MuiStack), {
       type: 'string',
     },
   ],
+  childRequirements: {
+    message: 'You can only put any Element',
+  },
+
   defaultChildren: [
     {
       '@type': '@builder.io/sdk:Element',
-      component: { name: 'Item', options: { text: 'item' } },
+      component: { name: 'Item', options: { text: 'item 1' } },
     },
   ],
 });
@@ -1266,6 +1265,10 @@ Builder.registerComponent(withChildren(MuiGrid), {
       enum: ['row', 'row-reverse', 'column', 'column-reverse'],
     },
   ],
+  childRequirements: {
+    message: 'You can only put any Element',
+  },
+
   defaultChildren: [
     {
       '@type': '@builder.io/sdk:Element',
