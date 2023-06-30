@@ -1040,6 +1040,44 @@ Builder.registerComponent(withChildren(MuiIconButton), {
     },
   ],
 });
+
+Builder.registerComponent(MuiFormControl, {
+  name: 'FormControl',
+  noWrap: true,
+  canHaveChildren: false,
+  inputs: [
+    {
+      name: 'component',
+      type: 'component',
+      required: true,
+      defaultValue: 'input',
+      subFields: [
+        {
+          name: 'component',
+          type: 'text',
+          defaultValue: 'input',
+        },
+        {
+          name: 'label',
+          type: 'string',
+          defaultValue: '',
+        },
+        {
+          name: 'helperText',
+          type: 'string',
+          defaultValue: '',
+        },
+        {
+          name: 'variant',
+          type: 'text',
+          enum: ['standard', 'outlined', 'filled'],
+          defaultValue: 'standard',
+        },
+      ],
+    },
+  ],
+});
+
 export default function MyApp({ Component, pageProps }: AppProps) {
   return <Component {...pageProps} />;
 }
@@ -1047,7 +1085,6 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 //! TODO
 //! 0. Some props are missing from the current components. I'm not referring to `node` type props, I'm referring to props that should have been present. Like `fullWidth` for Button.
 //! 1. See my comments above (tagged STEPHEN) and apply them to the components you've already built, where applicable
-//! 2. Add IconButton
 //! 3. Add FormControl
 //! 4. Add FormHelperText
 //! 5. Add FormLabel
