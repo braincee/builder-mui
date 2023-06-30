@@ -4,7 +4,38 @@ import '@fontsource/public-sans';
 import type { AppProps } from 'next/app';
 import { builder, Builder, withChildren } from '@builder.io/react';
 import { Header } from '../components/Header';
-import { Button, Checkbox, Input, Radio, Slider, Switch, Textarea, Select, ButtonGroup, CircularProgress, LinearProgress, Alert, Link, Typography, Tooltip, Divider, Sheet, ChipDelete, Stack, Grid } from '@mui/joy';
+import { Button, 
+        Checkbox, 
+        Input, 
+        Radio, 
+        Slider, 
+        Switch, 
+        Textarea, 
+        Select, 
+        ButtonGroup, 
+        CircularProgress, 
+        LinearProgress,
+        Alert,
+        Link,
+        Typography,
+        Tooltip,
+        Divider,
+        Sheet,
+        ChipDelete,
+        Stack,
+        Grid,
+        IconButton,
+        FormControl,
+        FormHelperText,
+        FormLabel,
+        RadioGroup,
+        AspectRatio,
+        Avatar,
+        AvatarGroup,
+        SvgIcon,
+        Badge,
+        Chip
+      } from '@mui/joy';
 
 // Initialize builder with your apiKey
 builder.init('29e2b58dd1f648f48966fef7096634b2');
@@ -63,10 +94,6 @@ const buildify = (Component: any) => (props: any) => {
    />)
   }
 
-//! STEPHEN
-//! Use the buildify function above to wrap each component
-//! This will add the sx prop to each component
-//! Keep the name convention the same, eg MuiButton, MuiCheckbox, etc
 const MuiButton = buildify(Button);
 const MuiCheckbox = buildify(Checkbox);
 const MuiInput = buildify(Input);
@@ -87,18 +114,23 @@ const MuiSheet = buildify(Sheet);
 const MuiChipDelete = buildify(ChipDelete);
 const MuiStack = buildify(Stack);
 const MuiGrid = buildify(Grid);
-
-
-
+const MuiIconButton = buildify(IconButton);
+const MuiFormControl = buildify(FormControl);
+const MuiFormHelperText = buildify(FormHelperText);
+const MuiFormLabel = buildify(FormLabel);
+const MuiRadioGroup = buildify(RadioGroup);
+const MuiAspectRatio = buildify(AspectRatio);
+const MuiAvatar = buildify(Avatar);
+const MuiAvatarGroup = buildify(AvatarGroup);
+const MuiSvgIcon = buildify(SvgIcon);
+const MuiBadge = buildify(Badge);
+const MuiChip = buildify(Chip);
 
 
 Builder.registerComponent(withChildren(MuiButton), {
   name: 'Button',
-  //! STEPHEN
-  //! Place this on all components, with value = true
+
   noWrap: true,
-  //! STEPHEN
-  //! Set this for each component based on your common sense of whether it can have children (e.g. a button can have children, but a switcher can't)
   canHaveChildren: true, 
   //! STEPHEN
   //! https://www.builder.io/c/docs/register-components-options#child-requirements
@@ -171,6 +203,8 @@ Builder.registerComponent(withChildren(MuiButton), {
 
 Builder.registerComponent(withChildren(MuiCheckbox), {
   name: 'Checkbox',
+  noWrap: true,
+  canHaveChildren: true, 
   inputs: [
     {
       name: 'label',
@@ -350,14 +384,6 @@ Builder.registerComponent(withChildren(MuiSwitch), {
     //! STEPHEN
     //! For example, the Switch is not working because `checked` is missing.
   ],
-  //! STEPHEN
-  //! The Switch element should not take any children, it's a Switch.
-  defaultChildren: [
-    { 
-      '@type': '@builder.io/sdk:Element',
-      component: { name: 'Text', options: { text: 'Default Value' } }
-    },
-  ]
 });
 
 Builder.registerComponent(MuiTextarea, {
@@ -414,6 +440,8 @@ Builder.registerComponent(MuiTextarea, {
 
 Builder.registerComponent(withChildren(MuiSelect), {
   name: 'Select',
+  noWrap: true,
+  canHaveChildren: true,
   inputs: [
     {
       name: 'type',
@@ -451,6 +479,8 @@ Builder.registerComponent(withChildren(MuiSelect), {
 
 Builder.registerComponent(withChildren(MuiButtonGroup), {
   name: 'ButtonGroup',
+  noWrap: true,
+  canHaveChildren: true,
   inputs: [
     {
       name: 'type',
@@ -503,6 +533,8 @@ Builder.registerComponent(withChildren(MuiButtonGroup), {
 
 Builder.registerComponent(withChildren(MuiCircularProgress), {
   name: 'CircularProgress',
+  noWrap: true,
+  canHaveChildren: true,
   inputs: [
     {
       name: 'variant',
@@ -543,6 +575,7 @@ Builder.registerComponent(withChildren(MuiCircularProgress), {
 
 Builder.registerComponent(MuiLinearProgress, {
   name: 'LinearProgress',
+  noWrap: true,
   inputs: [
     {
       name: 'variant',
@@ -577,6 +610,7 @@ Builder.registerComponent(MuiLinearProgress, {
 
 Builder.registerComponent(MuiAlert, {
   name: 'Alert',
+  noWrap: true,
   inputs: [
     {
       name: 'role',
@@ -607,6 +641,8 @@ Builder.registerComponent(MuiAlert, {
 
 Builder.registerComponent(withChildren(MuiLink), {
   name: 'Link',
+  noWrap: true,
+  canHaveChildren: true,
   inputs: [
     {
       name: 'underline',
@@ -659,6 +695,8 @@ Builder.registerComponent(withChildren(MuiLink), {
 
 Builder.registerComponent(withChildren(MuiTypography), {
   name: 'Typography',
+  noWrap: true,
+  canHaveChildren: true,
   inputs: [
     {
       name: 'gutterBottom',
@@ -705,6 +743,8 @@ Builder.registerComponent(withChildren(MuiTypography), {
 
 Builder.registerComponent(withChildren(MuiTooltip), {
   name: 'Tooltip',
+  noWrap: true,
+  canHaveChildren: true,
   inputs: [
     {
       name: 'arrow',
@@ -817,6 +857,8 @@ Builder.registerComponent(withChildren(MuiTooltip), {
 
 Builder.registerComponent(withChildren(MuiDivider), {
   name: 'Divider',
+  noWrap: true,
+  canHaveChildren: true,
   inputs: [
     {
       name: 'gutterBottom',
@@ -849,6 +891,8 @@ Builder.registerComponent(withChildren(MuiDivider), {
 
 Builder.registerComponent(withChildren(MuiSheet), {
   name: 'Sheet',
+  noWrap: true,
+  canHaveChildren: true,
   inputs: [
     {
       name: 'invertedColors',
@@ -880,6 +924,8 @@ Builder.registerComponent(withChildren(MuiSheet), {
 
 Builder.registerComponent(withChildren(MuiChipDelete), {
   name: 'ChipDelete',
+  noWrap: true,
+  canHaveChildren: true,
   inputs: [
     {
       name: 'disabled',
@@ -911,6 +957,8 @@ Builder.registerComponent(withChildren(MuiChipDelete), {
 
 Builder.registerComponent(withChildren(MuiStack), {
   name: 'Stack',
+  noWrap: true,
+  canHaveChildren: true,
   inputs: [
     {
       name: 'useFlexGap',
@@ -941,6 +989,8 @@ Builder.registerComponent(withChildren(MuiStack), {
 
 Builder.registerComponent(withChildren(MuiGrid), {
   name: 'Grid',
+  noWrap: true,
+  canHaveChildren: true,
   inputs: [
     {
       name: 'xs',
@@ -994,6 +1044,7 @@ Builder.registerComponent(withChildren(MuiGrid), {
   ],
 });
 
+
 Builder.registerComponent(withChildren(MuiIconButton), {
   name: 'IconButton',
   noWrap: true,
@@ -1046,37 +1097,41 @@ Builder.registerComponent(MuiFormControl, {
   noWrap: true,
   canHaveChildren: false,
   inputs: [
-    {
-      name: 'component',
-      type: 'component',
-      required: true,
-      defaultValue: 'input',
-      subFields: [
-        {
-          name: 'component',
-          type: 'text',
-          defaultValue: 'input',
-        },
-        {
-          name: 'label',
-          type: 'string',
-          defaultValue: '',
-        },
-        {
-          name: 'helperText',
-          type: 'string',
-          defaultValue: '',
-        },
-        {
-          name: 'variant',
-          type: 'text',
-          enum: ['standard', 'outlined', 'filled'],
-          defaultValue: 'standard',
-        },
-      ],
-    },
+  {
+    name: 'component',
+    type: 'string,'
+  },
+  {
+    name: 'color',
+    type: 'text',
+    enum: ['primary', 'neutral', 'danger', 'success', 'warning', 'info'],
+  },
+  {
+    name: 'disabled',
+    type: 'boolean',
+    defaultValue: 'false',
+  },
+  {
+    name: 'error',
+    type: 'boolean',
+    defaultValue: 'false',
+  },
+  {
+    name: 'orientation',
+    type: 'string',
+  },
+  {
+    name: 'required',
+    type: 'boolean',
+  },
+  {
+    name: 'size',
+    type: 'text',
+    enum: ['sm', 'md', 'lg'],
+  },
   ],
 });
+
 
 Builder.registerComponent(MuiFormHelperText, {
   name: 'FormHelperText',
@@ -1084,27 +1139,8 @@ Builder.registerComponent(MuiFormHelperText, {
   canHaveChildren: false,
   inputs: [
     {
-      name: 'text',
-      type: 'text',
-      required: true,
-      defaultValue: 'Helper text',
-    },
-    {
-      name: 'error',
-      type: 'boolean',
-      required: false,
-      defaultValue: false,
-    },
-    {
-      name: 'variant',
-      type: 'option',
-      required: false,
-      defaultValue: 'standard',
-      options: [
-        { label: 'Standard', value: 'standard' },
-        { label: 'Outlined', value: 'outlined' },
-        { label: 'Filled', value: 'filled' },
-      ],
+      name: 'component',
+      type: 'string',
     },
   ],
   defaultStyles: {
@@ -1119,32 +1155,13 @@ Builder.registerComponent(MuiFormLabel, {
   canHaveChildren: false,
   inputs: [
     {
-      name: 'text',
-      type: 'text',
-      required: true,
-      defaultValue: 'Label',
+     name: 'component',
+     type: 'string',
     },
     {
       name: 'required',
       type: 'boolean',
-      required: false,
-      defaultValue: false,
-    },
-    {
-      name: 'color',
-      type: 'option',
-      required: false,
-      defaultValue: 'initial',
-      options: [
-        { label: 'Initial', value: 'initial' },
-        { label: 'Inherit', value: 'inherit' },
-        { label: 'Primary', value: 'primary' },
-        { label: 'Secondary', value: 'secondary' },
-        { label: 'Error', value: 'error' },
-        { label: 'Text Primary', value: 'textPrimary' },
-        { label: 'Text Secondary', value: 'textSecondary' },
-        { label: 'Disabled', value: 'disabled' },
-      ],
+      defaultValue: 'false',
     },
   ],
   defaultStyles: {
@@ -1202,48 +1219,48 @@ Builder.registerComponent(withChildren(MuiRadioGroup), {
 });
 
 Builder.registerComponent(withChildren(MuiAspectRatio), {
-  name: 'AspectRatio',
-  noWrap: true,
-  canHaveChildren: true,
-  inputs: [
-   {
-     name: 'ratio',
-     type: 'string',
-   },
-   {
-     name: 'objectFit',
-     type: 'text',
-     enum: ['contain', 'cover', 'fill', 'inherit', 'initial', 'none', 'revert-layer', 'revert', 'scale-down', 'unset']
-   },
-   {
-     name: 'color',
-     type: 'text',
-     enum: ['danger', 'info', 'neutral', 'primary', 'success', 'warning']
-   },
-   {
-     name: 'minHeight',
-     type: 'number',
-   },
-   {
-     name: 'maxHeight',
-     type: 'number',
-   },
-   {
-     name: 'variant',
-     type: 'text',
-     enum: ['outlined', 'plain', 'soft', 'solid']
-   },
-  ],
- 
-  defaultChildren: [
-   {
-     '@type': '@builder.io/sdk:Element',
-     component: { name: 'Button', options: { text: 'Aspect Ratio', type: 'outlined' } },
-   },
+ name: 'AspectRatio',
+ noWrap: true,
+ canHaveChildren: true,
+ inputs: [
+  {
+    name: 'ratio',
+    type: 'string',
+  },
+  {
+    name: 'objectFit',
+    type: 'text',
+    enum: ['contain', 'cover', 'fill', 'inherit', 'initial', 'none', 'revert-layer', 'revert', 'scale-down', 'unset']
+  },
+  {
+    name: 'color',
+    type: 'text',
+    enum: ['danger', 'info', 'neutral', 'primary', 'success', 'warning']
+  },
+  {
+    name: 'minHeight',
+    type: 'number',
+  },
+  {
+    name: 'maxHeight',
+    type: 'number',
+  },
+  {
+    name: 'variant',
+    type: 'text',
+    enum: ['outlined', 'plain', 'soft', 'solid']
+  },
  ],
- });
 
- Builder.registerComponent(withChildren(MuiAvatar), {
+ defaultChildren: [
+  {
+    '@type': '@builder.io/sdk:Element',
+    component: { name: 'Button', options: { text: 'Aspect Ratio', type: 'outlined' } },
+  },
+],
+});
+
+Builder.registerComponent(withChildren(MuiAvatar), {
   name: 'Avatar',
   noWrap: true,
   canHaveChildren: true,
@@ -1284,6 +1301,7 @@ Builder.registerComponent(withChildren(MuiAspectRatio), {
     },
   ],
 })
+
 
 Builder.registerComponent(withChildren(MuiAvatarGroup), {
   name: 'AvatarGroup',
@@ -1410,6 +1428,43 @@ Builder.registerComponent(withChildren(MuiBadge), {
   ],
 })
 
+Builder.registerComponent(withChildren(MuiChip), {
+  name: 'Chip',
+  inputs: [
+    {
+      name: 'disabled',
+      type: 'boolean',
+      defaultValue: 'false',
+    },
+    {
+      name: 'variant',
+      type: 'text',
+      enum: ['solid', 'soft', 'outlined', 'plain']
+    },
+    {
+      name: 'color',
+      type: 'text',
+      enum: ['primary', 'neutral', 'danger', 'success', 'warning', 'info'],
+    },
+    {
+      name: 'component',
+      type: 'string',
+    },
+    {
+      name: 'size',
+      type: 'text',
+      enum: ['sm', 'md', 'lg'],
+    },
+  ],
+  defaultChildren: [
+    {
+      '@type': '@builder.io/sdk:Element',
+      component: { name: 'Text', options: { text: 'Value' } },
+    },
+  ],
+});
+
+
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   return <Component {...pageProps} />;
@@ -1419,6 +1474,4 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 //! 0. Some props are missing from the current components. I'm not referring to `node` type props, I'm referring to props that should have been present. Like `fullWidth` for Button.
 //! 1. See my comments above (tagged STEPHEN) and apply them to the components you've already built, where applicable
 
-//! 11. Add Badge
-//! 12. Add Chip
 //! DEADLINE: Satuday evening
