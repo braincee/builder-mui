@@ -1298,10 +1298,6 @@ Builder.registerComponent(withChildren(MuiIconButton), {
   canHaveChildren: true, 
   inputs: [
     {
-      name: 'action',
-      type: 'string',
-    },
-    {
       name: 'color',
       type: 'text',
       enum: ['primary', 'neutral', 'danger', 'success', 'warning', 'info'],
