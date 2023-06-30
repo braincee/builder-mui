@@ -1364,6 +1364,51 @@ Builder.registerComponent(withChildren(MuiSvgIcon), {
   ],
 })
 
+Builder.registerComponent(withChildren(MuiBadge), {
+  name: 'Badge',
+  noWrap: true,
+  canHaveChildren: true,
+  inputs: [
+    {
+      name: 'anchorOrigin',
+      type: 'text',
+    },
+    {
+      name: 'badgetInsert',
+      type: 'string',
+    },
+    {
+      name: 'color',
+      type: 'text',
+      enum: ['primary', 'neutral', 'danger', 'success', 'warning', 'info'],
+    },
+    {
+      name: 'invisible',
+      type: 'boolean',
+      defaultValue: 'false',
+    },
+    {
+      name: 'max',
+      type: 'number',
+    },
+    {
+      name: 'size',
+      type: 'text',
+      enum: ['sm', 'md', 'lg'],
+    },
+    {
+      name: 'variant',
+      type: 'text',
+      enum: ['solid', 'soft', 'outlined', 'plain']
+    }
+  ],
+  defaultChildren: [
+    {
+      '@type': '@builder.io/sdk:Element',
+      component: { name: 'Button', options: { text: 'SvgIcon', type: 'outlined' } },
+    },
+  ],
+})
 
 
 export default function MyApp({ Component, pageProps }: AppProps) {
@@ -1374,7 +1419,6 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 //! 0. Some props are missing from the current components. I'm not referring to `node` type props, I'm referring to props that should have been present. Like `fullWidth` for Button.
 //! 1. See my comments above (tagged STEPHEN) and apply them to the components you've already built, where applicable
 
-//! 10. Add SvgIcon
 //! 11. Add Badge
 //! 12. Add Chip
 //! DEADLINE: Satuday evening
