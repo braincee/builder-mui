@@ -1285,6 +1285,39 @@ Builder.registerComponent(withChildren(MuiAspectRatio), {
   ],
 })
 
+Builder.registerComponent(withChildren(MuiAvatarGroup), {
+  name: 'AvatarGroup',
+  noWrap: true,
+  canHaveChildren: true,
+  inputs: [
+    {
+      name: 'alt',
+      type: 'text',
+     },
+     {
+      name: 'color',
+      type: 'text',
+      enum: ['danger', 'info', 'neutral', 'primary', 'success', 'warning']
+     },
+     {
+      name: 'variant',
+      type: 'text',
+      enum: ['outlined', 'plain', 'soft', 'solid'],
+     },
+     {
+      name: 'size',
+      type: 'text',
+      enum: ['sm', 'md', 'lg']
+     },
+  ],
+  defaultChildren: [
+    {
+      '@type': '@builder.io/sdk:Element',
+      component: { name: 'Button', options: { text: 'Avatar Group', type: 'outlined' } },
+    },
+  ],
+})
+
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   return <Component {...pageProps} />;
@@ -1294,8 +1327,6 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 //! 0. Some props are missing from the current components. I'm not referring to `node` type props, I'm referring to props that should have been present. Like `fullWidth` for Button.
 //! 1. See my comments above (tagged STEPHEN) and apply them to the components you've already built, where applicable
 
-
-//! 8. Add Avatar
 //! 9. Add AvatarGroup
 //! 10. Add SvgIcon
 //! 11. Add Badge
