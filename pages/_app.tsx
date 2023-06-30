@@ -589,12 +589,13 @@ Builder.registerComponent(withChildren(Link), {
     {
       name: 'underline',
       type: 'text',
+      enum: ['always', 'hover', 'none'],
       defaultValue: 'hover',
     },
     {
       name: 'variant',
       type: 'text',
-      enum: ['solid', 'soft', 'outlined', 'plain']
+      enum: ['solid', 'soft', 'outlined', 'plain'],
     },
     {
       name: 'color',
@@ -618,6 +619,7 @@ Builder.registerComponent(withChildren(Link), {
     {
       name: 'level',
       type: 'text',
+      enum: ['body1', 'body2', 'body3', 'inherit', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
       defaultValue: 'body1',
     },
     {
@@ -664,6 +666,7 @@ Builder.registerComponent(withChildren(Typography), {
       name: 'level',
       type: 'text',
       defaultValue: 'body1',
+      enum: ['body1', 'body2', 'body3', 'inherit', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
     },
     {
       name: 'component',
@@ -693,7 +696,7 @@ Builder.registerComponent(withChildren(Tooltip), {
     {
       name: 'variant',
       type: 'text',
-      enum: ['solid', 'soft', 'outlined', 'plain']
+      enum: ['solid', 'soft', 'outlined', 'plain'],
     },
     {
       name: 'color',
@@ -713,6 +716,7 @@ Builder.registerComponent(withChildren(Tooltip), {
       name: 'direction',
       type: 'text',
       defaultValue: 'ltr',
+      enum: ['ltr', 'rtl'],
     },
     {
       name: 'disableFocusListener',
@@ -777,6 +781,7 @@ Builder.registerComponent(withChildren(Tooltip), {
       name: 'placement',
       type: 'text',
       defaultValue: 'bottom',
+      enum: ['bottom-end', 'bottom-start', 'bottom', 'left-end', 'left-start', 'left', 'right-end', 'right-start', 'right', 'top-end', 'top-start', 'top'],
     },
     
   ],
@@ -940,5 +945,5 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 //! 20. Add Sheet               --done
 //! 21. Add Link                --done
 //! 22. Add Grid
-//! 23. Add Stack
+//! 23. Add Stack               --done
 //! DEADLINE: Satuday evening
