@@ -876,6 +876,8 @@ Builder.registerComponent(withChildren(MuiAlert), {
 
 Builder.registerComponent(withChildren(MuiLink), {
   name: 'Link',
+  noWrap: true,
+  canHaveChildren: true,
   inputs: [
     {
       name: 'underline',
