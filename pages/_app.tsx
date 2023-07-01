@@ -1111,6 +1111,14 @@ Builder.registerComponent(withChildren(MuiTooltip), {
 
 Builder.registerComponent(withChildren(MuiDivider), {
   name: 'Divider',
+  noWrap: true,
+  canHaveChildren: true,
+  childRequirements: {
+    message: 'You can only put Text and Chip',
+    query: {
+      'component.name': { $in: ['Text', 'Chip'] },
+    },
+  },
   inputs: [
     {
       name: 'inset',
@@ -1124,12 +1132,6 @@ Builder.registerComponent(withChildren(MuiDivider), {
       defaultValue: 'horizontal',
     },
   ],
-  childRequirements: {
-    message: 'You can only put Text and Chip',
-    query: {
-      'component.name': { $in: ['Text', 'Chip'] },
-    },
-  },
   defaultChildren: [
     {
       '@type': '@builder.io/sdk:Element',
