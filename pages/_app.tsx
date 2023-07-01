@@ -1320,7 +1320,14 @@ Builder.registerComponent(withChildren(MuiGrid), {
 Builder.registerComponent(withChildren(MuiIconButton), {
   name: 'IconButton',
   noWrap: true,
-  canHaveChildren: true, 
+  canHaveChildren: true,
+  childRequirements: {
+    message: 'You can only put Icons with no text content',
+    query: {
+      'component.name': { $in: ['Icon'] },
+    },
+  },
+
   inputs: [
     {
       name: 'color',
@@ -1351,13 +1358,7 @@ Builder.registerComponent(withChildren(MuiIconButton), {
       enum: ['sm', 'md', 'lg'],
     },
   ],
-  childRequirements: {
-    message: 'You can only put Icons with no text content',
-    query: {
-      'component.name': { $in: ['Icon'] },
-    },
-  },
-
+ 
   defaultChildren: [
     {
       '@type': '@builder.io/sdk:Element',
@@ -1370,6 +1371,9 @@ Builder.registerComponent(MuiFormControl, {
   name: 'FormControl',
   noWrap: true,
   canHaveChildren: false,
+  childRequirements: {
+    message: 'You can only put Form Inputs',
+  },
   inputs: [
   {
     name: 'component',
@@ -1407,9 +1411,6 @@ Builder.registerComponent(MuiFormControl, {
     enum: ['sm', 'md', 'lg'],
   },
   ],
-  childRequirements: {
-    message: 'You can only put Form Inputs',
-  },
 });
 
 
@@ -1417,18 +1418,18 @@ Builder.registerComponent(withChildren(MuiFormHelperText), {
   name: 'FormHelperText',
   noWrap: true,
   canHaveChildren: true,
-  inputs: [
-    {
-      name: 'component',
-      type: 'string',
-    },
-  ],
   childRequirements: {
     message: 'You can only put Text',
     query: {
       'component.name': { $in: ['Text'] },
     },
   },
+  inputs: [
+    {
+      name: 'component',
+      type: 'string',
+    },
+  ],
   defaultChildren: [
     {
       '@type': '@builder.io/sdk:Element',
