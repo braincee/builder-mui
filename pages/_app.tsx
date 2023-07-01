@@ -990,6 +990,15 @@ Builder.registerComponent(withChildren(MuiTypography), {
 
 Builder.registerComponent(withChildren(MuiTooltip), {
   name: 'Tooltip',
+  noWrap: true,
+  canHaveChildren: true,
+  childRequirements: {
+    message: 'You can only put Buttons',
+    query: {
+      'component.name': { $in: ['Button'] },
+    },
+  },
+
   inputs: [
     {
       name: 'arrow',
@@ -1092,14 +1101,7 @@ Builder.registerComponent(withChildren(MuiTooltip), {
     },
     
   ],
-  childRequirements: {
-    message: 'You can only put Buttons',
-    query: {
-      'component.name': { $in: ['Button'] },
-    },
-  },
-
-  defaultChildren: [
+    defaultChildren: [
     {
       '@type': '@builder.io/sdk:Element',
       component: { name: 'Button', options: { text: 'Button 1' } },
