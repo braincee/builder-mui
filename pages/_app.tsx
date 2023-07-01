@@ -1442,6 +1442,12 @@ Builder.registerComponent(withChildren(MuiFormLabel), {
   name: 'FormLabel',
   noWrap: true,
   canHaveChildren: true,
+  childRequirements: {
+    message: 'You can only put Text',
+    query: {
+      'component.name': { $in: ['Text'] },
+    },
+  },
   inputs: [
     {
      name: 'component',
@@ -1453,12 +1459,7 @@ Builder.registerComponent(withChildren(MuiFormLabel), {
       defaultValue: 'false',
     },
   ],
-  childRequirements: {
-    message: 'You can only put Text',
-    query: {
-      'component.name': { $in: ['Text'] },
-    },
-  },
+  
   defaultChildren: [
     {
       '@type': '@builder.io/sdk:Element',
@@ -1471,6 +1472,13 @@ Builder.registerComponent(withChildren(MuiRadioGroup), {
   name: 'RadioGroup',
   noWrap: true,
   canHaveChildren: true,
+  childRequirements: {
+    message: 'You can only put Radio',
+    query: {
+      'component.name': { $in: ['Radio'] },
+    },
+  },
+
   inputs: [
     {
       name: 'name',
@@ -1525,12 +1533,6 @@ Builder.registerComponent(withChildren(MuiRadioGroup), {
       defaultValue: 'false',
     },
   ],
-  childRequirements: {
-    message: 'You can only put Radio',
-    query: {
-      'component.name': { $in: ['Radio'] },
-    },
-  },
 
   defaultChildren: [
     {
