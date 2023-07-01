@@ -195,7 +195,6 @@ Builder.registerComponent(MuiCheckbox, {
     {
       name: 'overlay',
       type: 'boolean',
-      defaultValue: false,
     },
     {
       name: 'className',
@@ -204,7 +203,6 @@ Builder.registerComponent(MuiCheckbox, {
     {
       name: 'checked',
       type: 'boolean',
-      defaultValue: false,
     },
     {
       name: 'variant',
@@ -232,12 +230,10 @@ Builder.registerComponent(MuiCheckbox, {
     {
       name: 'disableIcon',
       type: 'boolean',
-      defaultValue: 'false',
     },
     {
       name: 'indeterminate',
       type: 'boolean',
-      defaultValue: 'false',
     },
     {
       name: 'readOnly',
@@ -344,7 +340,6 @@ Builder.registerComponent(withChildren(MuiRadio), {
     {
       name: 'disableIcon',
       type: 'boolean',
-      defaultValue: false,
     },
     {
       name: 'variant',
@@ -354,7 +349,6 @@ Builder.registerComponent(withChildren(MuiRadio), {
     {
       name: 'overlay',
       type: 'boolean',
-      defaultValue: 'false',
     },
     {
       name: 'readOnly',
@@ -367,7 +361,6 @@ Builder.registerComponent(withChildren(MuiRadio), {
     {
       name: 'disabled',
       type: 'string',
-      defaultValue: 'false',
     },
     {
       name: 'component',
@@ -378,7 +371,7 @@ Builder.registerComponent(withChildren(MuiRadio), {
   defaultChildren: [
     {
       '@type': '@builder.io/sdk:Element',
-      component: { name: 'Radio' },
+      component: { name: 'Radio', options: { text: 'Radio Button', type: 'outlined' } },
     },
   ],
 });
@@ -1464,7 +1457,7 @@ Builder.registerComponent(withChildren(MuiRadioGroup), {
   childRequirements: {
     message: 'You can only put Radio',
     query: {
-      'component.name': { $in: ['RadioGroup'] },
+      'component.name': { $in: ['Radio'] },
     },
   },
 
@@ -1513,27 +1506,25 @@ Builder.registerComponent(withChildren(MuiRadioGroup), {
     {
       name: 'overlay',
       type: 'boolean',
-      defaultValue: 'false',
     },
     {
       name: 'disabled',
       type: 'string',
-      defaultValue: 'false',
     },
   ],
 
   defaultChildren: [
     {
       '@type': '@builder.io/sdk:Element',
-      component: { name: 'RadioGroup' },
+      component: { name: 'Radio', options: { text: 'RadioButton', type: 'outlined' } }
     },
     {
       '@type': '@builder.io/sdk:Element',
-      component: { name: 'RadioGroup' },
+      component: { name: 'Radio', options: { text: 'RadioButton2', type: 'outlined' } },
     },
     {
       '@type': '@builder.io/sdk:Element',
-      component: { name: 'RadioGroup' },
+      component: { name: 'Radio', options: { text: 'RadioButton3', type: 'outlined' } },
     },
   ],
 });
