@@ -1555,6 +1555,12 @@ Builder.registerComponent(withChildren(MuiAvatar), {
   name: 'Avatar',
   noWrap: true,
   canHaveChildren: true,
+  childRequirements: {
+    message: 'You can only put Text',
+    query: {
+      'component.name': { $in: ['Avatar'] },
+    },
+  },
   inputs: [
    {
     name: 'alt',
@@ -1584,20 +1590,14 @@ Builder.registerComponent(withChildren(MuiAvatar), {
     type: 'string',
    },
   ],
-  childRequirements: {
-    message: 'You can only put Text',
-    query: {
-      'component.name': { $in: ['Text'] },
-    },
-  },
-
   defaultChildren: [
     {
       '@type': '@builder.io/sdk:Element',
-      component: { name: 'Text', options: { text: 'Avatar', type: 'outlined' } },
+      component: { name: 'Avatar' },
     },
   ],
 })
+
 
 Builder.registerComponent(withChildren(MuiAvatarGroup), {
   name: 'AvatarGroup',
@@ -1633,19 +1633,18 @@ Builder.registerComponent(withChildren(MuiAvatarGroup), {
   defaultChildren: [
     {
       '@type': '@builder.io/sdk:Element',
-      component: { name: 'Avatar', options: { text: 'Avatar 1',} },
+      component: { name: 'Avatar' },
     },
     {
       '@type': '@builder.io/sdk:Element',
-      component: { name: 'Avatar', options: { text: 'Avatar 2',} },
+      component: { name: 'Avatar' },
     },
     {
       '@type': '@builder.io/sdk:Element',
-      component: { name: 'Avatar', options: { text: 'Avatar 3',} },
+      component: { name: 'Avatar' },
     },
   ],
 })
-
 
 Builder.registerComponent(withChildren(MuiSvgIcon), {
   name: 'SvgIcon',
