@@ -1146,6 +1146,14 @@ Builder.registerComponent(withChildren(MuiDivider), {
 
 Builder.registerComponent(withChildren(MuiSheet), {
   name: 'Sheet',
+  noWrap: true,
+  canHaveChildren: true,
+  childRequirements: {
+    message: 'You can only put text',
+    query: {
+      'component.name': { $in: ['Sheet'] },
+    },
+  },
   inputs: [
     {
       name: 'invertedColors',
@@ -1163,16 +1171,10 @@ Builder.registerComponent(withChildren(MuiSheet), {
       enum: ['primary', 'neutral', 'danger', 'success', 'warning', 'info'],
     },
   ],
-  childRequirements: {
-    message: 'You can only put text',
-    query: {
-      'component.name': { $in: ['Text'] },
-    },
-  },
   defaultChildren: [
     {
       '@type': '@builder.io/sdk:Element',
-      component: { name: 'Text', options: { text: 'Value' } },
+      component: { name: 'Sheet', options: { text: 'Value' } },
     },
   ],
 });
