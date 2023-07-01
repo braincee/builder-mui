@@ -1257,6 +1257,12 @@ Builder.registerComponent(withChildren(MuiStack), {
 
 Builder.registerComponent(withChildren(MuiGrid), {
   name: 'Grid',
+  noWrap: true,
+  canHaveChildren: true,
+  childRequirements: {
+    message: 'You can only put any Element',
+  },
+
   inputs: [
     {
       name: 'xs',
@@ -1302,10 +1308,6 @@ Builder.registerComponent(withChildren(MuiGrid), {
       enum: ['row', 'row-reverse', 'column', 'column-reverse'],
     },
   ],
-  childRequirements: {
-    message: 'You can only put any Element',
-  },
-
   defaultChildren: [
     {
       '@type': '@builder.io/sdk:Element',
