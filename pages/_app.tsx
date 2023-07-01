@@ -1483,8 +1483,6 @@ Builder.registerComponent(withChildren(MuiRadioGroup), {
     {
       name: 'name',
       type: 'string',
-      required: true,
-      defaultValue: 'radio-group',
     },
     {
       name: 'color',
@@ -1537,7 +1535,15 @@ Builder.registerComponent(withChildren(MuiRadioGroup), {
   defaultChildren: [
     {
       '@type': '@builder.io/sdk:Element',
-      component: { name: 'Radio', options: { text: 'RadioButton1', type: 'outlined' } },
+      component: { name: 'Radio' },
+    },
+    {
+      '@type': '@builder.io/sdk:Element',
+      component: { name: 'Radio' },
+    },
+    {
+      '@type': '@builder.io/sdk:Element',
+      component: { name: 'Radio' },
     },
   ],
 });
