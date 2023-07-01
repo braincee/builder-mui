@@ -595,6 +595,8 @@ Builder.registerComponent(MuiTextarea, {
 
 Builder.registerComponent(withChildren(MuiSelect), {
   name: 'Select',
+  noWrap: true,
+  canHaveChildren: false,
   inputs: [
     {
       name: 'type',
