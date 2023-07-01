@@ -1181,6 +1181,14 @@ Builder.registerComponent(withChildren(MuiSheet), {
 
 Builder.registerComponent(withChildren(MuiChipDelete), {
   name: 'ChipDelete',
+  noWrap: true,
+  canHaveChildren: true,
+  childRequirements: {
+    message: 'You can only put Icon',
+    query: {
+      'component.name': { $in: ['Icon'] },
+    },
+  },
   inputs: [
     {
       name: 'disabled',
@@ -1202,12 +1210,6 @@ Builder.registerComponent(withChildren(MuiChipDelete), {
       type: 'string',
     },
   ],
-  childRequirements: {
-    message: 'You can only put Icon',
-    query: {
-      'component.name': { $in: ['Icon'] },
-    },
-  },
 
   defaultChildren: [
     {
