@@ -836,6 +836,8 @@ Builder.registerComponent(MuiLinearProgress, {
 
 Builder.registerComponent(withChildren(MuiAlert), {
   name: 'Alert',
+  noWrap: true,
+  canHaveChildren: true,
   inputs: [
     {
       name: 'role',
