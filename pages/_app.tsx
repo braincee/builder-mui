@@ -1599,11 +1599,16 @@ Builder.registerComponent(withChildren(MuiAvatar), {
   ],
 })
 
-
 Builder.registerComponent(withChildren(MuiAvatarGroup), {
   name: 'AvatarGroup',
   noWrap: true,
   canHaveChildren: true,
+  childRequirements: {
+    message: 'You can only put Avatars',
+    query: {
+      'component.name': { $in: ['Avatar'] },
+    },
+  },
   inputs: [
     {
       name: 'alt',
@@ -1625,19 +1630,22 @@ Builder.registerComponent(withChildren(MuiAvatarGroup), {
       enum: ['sm', 'md', 'lg']
      },
   ],
-  childRequirements: {
-    message: 'You can only put Avatars',
-    query: {
-      'component.name': { $in: ['Avatar'] },
-    },
-  },
   defaultChildren: [
     {
       '@type': '@builder.io/sdk:Element',
       component: { name: 'Avatar', options: { text: 'Avatar 1',} },
     },
+    {
+      '@type': '@builder.io/sdk:Element',
+      component: { name: 'Avatar', options: { text: 'Avatar 2',} },
+    },
+    {
+      '@type': '@builder.io/sdk:Element',
+      component: { name: 'Avatar', options: { text: 'Avatar 3',} },
+    },
   ],
 })
+
 
 Builder.registerComponent(withChildren(MuiSvgIcon), {
   name: 'SvgIcon',
