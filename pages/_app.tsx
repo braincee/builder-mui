@@ -878,6 +878,12 @@ Builder.registerComponent(withChildren(MuiLink), {
   name: 'Link',
   noWrap: true,
   canHaveChildren: true,
+  childRequirements: {
+    message: 'You can only put Text',
+    query: {
+      'component.name': { $in: ['Link'] },
+    },
+  },
   inputs: [
     {
       name: 'underline',
@@ -920,22 +926,24 @@ Builder.registerComponent(withChildren(MuiLink), {
       type: 'string',
     },
   ],
-  childRequirements: {
-    message: 'You can only put Text',
-    query: {
-      'component.name': { $in: ['Text'] },
-    },
-  },
   defaultChildren: [
     {
       '@type': '@builder.io/sdk:Element',
-      component: { name: 'Text', options: { text: 'Value' } },
+      component: { name: 'Link' },
     },
   ],
 });
 
 Builder.registerComponent(withChildren(MuiTypography), {
   name: 'Typography',
+  noWrap: true,
+  canHaveChildren: true,
+  childRequirements: {
+    message: 'You can only put Text',
+    query: {
+      'component.name': { $in: ['Typography'] },
+    },
+  },
   inputs: [
     {
       name: 'gutterBottom',
@@ -972,17 +980,10 @@ Builder.registerComponent(withChildren(MuiTypography), {
       type: 'string',
     },
   ],
-  childRequirements: {
-    message: 'You can only put Text',
-    query: {
-      'component.name': { $in: ['Text'] },
-    },
-  },
-
   defaultChildren: [
     {
       '@type': '@builder.io/sdk:Element',
-      component: { name: 'Text', options: { text: 'Text' } },
+      component: { name: 'Typography' },
     },
   ],
 });
