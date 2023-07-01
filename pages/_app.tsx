@@ -542,6 +542,7 @@ Builder.registerComponent(MuiSwitch, {
 Builder.registerComponent(MuiTextarea, {
   name: 'Textarea',
   noWrap: true,
+  canHaveChildren: false,
   inputs: [
     {
       name: 'type',
