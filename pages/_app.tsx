@@ -9,10 +9,10 @@ import { Button,
         Input, 
         Radio, 
         Slider, 
-        // Switch, 
-        // Textarea, 
-        // Select, 
-        // ButtonGroup, 
+        Switch, 
+        Textarea, 
+        Select, 
+        ButtonGroup, 
         // CircularProgress, 
         // LinearProgress,
         // Alert,
@@ -100,10 +100,10 @@ const MuiCheckbox = buildify(Checkbox);
 const MuiInput = buildify(Input);
 const MuiRadio = buildify(Radio);
 const MuiSlider = buildify(Slider);
-// const MuiSwitch = buildify(Switch);
-// const MuiTextarea = buildify(Textarea);
-// const MuiSelect = buildify(Select);
-// const MuiButtonGroup = buildify(ButtonGroup);
+const MuiSwitch = buildify(Switch);
+const MuiTextarea = buildify(Textarea);
+const MuiSelect = buildify(Select);
+const MuiButtonGroup = buildify(ButtonGroup);
 // const MuiCircularProgress = buildify(CircularProgress);
 // const MuiLinearProgress = buildify(LinearProgress);
 // const MuiAlert = buildify(Alert);
@@ -482,241 +482,248 @@ Builder.registerComponent(MuiSlider, {
   ],
 });
 
-// Builder.registerComponent(MuiSwitch, {
-//   name: 'Switch',
-//   noWrap: true,
-//   inputs: [
-//     {
-//       name: 'type',
-//       type: 'text',
-//       defaultValue: 'text',
-//     },
-//     {
-//       name: 'variant',
-//       type: 'text',
-//       enum: ['solid', 'soft', 'outlined', 'plain']
-//     },
-//     {
-//       name: 'size',
-//       type: 'text',
-//       enum: ['sm', 'md', 'lg']
-//     },
-//     {
-//       name: 'color',
-//       type: 'text',
-//       enum: ['primary', 'neutral', 'danger', 'success', 'warning', 'info']
-//     },
-//     {
-//       name: 'checked',
-//       type: 'boolean',
-//     },
-//     {
-//       name: 'defaultChecked',
-//       type: 'boolean',
-//     },
-//     {
-//       name: 'disabled',
-//       type: 'boolean',
-//     },
-//     {
-//       name: 'readOnly',
-//       type: 'boolean',
-//     },
-//     {
-//       name: 'required',
-//       type: 'boolean',
-//     },
-//   ],
-// });
+Builder.registerComponent(MuiSwitch, {
+  name: 'Switch',
+  noWrap: true,
+  inputs: [
+    {
+      name: 'type',
+      type: 'text',
+      defaultValue: 'text',
+    },
+    {
+      name: 'variant',
+      type: 'text',
+      enum: ['solid', 'soft', 'outlined', 'plain']
+    },
+    {
+      name: 'size',
+      type: 'text',
+      enum: ['sm', 'md', 'lg']
+    },
+    {
+      name: 'color',
+      type: 'text',
+      enum: ['primary', 'neutral', 'danger', 'success', 'warning', 'info']
+    },
+    {
+      name: 'checked',
+      type: 'boolean',
+      defaultValue: 'false'
+    },
+    {
+      name: 'defaultChecked',
+      type: 'boolean',
+    },
+    {
+      name: 'disabled',
+      type: 'boolean',
+    },
+    {
+      name: 'readOnly',
+      type: 'boolean',
+    },
+    {
+      name: 'required',
+      type: 'boolean',
+    },
+    {
+      name: 'component',
+      type: 'string',
+    }
+  ],
+});
 
-// Builder.registerComponent(MuiTextarea, {
-//   name: 'Textarea',
-//   noWrap: true,
-//   inputs: [
-//     {
-//       name: 'type',
-//       type: 'text',
-//     },
-//     {
-//       name: 'placeholder',
-//       type: 'text',
-//     },
-//     {
-//       name: 'variant',
-//       type: 'text',
-//       enum: ['solid', 'soft', 'outlined', 'plain']
-//     },
-//     {
-//       name: 'size',
-//       type: 'text',
-//       enum: ['sm', 'md', 'lg'],
-//     },
-//     {
-//       name: 'color',
-//       type: 'text',
-//       enum: ['primary', 'neutral', 'danger', 'success', 'warning', 'info'],
-//     },
-//     {
-//       name: 'required',
-//       type: 'boolean',
-//       defaultValue: "false",
-//     },
-//     {
-//       name: 'disabled',
-//       type: 'boolean',
-//       defaultValue: "false",
-//     },
-//     {
-//       name: 'error',
-//       type: 'boolean',
-//       defaultValue: "false",
-//     },
-//     {
-//       name: 'minRows',
-//       type: 'number',
-//     },
-//     {
-//       name: 'maxRows',
-//       type: 'number',
-//     },
-//   ],
-// });
+Builder.registerComponent(MuiTextarea, {
+  name: 'Textarea',
+  noWrap: true,
+  inputs: [
+    {
+      name: 'type',
+      type: 'text',
+    },
+    {
+      name: 'placeholder',
+      type: 'text',
+    },
+    {
+      name: 'variant',
+      type: 'text',
+      enum: ['solid', 'soft', 'outlined', 'plain']
+    },
+    {
+      name: 'size',
+      type: 'text',
+      enum: ['sm', 'md', 'lg'],
+    },
+    {
+      name: 'color',
+      type: 'text',
+      enum: ['primary', 'neutral', 'danger', 'success', 'warning', 'info'],
+    },
+    {
+      name: 'required',
+      type: 'boolean',
+      defaultValue: "false",
+    },
+    {
+      name: 'disabled',
+      type: 'boolean',
+      defaultValue: "false",
+    },
+    {
+      name: 'error',
+      type: 'boolean',
+      defaultValue: "false",
+    },
+    {
+      name: 'minRows',
+      type: 'number',
+    },
+    {
+      name: 'maxRows',
+      type: 'number',
+    },
+  ],
+});
 
-// Builder.registerComponent(withChildren(MuiSelect), {
-//   name: 'Select',
-//   inputs: [
-//     {
-//       name: 'type',
-//       type: 'text'
-//     },
-//     {
-//       name: 'placeholder',
-//       type: 'string',
-//     },
-//     {
-//       name: 'name',
-//       type: 'string',
-//     },
-//     {
-//       name: 'variant',
-//       type: 'text',
-//       enum: ['solid', 'soft', 'outlined', 'plain']
-//     },
-//     {
-//       name: 'indicator',
-//       type: 'string'
-//     },
-//     {
-//       name: 'autoFocus',
-//       type: 'boolean',
-//     },
-//     {
-//       name: 'defaultListboxOpen',
-//       type: 'boolean',
-//     },
-//     {
-//       name: 'defaultValue',
-//       type: 'text',
-//     },
-//     {
-//       name: 'disabled',
-//       type: 'boolean',
-//     },
-//     {
-//       name: 'listboxId',
-//       type: 'string',
-//     },
-//     {
-//       name: 'listboxOpen',
-//       type: 'bool',
-//     },
-//     {
-//       name: 'value',
-//       type: 'text',
-//     },
-//     {
-//       name: 'size',
-//       type: 'text',
-//       enum: ['sm', 'md', 'lg'],
-//     },
-//     {
-//       name: 'color',
-//       type: 'text',
-//       enum: ['primary', 'neutral', 'danger', 'success', 'warning', 'info'],
-//     },
-//   ],
-//   childRequirements: {
-//     message: 'You can only put Options',
-//     query: {
-//       'component.name': { $in: ['Option'] },
-//     },
-//   },
+Builder.registerComponent(withChildren(MuiSelect), {
+  name: 'Select',
+  inputs: [
+    {
+      name: 'type',
+      type: 'text'
+    },
+    {
+      name: 'placeholder',
+      type: 'string',
+    },
+    {
+      name: 'name',
+      type: 'string',
+    },
+    {
+      name: 'variant',
+      type: 'text',
+      enum: ['solid', 'soft', 'outlined', 'plain']
+    },
+    {
+      name: 'indicator',
+      type: 'string'
+    },
+    {
+      name: 'autoFocus',
+      type: 'boolean',
+    },
+    {
+      name: 'defaultListboxOpen',
+      type: 'boolean',
+    },
+    {
+      name: 'defaultValue',
+      type: 'text',
+    },
+    {
+      name: 'disabled',
+      type: 'boolean',
+    },
+    {
+      name: 'listboxId',
+      type: 'string',
+    },
+    {
+      name: 'listboxOpen',
+      type: 'bool',
+    },
+    {
+      name: 'value',
+      type: 'text',
+    },
+    {
+      name: 'size',
+      type: 'text',
+      enum: ['sm', 'md', 'lg'],
+    },
+    {
+      name: 'color',
+      type: 'text',
+      enum: ['primary', 'neutral', 'danger', 'success', 'warning', 'info'],
+    },
+  ],
+  childRequirements: {
+    message: 'You can only put Options',
+    query: {
+      'component.name': { $in: ['Option'] },
+    },
+  },
 
-//   defaultChildren: [
-//     {
-//       '@type': '@builder.io/sdk:Element',
-//       component: { name: 'Option', options: { text: 'Option 1' } },
-//     },
-//   ],
-// });
+  defaultChildren: [
+    {
+      '@type': '@builder.io/sdk:Element',
+      component: { name: 'Option', options: { text: 'Option 1' } },
+    },
+  ],
+});
 
-// Builder.registerComponent(withChildren(MuiButtonGroup), {
-//   name: 'ButtonGroup',
-//   inputs: [
-//     {
-//       name: 'type',
-//       type: 'text'
-//     },
-//     {
-//       name: 'aria-label',
-//       type: 'string'
-//     },
-//     {
-//       name: 'variant',
-//       type: 'text',
-//       enum: ['outlined', 'soft', 'solid', 'plain']
-//     },
-//     {
-//       name: 'indicator',
-//       type: 'string'
-//     },
-//     {
-//       name: 'size',
-//       type: 'text',
-//       enum: ['sm', 'md', 'lg']
-//     },
-//     {
-//       name: 'disabled',
-//       type: 'boolean',
-//       defaultValue: 'false',
-//     },
-//     {
-//       name: 'spacing',
-//       type: 'text',
-//     },
-//     {
-//       name: 'orientation',
-//       type: 'text',
-//     },
-//     {
-//       name: 'buttonFlex',
-//       type: 'string',
-//     },   
-//   ],
-//   childRequirements: {
-//     message: 'You can only put Buttons',
-//     query: {
-//       'component.name': { $in: ['Button'] },
-//     },
-//   },
+Builder.registerComponent(withChildren(MuiButtonGroup), {
+  name: 'ButtonGroup',
+  noWrap: true,
+  canHaveChildren: true,
+  inputs: [
+    {
+      name: 'type',
+      type: 'text'
+    },
+    {
+      name: 'aria-label',
+      type: 'string'
+    },
+    {
+      name: 'variant',
+      type: 'text',
+      enum: ['outlined', 'soft', 'solid', 'plain']
+    },
+    {
+      name: 'indicator',
+      type: 'string'
+    },
+    {
+      name: 'size',
+      type: 'text',
+      enum: ['sm', 'md', 'lg']
+    },
+    {
+      name: 'disabled',
+      type: 'boolean',
+      defaultValue: 'false',
+    },
+    {
+      name: 'spacing',
+      type: 'text',
+    },
+    {
+      name: 'orientation',
+      type: 'text',
+    },
+    {
+      name: 'buttonFlex',
+      type: 'string',
+    },   
+  ],
+  childRequirements: {
+    message: 'You can only put Buttons',
+    query: {
+      'component.name': { $in: ['Button'] },
+    },
+  },
 
-//   defaultChildren: [
-//     {
-//       '@type': '@builder.io/sdk:Element',
-//       component: { name: 'Button', options: { text: 'Button 1', type: 'outlined' } },
-//     },
-//   ],
-// });
+  defaultChildren: [
+    {
+      '@type': '@builder.io/sdk:Element',
+      component: { name: 'Button', options: { text: 'Button 1', type: 'outlined' } },
+    },
+  ],
+});
 
 // Builder.registerComponent(withChildren(MuiCircularProgress), {
 //   name: 'CircularProgress',
