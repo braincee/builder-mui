@@ -187,8 +187,6 @@ Builder.registerComponent(withChildren(MuiButton), {
 
 Builder.registerComponent(MuiCheckbox, {
   name: 'Checkbox',
-  noWrap: true,
-  canHaveChildren: false,
   inputs: [
     {
       name: 'name',
@@ -258,8 +256,6 @@ Builder.registerComponent(MuiCheckbox, {
 
 Builder.registerComponent(MuiInput, {
   name: 'Input',
-  noWrap: true,
-  canHaveChildren: false,
   inputs: [
     {
       name: 'type',
@@ -305,22 +301,33 @@ Builder.registerComponent(MuiInput, {
   ],
 });
 
-Builder.registerComponent(MuiRadio, {
+Builder.registerComponent(withChildren(MuiRadio), {
   name: 'Radio',
-  noWrap: true,
-  canHaveChildren: false,
+  childRequirements: {
+    message: 'You can only put Radio',
+    query: {
+      'component.name': { $in: ['Radio'] },
+    },
+  },
+
   inputs: [
+    {
+      name: 'name',
+      type: 'string',
+    },
     {
       name: 'checked',
       type: 'boolean',
     },
     {
-      name: 'value',
-      type: 'string',
+      name: 'color',
+      type: 'text',
+      enum: ['danger', 'info', 'neutral', 'primary', 'success', 'warning']
     },
     {
-      name: 'name',
-      type: 'string',
+      name: 'size',
+      type: 'text',
+      enum: ['sm', 'md', 'lg']
     },
     {
       name: 'className',
@@ -329,17 +336,20 @@ Builder.registerComponent(MuiRadio, {
     {
       name: 'defaultChecked',
       type: 'boolean',
-      defaultValue: 'false',
     },
     {
-      name: 'disabled',
-      type: 'boolean',
-      defaultValue: 'false',
+      name: 'value',
+      type: 'string',
     },
     {
       name: 'disableIcon',
       type: 'boolean',
-      defaultValue: 'false',
+      defaultValue: false,
+    },
+    {
+      name: 'variant',
+      type: 'text',
+      enum: ['solid', 'soft', 'outlined', 'plain', 'outlined']
     },
     {
       name: 'overlay',
@@ -349,45 +359,36 @@ Builder.registerComponent(MuiRadio, {
     {
       name: 'readOnly',
       type: 'boolean',
-      defaultValue: 'false',
     },
     {
       name: 'required',
       type: 'boolean',
+    },
+    {
+      name: 'disabled',
+      type: 'string',
       defaultValue: 'false',
-    },
-    {
-      name: 'variant',
-      type: 'text',
-      enum: ['solid', 'soft', 'outlined', 'plain'],
-    },
-    {
-      name: 'size',
-      type: 'text',
-      enum: ['sm', 'md', 'lg'],
-      defaultValue: 'sm',
-    },
-    {
-      name: 'color',
-      type: 'text',
-      enum: ['primary', 'neutral', 'danger', 'success', 'warning', 'info'],
     },
     {
       name: 'component',
       type: 'string',
+    }
+  ],
+
+  defaultChildren: [
+    {
+      '@type': '@builder.io/sdk:Element',
+      component: { name: 'Radio' },
     },
   ],
 });
 
 Builder.registerComponent(MuiSlider, {
   name: 'Slider',
-  noWrap: true,
-  canHaveChildren: false,
   inputs: [
     {
       name: 'type',
       type: 'slider',
-      defaultValue: 'text',
     },
     {
       name: 'name',
@@ -408,22 +409,14 @@ Builder.registerComponent(MuiSlider, {
     {
       name: 'disabled',
       type: 'boolean',
-      defaultValue: 'false',
     },
     {
       name: 'disableSwap',
       type: 'boolean',
-      defaultValue: 'false',
     },
     {
       name: 'isRtl',
       type: 'boolean',
-      defaultValue: 'false',
-    },
-    {
-      name: 'isRtl',
-      type: 'boolean',
-      defaultValue: 'false',
     },
     {
       name: 'max',
@@ -488,8 +481,6 @@ Builder.registerComponent(MuiSlider, {
 
 Builder.registerComponent(MuiSwitch, {
   name: 'Switch',
-  noWrap: true,
-  canHaveChildren: false,
   inputs: [
     {
       name: 'type',
@@ -541,8 +532,6 @@ Builder.registerComponent(MuiSwitch, {
 
 Builder.registerComponent(MuiTextarea, {
   name: 'Textarea',
-  noWrap: true,
-  canHaveChildren: false,
   inputs: [
     {
       name: 'type',
@@ -596,7 +585,7 @@ Builder.registerComponent(MuiTextarea, {
 Builder.registerComponent(withChildren(MuiSelect), {
   name: 'Select',
   noWrap: true,
-  canHaveChildren: false,
+  canHaveChildren: true,
   childRequirements: {
     message: 'You can only put Options',
     query: {
@@ -1475,7 +1464,7 @@ Builder.registerComponent(withChildren(MuiRadioGroup), {
   childRequirements: {
     message: 'You can only put Radio',
     query: {
-      'component.name': { $in: ['Radio'] },
+      'component.name': { $in: ['RadioGroup'] },
     },
   },
 
@@ -1498,6 +1487,7 @@ Builder.registerComponent(withChildren(MuiRadioGroup), {
       name: 'orientation',
       type: 'text',
       enum: ['horizontal', 'vertical'],
+      defaultValue: 'horizontal',
     },
     {
       name: 'className',
@@ -1535,15 +1525,15 @@ Builder.registerComponent(withChildren(MuiRadioGroup), {
   defaultChildren: [
     {
       '@type': '@builder.io/sdk:Element',
-      component: { name: 'Radio' },
+      component: { name: 'RadioGroup' },
     },
     {
       '@type': '@builder.io/sdk:Element',
-      component: { name: 'Radio' },
+      component: { name: 'RadioGroup' },
     },
     {
       '@type': '@builder.io/sdk:Element',
-      component: { name: 'Radio' },
+      component: { name: 'RadioGroup' },
     },
   ],
 });
