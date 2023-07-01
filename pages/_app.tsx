@@ -306,16 +306,8 @@ Builder.registerComponent(MuiInput, {
 Builder.registerComponent(MuiRadio, {
   name: 'Radio',
   noWrap: true,
+  canHaveChildren: false,
   inputs: [
-    {
-      name: 'type',
-      type: 'text',
-      defaultValue: 'text',
-    },
-    {
-      name: 'placeholder',
-      type: 'string',
-    },
     {
       name: 'checked',
       type: 'boolean',
@@ -335,10 +327,12 @@ Builder.registerComponent(MuiRadio, {
     {
       name: 'defaultChecked',
       type: 'boolean',
+      defaultValue: 'false',
     },
     {
       name: 'disabled',
       type: 'boolean',
+      defaultValue: 'false',
     },
     {
       name: 'disableIcon',
@@ -353,10 +347,12 @@ Builder.registerComponent(MuiRadio, {
     {
       name: 'readOnly',
       type: 'boolean',
+      defaultValue: 'false',
     },
     {
       name: 'required',
       type: 'boolean',
+      defaultValue: 'false',
     },
     {
       name: 'variant',
@@ -367,12 +363,17 @@ Builder.registerComponent(MuiRadio, {
       name: 'size',
       type: 'text',
       enum: ['sm', 'md', 'lg'],
+      defaultValue: 'sm',
     },
     {
       name: 'color',
       type: 'text',
       enum: ['primary', 'neutral', 'danger', 'success', 'warning', 'info'],
-    },   
+    },
+    {
+      name: 'component',
+      type: 'string',
+    },
   ],
 });
 
