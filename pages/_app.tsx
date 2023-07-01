@@ -1221,6 +1221,11 @@ Builder.registerComponent(withChildren(MuiChipDelete), {
 
 Builder.registerComponent(withChildren(MuiStack), {
   name: 'Stack',
+  noWrap: true,
+  canHaveChildren: true,
+  childRequirements: {
+    message: 'You can only put any Element',
+  },
   inputs: [
     {
       name: 'useFlexGap',
@@ -1241,9 +1246,6 @@ Builder.registerComponent(withChildren(MuiStack), {
       type: 'string',
     },
   ],
-  childRequirements: {
-    message: 'You can only put any Element',
-  },
 
   defaultChildren: [
     {
