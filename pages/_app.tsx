@@ -1781,6 +1781,8 @@ Builder.registerComponent(withChildren(MuiBadge), {
 
 Builder.registerComponent(withChildren(MuiChip), {
   name: 'Chip',
+  noWrap: true,
+  canHaveChildren: true,
   inputs: [
     {
       name: 'disabled',
