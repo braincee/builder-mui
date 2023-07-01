@@ -489,6 +489,7 @@ Builder.registerComponent(MuiSlider, {
 Builder.registerComponent(MuiSwitch, {
   name: 'Switch',
   noWrap: true,
+  canHaveChildren: false,
   inputs: [
     {
       name: 'type',
