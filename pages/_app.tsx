@@ -382,6 +382,7 @@ Builder.registerComponent(MuiRadio, {
 Builder.registerComponent(MuiSlider, {
   name: 'Slider',
   noWrap: true,
+  canHaveChildren: false,
   inputs: [
     {
       name: 'type',
