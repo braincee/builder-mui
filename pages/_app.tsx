@@ -597,6 +597,12 @@ Builder.registerComponent(withChildren(MuiSelect), {
   name: 'Select',
   noWrap: true,
   canHaveChildren: false,
+  childRequirements: {
+    message: 'You can only put Options',
+    query: {
+      'component.name': { $in: ['Option'] },
+    },
+  },
   inputs: [
     {
       name: 'type',
@@ -658,17 +664,18 @@ Builder.registerComponent(withChildren(MuiSelect), {
       enum: ['primary', 'neutral', 'danger', 'success', 'warning', 'info'],
     },
   ],
-  childRequirements: {
-    message: 'You can only put Options',
-    query: {
-      'component.name': { $in: ['Option'] },
-    },
-  },
-
   defaultChildren: [
     {
       '@type': '@builder.io/sdk:Element',
       component: { name: 'Option', options: { text: 'Option 1' } },
+    },
+    {
+      '@type': '@builder.io/sdk:Element',
+      component: { name: 'Option', options: { text: 'Option 2' } },
+    },
+    {
+      '@type': '@builder.io/sdk:Element',
+      component: { name: 'Option', options: { text: 'Option 3' } },
     },
   ],
 });
@@ -677,6 +684,12 @@ Builder.registerComponent(withChildren(MuiButtonGroup), {
   name: 'ButtonGroup',
   noWrap: true,
   canHaveChildren: true,
+  childRequirements: {
+    message: 'You can only put Buttons',
+    query: {
+      'component.name': { $in: ['Button'] },
+    },
+  },
   inputs: [
     {
       name: 'type',
@@ -718,12 +731,6 @@ Builder.registerComponent(withChildren(MuiButtonGroup), {
       type: 'string',
     },
   ],
-  childRequirements: {
-    message: 'You can only put Buttons',
-    query: {
-      'component.name': { $in: ['Button'] },
-    },
-  },
   defaultChildren: [
     {
       '@type': '@builder.io/sdk:Element',
@@ -794,6 +801,7 @@ Builder.registerComponent(withChildren(MuiCircularProgress), {
 Builder.registerComponent(MuiLinearProgress, {
   name: 'LinearProgress',
   noWrap: true,
+  canHaveChildren: false,
   inputs: [
     {
       name: 'variant',
