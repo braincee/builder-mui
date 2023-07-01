@@ -187,6 +187,8 @@ Builder.registerComponent(withChildren(MuiButton), {
 
 Builder.registerComponent(MuiCheckbox, {
   name: 'Checkbox',
+  noWrap: true,
+  canHaveChildren: false,
   inputs: [
     {
       name: 'name',
@@ -733,9 +735,17 @@ Builder.registerComponent(withChildren(MuiButtonGroup), {
   ],
 });
 
-
 Builder.registerComponent(withChildren(MuiCircularProgress), {
   name: 'CircularProgress',
+  noWrap: true,
+  canHaveChildren: true,
+  childRequirements: {
+    message: 'You can only put Icons and Text',
+    query: {
+      'component.name': { $in: ['Icon'] },
+    },
+  },
+
   inputs: [
     {
       name: 'variant',
@@ -766,24 +776,15 @@ Builder.registerComponent(withChildren(MuiCircularProgress), {
       type: 'number',
     },
   ],
-  childRequirements: {
-    message: 'You can only put Icons and Text',
-    query: {
-      'component.name': { $in: ['Icon', 'Text'] },
-    },
-  },
 
   defaultChildren: [
     {
       '@type': '@builder.io/sdk:Element',
-      component: { name: 'Icon', options: { text: 'Icon' } },
-    },
-    {
-      '@type': '@builder.io/sdk:Element',
-      component: { name: 'Text', options: { text: 'Text' } },
+      component: { name: 'Icon' },
     },
   ],
 });
+
 
 Builder.registerComponent(MuiLinearProgress, {
   name: 'LinearProgress',
