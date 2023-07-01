@@ -132,21 +132,12 @@ const MuiChip = buildify(Chip);
 
 Builder.registerComponent(withChildren(MuiButton), {
   name: 'Button',
-
   noWrap: true,
   canHaveChildren: true, 
-  //! STEPHEN
-  //! https://www.builder.io/c/docs/register-components-options#child-requirements
-  //! Set the childRequirements property to an object with a message property to display a message when a user tries to add a child component that isn't supported.
-  //! For example, a ButtonGroup can only have Button children.
   childRequirements: {
     message: 'Only Text components are accepted.',
     component: 'Text',
   },
-  //! STEPHEN
-  //! Set this field for components that can only be placed inside a specific parent, not by themselves
-  //! https://www.builder.io/c/docs/register-components-options#requires-parent
-  // requiresParent: {},
   inputs: [
     {
       name: 'variant',
@@ -184,18 +175,6 @@ Builder.registerComponent(withChildren(MuiButton), {
       name: 'aria-label',
       type: 'string',
     },
-    
-    //! STEPHEN
-    //! List all the props that have NOT been added to the component
-    //! All props of a components are available in its API page
-    //! Do not list the `sx` prop. It is added automatically by the buildify function above.
-    //! EXAMPLE below
-    // Not added:
-    // action (func)
-    // component (elementType)
-    // endDecorator (node)
-    // slotProps (object)
-    // slots (object)
   ],
   defaultChildren: [
     { 
@@ -277,6 +256,7 @@ Builder.registerComponent(MuiCheckbox, {
 Builder.registerComponent(MuiInput, {
   name: 'Input',
   noWrap: true,
+  canHaveChildren: false,
   inputs: [
     {
       name: 'type',
@@ -546,8 +526,6 @@ Builder.registerComponent(MuiSwitch, {
       name: 'required',
       type: 'boolean',
     },
-    //! STEPHEN
-    //! For example, the Switch is not working because `checked` is missing.
   ],
 });
 
@@ -1341,10 +1319,10 @@ Builder.registerComponent(withChildren(MuiIconButton), {
   ],
 });
 
-Builder.registerComponent(withChildren(MuiFormControl), {
+Builder.registerComponent(MuiFormControl, {
   name: 'FormControl',
   noWrap: true,
-  canHaveChildren: true,
+  canHaveChildren: false,
   inputs: [
   {
     name: 'component',
@@ -1385,12 +1363,6 @@ Builder.registerComponent(withChildren(MuiFormControl), {
   childRequirements: {
     message: 'You can only put Form Inputs',
   },
-  defaultChildren: [
-    {
-      '@type': '@builder.io/sdk:Element',
-      component: { name: 'Input', options: { text: 'type here...'} },
-    },
-  ],
 });
 
 
@@ -1416,10 +1388,6 @@ Builder.registerComponent(withChildren(MuiFormHelperText), {
       component: { name: 'Text', options: { text: 'Add text'} },
     },
   ],
-  defaultStyles: {
-    marginTop: '8px',
-    color: '#f44336',
-  },
 });
 
 Builder.registerComponent(withChildren(MuiFormLabel), {
@@ -1449,10 +1417,6 @@ Builder.registerComponent(withChildren(MuiFormLabel), {
       component: { name: 'Text', options: { text: 'Add text'} },
     },
   ],
-  defaultStyles: {
-    marginBottom: '8px',
-    fontWeight: 'bold',
-  },
 });
 
 Builder.registerComponent(withChildren(MuiRadioGroup), {
@@ -1513,9 +1477,6 @@ Builder.registerComponent(withChildren(MuiRadioGroup), {
       defaultValue: 'false',
     },
   ],
-  defaultStyles: {
-    margin: '2px',
-  },
   childRequirements: {
     message: 'You can only put Radio',
     query: {
@@ -1802,9 +1763,3 @@ Builder.registerComponent(withChildren(MuiChip), {
 export default function MyApp({ Component, pageProps }: AppProps) {
   return <Component {...pageProps} />;
 }
-
-//! TODO
-//! 0. Some props are missing from the current components. I'm not referring to `node` type props, I'm referring to props that should have been present. Like `fullWidth` for Button.
-//! 1. See my comments above (tagged STEPHEN) and apply them to the components you've already built, where applicable
-
-//! DEADLINE: Satuday evening
