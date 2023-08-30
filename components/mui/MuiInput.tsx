@@ -7,7 +7,6 @@ import type { JSX } from 'react'
 
 function component(props: any): JSX.Element {
     const { children, endDecorator, startDecorator, ...rest } = props
-
     return (
         <Input
             {...rest}
