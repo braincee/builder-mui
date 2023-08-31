@@ -1,4 +1,4 @@
-import { Avatar } from '@mui/joy'
+import { AvatarGroup } from '@mui/joy'
 import { ComponentInfo } from '@builder.io/sdk-react'
 import * as React from 'react'
 import type { JSX } from 'react'
@@ -6,11 +6,11 @@ import type { JSX } from 'react'
 function component(props: any): JSX.Element {
     const { children, ...rest } = props
 
-    return <Avatar {...rest}>{children}</Avatar>
+    return <AvatarGroup {...rest}>{children}</AvatarGroup>
 }
 
 const config: ComponentInfo = {
-    name: 'Avatar',
+    name: 'AvatarGroup',
     noWrap: true,
     canHaveChildren: true,
     inputs: [
@@ -50,7 +50,12 @@ const config: ComponentInfo = {
     defaultChildren: [
         {
             '@type': '@builder.io/sdk:Element',
-            component: { name: 'Avatar' },
+            component: { name: 'AvatarGroup' },
         },
     ],
+}
+
+export default {
+    component,
+    ...config,
 }

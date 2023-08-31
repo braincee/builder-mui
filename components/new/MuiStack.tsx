@@ -10,7 +10,7 @@ function component(props: any): JSX.Element {
 }
 
 const config: ComponentInfo = {
-    name: 'Sheet',
+    name: 'Stack',
     noWrap: true,
     canHaveChildren: true,
     inputs: [

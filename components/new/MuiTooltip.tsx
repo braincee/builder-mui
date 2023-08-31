@@ -10,7 +10,7 @@ function component(props: any): JSX.Element {
 }
 
 const config: ComponentInfo = {
-    name: 'SvgIcon',
+    name: 'Tooltip',
     noWrap: true,
     canHaveChildren: true,
     inputs: [

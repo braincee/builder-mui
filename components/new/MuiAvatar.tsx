@@ -58,3 +58,8 @@ const config: ComponentInfo = {
         },
     ],
 }
+
+export default {
+    component,
+    ...config,
+}

@@ -1,60 +1,73 @@
-import { AspectRatio } from '@mui/joy'
-import { ComponentInfo } from '@builder.io/sdk-react'
+import { Alert } from '@mui/joy'
+import { Blocks, ComponentInfo } from '@builder.io/sdk-react'
 import * as React from 'react'
 import type { JSX } from 'react'
 
 function component(props: any): JSX.Element {
-    const { children, ...rest } = props
+    const { children, startDecorator, endDecorator, ...rest } = props
 
-    return <AspectRatio {...rest}>{children}</AspectRatio>
+    return (
+        <Alert
+            {...rest}
+            startDecorator={<Blocks blocks={startDecorator} />}
+            endDecorator={<Blocks blocks={endDecorator} />}
+        >
+            {children}
+        </Alert>
+    )
 }
 
 const config: ComponentInfo = {
-    name: 'AspectRatio',
+    name: 'Alert',
     noWrap: true,
     canHaveChildren: true,
     inputs: [
         {
             name: 'color',
             type: 'text',
-            enum: ['danger', 'info', 'neutral', 'primary', 'success', 'warning'],
+            enum: ['primary', 'neutral', 'danger', 'success', 'warning', 'info'],
+            defaultValue: 'neutral',
         },
         {
             name: 'component',
             type: 'string',
         },
         {
-            name: 'flex',
-            type: 'boolean',
-        },
-        {
-            name: 'maxHeight',
-            type: 'number',
-        },
-        {
-            name: 'minHeight',
-            type: 'number',
-        },
-        {
-            name: 'objectFit',
-            type: 'text',
-            enum: [
-                'contain',
-                'cover',
-                'fill',
-                'inherit',
-                'initial',
-                'none',
-                'revert-layer',
-                'revert',
-                'scale-down',
-                'unset',
+            name: 'endDecorator',
+            type: 'blocks',
+            hideFromUI: true,
+            helperText: 'This is an editable region.',
+            defaultValue: [
+                {
+                    '@type': '@builder.io/sdk:Element',
+                    component: {
+                        name: 'Icon',
+                        options: {
+                            name: 'Edit',
+                        },
+                    },
+                    responsiveStyles: {
+                        large: {
+                            // Styles for the editable section
+                        },
+                    },
+                },
             ],
         },
         {
-            name: 'ratio',
+            name: 'invertedColors',
+            type: 'boolean',
+            defaultValue: 'false',
+        },
+        {
+            name: 'role',
             type: 'string',
-            defaultValue: '16 / 9',
+            defaultValue: 'alert',
+        },
+        {
+            name: 'size',
+            type: 'text',
+            enum: ['sm', 'md', 'lg'],
         },
         {
             name: 'slotProps',
@@ -62,15 +75,37 @@ const config: ComponentInfo = {
             defaultValue: {},
         },
         {
+            name: 'startDecorator',
+            type: 'blocks',
+            hideFromUI: true,
+            helperText: 'This is an editable region.',
+            defaultValue: [
+                {
+                    '@type': '@builder.io/sdk:Element',
+                    component: {
+                        name: 'Icon',
+                        options: {
+                            name: 'Edit',
+                        },
+                    },
+                    responsiveStyles: {
+                        large: {
+                            // Styles for the editable section
+                        },
+                    },
+                },
+            ],
+        },
+        {
             name: 'variant',
             type: 'text',
-            enum: ['outlined', 'plain', 'soft', 'solid'],
+            enum: ['solid', 'soft', 'outlined', 'plain'],
         },
     ],
     defaultChildren: [
         {
             '@type': '@builder.io/sdk:Element',
-            component: { name: 'Text', options: { text: 'Aspect Ratio', type: 'outlined' } },
+            component: { name: 'Text', options: { text: 'Text' } },
         },
     ],
 }
