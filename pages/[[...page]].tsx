@@ -19,6 +19,8 @@ import MuiTable from '../components/mui/MuiTable'
 import MuiButton from '../components/mui/MuiButton'
 import MuiAlert from '../components/mui/MuiAlert'
 import MuiButtonGroup from '../components/mui/MuiButtonGroup'
+import MuiCheckbox from '../components/mui/MuiCheckbox'
+import MuiLink from '../components/mui/MuiLink'
 
 // this is where components are imported
 const CUSTOM_COMPONENTS = [
@@ -32,6 +34,8 @@ const CUSTOM_COMPONENTS = [
   MuiButton,
   MuiAlert,
   MuiButtonGroup,
+  MuiCheckbox,
+  MuiLink,
 ]
 
 export async function getStaticProps({
