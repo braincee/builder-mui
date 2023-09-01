@@ -3,10 +3,9 @@ import { ComponentInfo } from '@builder.io/sdk-react'
 import * as React from 'react'
 import type { JSX } from 'react'
 
-function component(props: any): JSX.Element {
-    const { children, ...rest } = props
+function component(props: any): JSX.Element 
 
-    return <Avatar {...rest}>{children}</Avatar>
+    return <Avatar {...props}/>
 }
 
 const config: ComponentInfo = {
