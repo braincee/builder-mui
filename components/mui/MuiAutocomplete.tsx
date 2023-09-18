@@ -1,46 +1,59 @@
+import { Autocomplete } from '@mui/joy'
 import { Blocks, ComponentInfo } from '@builder.io/sdk-react'
-import { Input } from '@mui/joy'
 import * as React from 'react'
 import type { JSX } from 'react'
-// import type { PropsWithBuilderData } from '@builder.io/sdk-react/dist/types/builder-props'
-// https://github.com/davedbase/builderio-type-extensions
 
 function component(props: any): JSX.Element {
-    const { children, endDecorator, startDecorator, ...rest } = props
+    const { children,startDecorator, endDecorator, ...rest } = props
 
     return (
-        <Input
-            {...rest}
-            startDecorator={
-                <Blocks
-                    blocks={startDecorator}
-                    parent={props.builderBlock && props.builderBlock.id}
-                    path={'component.options.startDecorator'}
-                />
-            }
-            endDecorator={
-                <Blocks
-                    blocks={endDecorator}
-                    parent={props.builderBlock && props.builderBlock.id}
-                    path={'component.options.endDecorator'}
-                />
-            }
-        >
-            {children}
-        </Input>
+		<Autocomplete
+		{...rest}
+		startDecorator={<Blocks blocks={startDecorator} />}
+		endDecorator={<Blocks blocks={endDecorator} />}
+	>
+		{children}
+	</Autocomplete>
     )
 }
 
 const config: ComponentInfo = {
-    name: 'Input',
-    canHaveChildren: false,
+    name: 'Autocomplete',
     noWrap: true,
+    canHaveChildren: true,
     inputs: [
+        {
+            name: 'aria-describedby',
+            type: 'string',
+        },
+        {
+            name: 'aria-label',
+            type: 'string',
+        },
+        {
+            name: 'aria-labelledby',
+            type: 'string',
+        },
+        {
+            name: 'autoFocus',
+            type: 'boolean',
+        },
+        {
+            name: 'clearText',
+            type: 'string',
+        },
+        {
+            name: 'closeText',
+            type: 'string',
+        },
         {
             name: 'color',
             type: 'text',
-            enum: ['primary', 'neutral', 'danger', 'success', 'warning', 'info'],
-            defaultValue: 'neutral',
+            enum: ['danger', 'info', 'neutral', 'primary', 'success', 'warning'],
+        },
+        {
+            name: 'disableClearable',
+            type: 'boolean',
         },
         {
             name: 'disabled',
@@ -50,7 +63,6 @@ const config: ComponentInfo = {
             name: 'endDecorator',
             type: 'blocks',
             hideFromUI: true,
-            code: true,
             helperText: 'This is an editable region.',
             defaultValue: [
                 {
@@ -69,15 +81,64 @@ const config: ComponentInfo = {
                 },
             ],
         },
-        {
-            name: 'error',
-            type: 'boolean',
-        },
-        {
-            name: 'fullWidth',
-            type: 'boolean',
-        },
-        {
+		{
+			name: 'error',
+			type: 'boolean',
+		},
+		{
+			name: 'forcePopupIcon',
+			type: 'string',
+		},
+		{
+			name: 'freeSolo',
+			type: 'boolean',
+		},
+		{
+			name: 'id',
+			type: 'string',
+		},
+		{
+			name: 'inputValue',
+			type: 'string',
+		},
+		{
+			name: 'limitTags',
+			type: 'number',
+			defaultValue: -1,
+		},
+		{
+			name: 'loading',
+			type: 'boolean',
+		},
+		{
+			name: 'multiple',
+			type: 'boolean',
+		},
+		{
+			name: 'name',
+			type: 'string',
+		},
+		{
+			name: 'open',
+			type: 'boolean',
+		},
+		{
+			name: 'openText',
+			type: 'string',
+		},
+		{
+			name: 'placeholder',
+			type: 'string',
+		},
+		{
+			name: 'readOnly',
+			type: 'boolean',
+		},
+		{
+			name: 'required',
+			type: 'boolean',
+		},
+		{
             name: 'size',
             type: 'text',
             enum: ['sm', 'md', 'lg'],
@@ -87,7 +148,7 @@ const config: ComponentInfo = {
             type: 'object',
             defaultValue: {},
         },
-        {
+		{
             name: 'startDecorator',
             type: 'blocks',
             hideFromUI: true,
@@ -109,17 +170,24 @@ const config: ComponentInfo = {
                 },
             ],
         },
-        {
-            name: 'placeholder',
-            type: 'string',
+		{
+			name: 'type',
+			type: 'string',
+		},
+		{
+			name: 'value',
+			type: 'string',
+		},
+		{
+            name: 'variant',
+            type: 'text',
+            enum: ['outlined', 'plain', 'soft', 'solid'],
         },
+    ],
+	defaultChildren: [
         {
-            name: 'defaultValue',
-            type: 'string',
-        },
-        {
-            name: 'value',
-            type: 'number',
+            '@type': '@builder.io/sdk:Element',
+            component: { name: 'Autocomplete' },
         },
     ],
 }
@@ -128,3 +196,5 @@ export default {
     component,
     ...config,
 }
+
+

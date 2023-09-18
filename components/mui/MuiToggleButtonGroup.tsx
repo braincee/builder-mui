@@ -1,26 +1,26 @@
-import type { ComponentInfo } from '@builder.io/sdk-react'
-import { Option } from '@mui/joy'
+import { ToggleButtonGroup } from '@mui/joy'
+import { ComponentInfo } from '@builder.io/sdk-react'
+import * as React from 'react'
 import type { JSX } from 'react'
 
 function component(props: any): JSX.Element {
-    return <Option {...props} />
+
+    return <ToggleButtonGroup {...props}/>
 }
 
 const config: ComponentInfo = {
-    name: 'Option',
+    name: 'ToggleButtonGroup',
+    noWrap: true,
     canHaveChildren: true,
-    childRequirements: {
-        message: 'You can only put Text',
-        query: {
-            'component.name': { $in: ['Text'] },
-        },
-    },
     inputs: [
+		{
+			name: 'buttonFlex',
+			type: 'number',
+		},
         {
             name: 'color',
             type: 'text',
             enum: ['primary', 'neutral', 'danger', 'success', 'warning', 'info'],
-            defaultValue: 'neutral',
         },
         {
             name: 'component',
@@ -29,26 +29,43 @@ const config: ComponentInfo = {
         {
             name: 'disabled',
             type: 'boolean',
+            defaultValue: 'false',
         },
-        {
-            name: 'label',
-            type: 'string',
+		{
+            name: 'orientation',
+            type: 'text',
+            enum: ['horizontal', 'vertical'],
+            defaultValue: 'horizontal',
         },
-        {
+		{
+            name: 'size',
+            type: 'text',
+            enum: ['sm', 'md', 'lg'],
+        },
+		{
             name: 'slotProps',
             type: 'object',
             defaultValue: {},
         },
         {
+			name: 'spacing',
+			type: 'number',
+			defaultValue: 0,
+		},
+		{
+			name: 'value',
+			type: 'string',
+		},
+		{
             name: 'variant',
             type: 'text',
             enum: ['solid', 'soft', 'outlined', 'plain'],
         },
     ],
-    defaultChildren: [
+	defaultChildren: [
         {
             '@type': '@builder.io/sdk:Element',
-            component: { name: 'Text', options: { text: 'Option 1' } },
+            component: { name: 'ToggleButtonGroup' },
         },
     ],
 }

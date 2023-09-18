@@ -1,4 +1,3 @@
-//! Link needs to be wrapped in NextLink passhref
 import { Link } from '@mui/joy'
 import { Blocks, ComponentInfo } from '@builder.io/sdk-react'
 import * as React from 'react'
@@ -9,6 +8,7 @@ function component(props: any): JSX.Element {
 
   return (
     <Link
+     href='/' passHref
       {...rest}
       startDecorator={<Blocks blocks={startDecorator} />}
       endDecorator={<Blocks blocks={endDecorator} />}
@@ -122,12 +122,6 @@ const config: ComponentInfo = {
       name: 'variant',
       type: 'text',
       enum: ['solid', 'soft', 'outlined', 'plain'],
-    },
-  ],
-  defaultChildren: [
-    {
-      '@type': '@builder.io/sdk:Element',
-      component: { name: 'Text', options: { text: 'I am child text block!' } },
     },
   ],
 }

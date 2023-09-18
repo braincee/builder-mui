@@ -111,7 +111,7 @@ const config: ComponentInfo = {
     defaultChildren: [
         {
             '@type': '@builder.io/sdk:Element',
-            component: { name: 'Text', options: { text: 'I am child text block!' } },
+            component: { name: 'Text', options: { text: 'Button' } },
         },
     ],
 }

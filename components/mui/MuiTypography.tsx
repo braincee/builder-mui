@@ -8,8 +8,8 @@ function component(props: any): JSX.Element {
     return (
         <Typography
             {...rest}
-            startDecorator={<Blocks blocks={startDecorator}></Blocks>}
-            endDecorator={<Blocks blocks={endDecorator}></Blocks>}
+			startDecorator={<Blocks blocks={startDecorator} />}
+            endDecorator={<Blocks blocks={endDecorator} />}
         >
             {children}
         </Typography>

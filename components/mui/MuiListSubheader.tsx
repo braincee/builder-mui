@@ -1,43 +1,36 @@
-import type { ComponentInfo } from '@builder.io/sdk-react'
-import { Option } from '@mui/joy'
+import { ListSubheader } from '@mui/joy'
+import { ComponentInfo } from '@builder.io/sdk-react'
+import * as React from 'react'
 import type { JSX } from 'react'
 
 function component(props: any): JSX.Element {
-    return <Option {...props} />
+
+    return <ListSubheader {...props}/>
 }
 
 const config: ComponentInfo = {
-    name: 'Option',
+    name: 'ListSubheader',
+    noWrap: true,
     canHaveChildren: true,
-    childRequirements: {
-        message: 'You can only put Text',
-        query: {
-            'component.name': { $in: ['Text'] },
-        },
-    },
     inputs: [
         {
             name: 'color',
             type: 'text',
-            enum: ['primary', 'neutral', 'danger', 'success', 'warning', 'info'],
-            defaultValue: 'neutral',
+            enum: ['danger', 'info', 'neutral', 'primary', 'success', 'warning'],
         },
         {
-            name: 'component',
+            name: 'components',
             type: 'string',
         },
-        {
-            name: 'disabled',
-            type: 'boolean',
-        },
-        {
-            name: 'label',
-            type: 'string',
-        },
+
         {
             name: 'slotProps',
             type: 'object',
             defaultValue: {},
+        },
+        {
+            name: 'sticky',
+            type: 'boolean',
         },
         {
             name: 'variant',
@@ -48,7 +41,7 @@ const config: ComponentInfo = {
     defaultChildren: [
         {
             '@type': '@builder.io/sdk:Element',
-            component: { name: 'Text', options: { text: 'Option 1' } },
+            component: { name: 'ListSubheader' },
         },
     ],
 }

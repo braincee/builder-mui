@@ -4,9 +4,8 @@ import * as React from 'react'
 import type { JSX } from 'react'
 
 function component(props: any): JSX.Element {
-  const { children, ...rest } = props
 
-  return <ButtonGroup {...rest}>{children}</ButtonGroup>
+  return <ButtonGroup {...props}/>
 }
 
 const config: ComponentInfo = {
@@ -61,10 +60,6 @@ const config: ComponentInfo = {
     {
       '@type': '@builder.io/sdk:Element',
       component: { name: 'Button', options: { text: 'Button 1' } },
-    },
-    {
-      '@type': '@builder.io/sdk:Element',
-      component: { name: 'Button', options: { text: 'Button 2' } },
     },
   ],
 }
