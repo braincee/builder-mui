@@ -1,38 +1,31 @@
-import type { ComponentInfo } from '@builder.io/sdk-react'
-import { Option } from '@mui/joy'
+import { Sheet } from '@mui/joy'
+import { ComponentInfo } from '@builder.io/sdk-react'
+import * as React from 'react'
 import type { JSX } from 'react'
 
 function component(props: any): JSX.Element {
-    return <Option {...props} />
+
+    return <Sheet {...props}/>
 }
 
 const config: ComponentInfo = {
-    name: 'Option',
+    name: 'Sheet',
+    noWrap: true,
     canHaveChildren: true,
-    childRequirements: {
-        message: 'You can only put Text',
-        query: {
-            'component.name': { $in: ['Text'] },
-        },
-    },
     inputs: [
         {
             name: 'color',
             type: 'text',
             enum: ['primary', 'neutral', 'danger', 'success', 'warning', 'info'],
-            defaultValue: 'neutral',
         },
         {
             name: 'component',
             type: 'string',
         },
         {
-            name: 'disabled',
+            name: 'invertedColors',
             type: 'boolean',
-        },
-        {
-            name: 'label',
-            type: 'string',
+            defaultValue: 'false',
         },
         {
             name: 'slotProps',
@@ -48,7 +41,7 @@ const config: ComponentInfo = {
     defaultChildren: [
         {
             '@type': '@builder.io/sdk:Element',
-            component: { name: 'Text', options: { text: 'Option 1' } },
+            component: { name: 'Sheet', options: { text: 'Value' } },
         },
     ],
 }
@@ -57,5 +50,4 @@ export default {
     component,
     ...config,
 }
-
 

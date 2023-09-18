@@ -1,20 +1,17 @@
-import type { ComponentInfo } from '@builder.io/sdk-react'
-import { Option } from '@mui/joy'
+import { ModalClose } from '@mui/joy'
+import { ComponentInfo } from '@builder.io/sdk-react'
+import * as React from 'react'
 import type { JSX } from 'react'
 
 function component(props: any): JSX.Element {
-    return <Option {...props} />
+
+    return <ModalClose {...props}/>
 }
 
 const config: ComponentInfo = {
-    name: 'Option',
+    name: 'ModalClose',
+    noWrap: true,
     canHaveChildren: true,
-    childRequirements: {
-        message: 'You can only put Text',
-        query: {
-            'component.name': { $in: ['Text'] },
-        },
-    },
     inputs: [
         {
             name: 'color',
@@ -27,12 +24,9 @@ const config: ComponentInfo = {
             type: 'string',
         },
         {
-            name: 'disabled',
-            type: 'boolean',
-        },
-        {
-            name: 'label',
-            type: 'string',
+            name: 'size',
+            type: 'text',
+            enum: ['sm', 'md', 'lg'],
         },
         {
             name: 'slotProps',
@@ -48,7 +42,7 @@ const config: ComponentInfo = {
     defaultChildren: [
         {
             '@type': '@builder.io/sdk:Element',
-            component: { name: 'Text', options: { text: 'Option 1' } },
+            component: { name: 'ModalClose' },
         },
     ],
 }
@@ -57,5 +51,4 @@ export default {
     component,
     ...config,
 }
-
 

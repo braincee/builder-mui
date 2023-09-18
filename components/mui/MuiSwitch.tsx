@@ -1,34 +1,55 @@
-import { Input } from '@mui/joy'
+import { Switch } from '@mui/joy'
 import { Blocks, ComponentInfo } from '@builder.io/sdk-react'
 import * as React from 'react'
 import type { JSX } from 'react'
-// import type { PropsWithBuilderData } from '@builder.io/sdk-react/dist/types/builder-props'
-// https://github.com/davedbase/builderio-type-extensions
 
 function component(props: any): JSX.Element {
-    const { children, endDecorator, startDecorator, ...rest } = props
+    const { children, startDecorator, endDecorator, ...rest } = props
 
     return (
-        <Input
+        <Switch
             {...rest}
-            startDecorator={<Blocks blocks={startDecorator} />}
-            endDecorator={<Blocks blocks={endDecorator} />}
+            startDecorator={
+                <Blocks
+                    blocks={startDecorator}
+                    parent={props.builderBlock && props.builderBlock.id}
+                    path={'component.options.startDecorator'}
+                />
+            }
+            endDecorator={
+                <Blocks
+                    blocks={endDecorator}
+                    parent={props.builderBlock && props.builderBlock.id}
+                    path={'component.options.endDecorator'}
+                />
+            }
         >
             {children}
-        </Input>
+        </Switch>
     )
 }
 
 const config: ComponentInfo = {
-    name: 'Input',
-    canHaveChildren: false,
+    name: 'Switch',
     noWrap: true,
+    canHaveChildren: true,
     inputs: [
+        {
+            name: 'checked',
+            type: 'boolean',
+        },
         {
             name: 'color',
             type: 'text',
             enum: ['primary', 'neutral', 'danger', 'success', 'warning', 'info'],
-            defaultValue: 'neutral',
+        },
+        {
+            name: 'component',
+            type: 'string',
+        },
+        {
+            name: 'defaultChecked',
+            type: 'boolean',
         },
         {
             name: 'disabled',
@@ -57,11 +78,11 @@ const config: ComponentInfo = {
             ],
         },
         {
-            name: 'error',
+            name: 'readOnly',
             type: 'boolean',
         },
         {
-            name: 'fullWidth',
+            name: 'required',
             type: 'boolean',
         },
         {
@@ -97,16 +118,9 @@ const config: ComponentInfo = {
             ],
         },
         {
-            name: 'placeholder',
-            type: 'string',
-        },
-        {
-            name: 'defaultValue',
-            type: 'string',
-        },
-        {
-            name: 'value',
-            type: 'number',
+            name: 'variant',
+            type: 'text',
+            enum: ['solid', 'soft', 'outlined', 'plain'],
         },
     ],
 }

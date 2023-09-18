@@ -1,38 +1,43 @@
-import { Input } from '@mui/joy'
+import { Textarea } from '@mui/joy'
 import { Blocks, ComponentInfo } from '@builder.io/sdk-react'
 import * as React from 'react'
 import type { JSX } from 'react'
-// import type { PropsWithBuilderData } from '@builder.io/sdk-react/dist/types/builder-props'
-// https://github.com/davedbase/builderio-type-extensions
 
 function component(props: any): JSX.Element {
-    const { children, endDecorator, startDecorator, ...rest } = props
+    const { children, startDecorator, endDecorator, ...rest } = props
 
     return (
-        <Input
+        <Textarea
             {...rest}
-            startDecorator={<Blocks blocks={startDecorator} />}
-            endDecorator={<Blocks blocks={endDecorator} />}
+            startDecorator={
+                <Blocks
+                    blocks={startDecorator}
+                    parent={props.builderBlock && props.builderBlock.id}
+                    path={'component.options.startDecorator'}
+                />
+            }
+            endDecorator={
+                <Blocks
+                    blocks={endDecorator}
+                    parent={props.builderBlock && props.builderBlock.id}
+                    path={'component.options.endDecorator'}
+                />
+            }
         >
             {children}
-        </Input>
+        </Textarea>
     )
 }
 
 const config: ComponentInfo = {
-    name: 'Input',
-    canHaveChildren: false,
+    name: 'Textarea',
     noWrap: true,
+    canHaveChildren: true,
     inputs: [
         {
             name: 'color',
             type: 'text',
             enum: ['primary', 'neutral', 'danger', 'success', 'warning', 'info'],
-            defaultValue: 'neutral',
-        },
-        {
-            name: 'disabled',
-            type: 'boolean',
         },
         {
             name: 'endDecorator',
@@ -59,20 +64,20 @@ const config: ComponentInfo = {
         {
             name: 'error',
             type: 'boolean',
+            defaultValue: 'false',
         },
         {
-            name: 'fullWidth',
-            type: 'boolean',
+            name: 'maxRows',
+            type: 'number',
+        },
+        {
+            name: 'minRows',
+            type: 'number',
         },
         {
             name: 'size',
             type: 'text',
             enum: ['sm', 'md', 'lg'],
-        },
-        {
-            name: 'slotProps',
-            type: 'object',
-            defaultValue: {},
         },
         {
             name: 'startDecorator',
@@ -97,16 +102,9 @@ const config: ComponentInfo = {
             ],
         },
         {
-            name: 'placeholder',
-            type: 'string',
-        },
-        {
-            name: 'defaultValue',
-            type: 'string',
-        },
-        {
-            name: 'value',
-            type: 'number',
+            name: 'variant',
+            type: 'text',
+            enum: ['solid', 'soft', 'outlined', 'plain'],
         },
     ],
 }
@@ -115,4 +113,3 @@ export default {
     component,
     ...config,
 }
-

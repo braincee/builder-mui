@@ -1,34 +1,47 @@
-import { Input } from '@mui/joy'
+import { Button } from '@mui/joy'
 import { Blocks, ComponentInfo } from '@builder.io/sdk-react'
 import * as React from 'react'
 import type { JSX } from 'react'
-// import type { PropsWithBuilderData } from '@builder.io/sdk-react/dist/types/builder-props'
-// https://github.com/davedbase/builderio-type-extensions
 
 function component(props: any): JSX.Element {
-    const { children, endDecorator, startDecorator, ...rest } = props
+    const { children, startDecorator, endDecorator, ...rest } = props
 
     return (
-        <Input
+        <Button
             {...rest}
-            startDecorator={<Blocks blocks={startDecorator} />}
-            endDecorator={<Blocks blocks={endDecorator} />}
+            startDecorator={
+                <Blocks
+                    blocks={startDecorator}
+                    parent={props.builderBlock && props.builderBlock.id}
+                    path={'component.options.startDecorator'}
+                />
+            }
+            endDecorator={
+                <Blocks
+                    blocks={endDecorator}
+                    parent={props.builderBlock && props.builderBlock.id}
+                    path={'component.options.endDecorator'}
+                />
+            }
         >
             {children}
-        </Input>
+        </Button>
     )
 }
 
 const config: ComponentInfo = {
-    name: 'Input',
-    canHaveChildren: false,
+    name: 'Button',
     noWrap: true,
+    canHaveChildren: true,
     inputs: [
         {
             name: 'color',
             type: 'text',
             enum: ['primary', 'neutral', 'danger', 'success', 'warning', 'info'],
-            defaultValue: 'neutral',
+        },
+        {
+            name: 'component',
+            type: 'string',
         },
         {
             name: 'disabled',
@@ -57,24 +70,29 @@ const config: ComponentInfo = {
             ],
         },
         {
-            name: 'error',
+            name: 'fullWidth',
             type: 'boolean',
         },
         {
-            name: 'fullWidth',
+            name: 'loading',
             type: 'boolean',
+        },
+        {
+            name: 'loadingPosition',
+            type: 'text',
+            enum: ['center', 'start', 'end'],
         },
         {
             name: 'size',
             type: 'text',
             enum: ['sm', 'md', 'lg'],
         },
-        {
-            name: 'slotProps',
-            type: 'object',
-            defaultValue: {},
-        },
-        {
+		{
+			name: 'slotProps',
+			type: 'object',
+			defaultValue: {},
+		},
+		{
             name: 'startDecorator',
             type: 'blocks',
             hideFromUI: true,
@@ -97,16 +115,15 @@ const config: ComponentInfo = {
             ],
         },
         {
-            name: 'placeholder',
-            type: 'string',
+            name: 'variant',
+            type: 'text',
+            enum: ['solid', 'soft', 'outlined', 'plain'],
         },
+    ],
+    defaultChildren: [
         {
-            name: 'defaultValue',
-            type: 'string',
-        },
-        {
-            name: 'value',
-            type: 'number',
+            '@type': '@builder.io/sdk:Element',
+            component: { name: 'Text', options: { text: 'Button' } },
         },
     ],
 }
@@ -115,4 +132,3 @@ export default {
     component,
     ...config,
 }
-

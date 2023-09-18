@@ -1,54 +1,57 @@
-import type { ComponentInfo } from '@builder.io/sdk-react'
-import { Option } from '@mui/joy'
+import { LinearProgress } from '@mui/joy'
+import { ComponentInfo } from '@builder.io/sdk-react'
+import * as React from 'react'
 import type { JSX } from 'react'
 
 function component(props: any): JSX.Element {
-    return <Option {...props} />
+
+    return <LinearProgress {...props}/>
 }
 
+
 const config: ComponentInfo = {
-    name: 'Option',
+    name: 'LinearProgress',
+    noWrap: true,
     canHaveChildren: true,
-    childRequirements: {
-        message: 'You can only put Text',
-        query: {
-            'component.name': { $in: ['Text'] },
-        },
-    },
     inputs: [
         {
             name: 'color',
             type: 'text',
             enum: ['primary', 'neutral', 'danger', 'success', 'warning', 'info'],
-            defaultValue: 'neutral',
         },
         {
             name: 'component',
             type: 'string',
         },
         {
-            name: 'disabled',
+            name: 'determinate',
             type: 'boolean',
+            defaultValue: 'false',
         },
         {
-            name: 'label',
-            type: 'string',
+            name: 'size',
+            type: 'text',
+            enum: ['sm', 'md', 'lg'],
         },
         {
             name: 'slotProps',
             type: 'object',
             defaultValue: {},
         },
+
+        {
+            name: 'thickness',
+            type: 'number',
+        },
+
+        {
+            name: 'value',
+            type: 'number',
+        },
         {
             name: 'variant',
             type: 'text',
             enum: ['solid', 'soft', 'outlined', 'plain'],
-        },
-    ],
-    defaultChildren: [
-        {
-            '@type': '@builder.io/sdk:Element',
-            component: { name: 'Text', options: { text: 'Option 1' } },
         },
     ],
 }
@@ -57,5 +60,3 @@ export default {
     component,
     ...config,
 }
-
-

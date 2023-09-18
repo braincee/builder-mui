@@ -200,3 +200,4 @@ export default {
     component,
     ...config,
 }
+

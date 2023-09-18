@@ -1,38 +1,52 @@
-import { Input } from '@mui/joy'
+import { Chip } from '@mui/joy'
 import { Blocks, ComponentInfo } from '@builder.io/sdk-react'
 import * as React from 'react'
 import type { JSX } from 'react'
-// import type { PropsWithBuilderData } from '@builder.io/sdk-react/dist/types/builder-props'
-// https://github.com/davedbase/builderio-type-extensions
 
 function component(props: any): JSX.Element {
-    const { children, endDecorator, startDecorator, ...rest } = props
+    const { children, startDecorator, endDecorator, ...rest } = props
 
     return (
-        <Input
+        <Chip
             {...rest}
-            startDecorator={<Blocks blocks={startDecorator} />}
-            endDecorator={<Blocks blocks={endDecorator} />}
+            startDecorator={
+                <Blocks
+                    blocks={startDecorator}
+                    parent={props.builderBlock && props.builderBlock.id}
+                    path={'component.options.startDecorator'}
+                />
+            }
+            endDecorator={
+                <Blocks
+                    blocks={endDecorator}
+                    parent={props.builderBlock && props.builderBlock.id}
+                    path={'component.options.endDecorator'}
+                />
+            }
         >
             {children}
-        </Input>
+        </Chip>
     )
 }
 
 const config: ComponentInfo = {
-    name: 'Input',
-    canHaveChildren: false,
+    name: 'Chip',
     noWrap: true,
+    canHaveChildren: true,
     inputs: [
         {
             name: 'color',
             type: 'text',
             enum: ['primary', 'neutral', 'danger', 'success', 'warning', 'info'],
-            defaultValue: 'neutral',
+        },
+        {
+            name: 'component',
+            type: 'string',
         },
         {
             name: 'disabled',
             type: 'boolean',
+            defaultValue: 'false',
         },
         {
             name: 'endDecorator',
@@ -55,14 +69,6 @@ const config: ComponentInfo = {
                     },
                 },
             ],
-        },
-        {
-            name: 'error',
-            type: 'boolean',
-        },
-        {
-            name: 'fullWidth',
-            type: 'boolean',
         },
         {
             name: 'size',
@@ -97,22 +103,21 @@ const config: ComponentInfo = {
             ],
         },
         {
-            name: 'placeholder',
-            type: 'string',
+            name: 'variant',
+            type: 'text',
+            enum: ['solid', 'soft', 'outlined', 'plain'],
         },
+    ],
+    defaultChildren: [
         {
-            name: 'defaultValue',
-            type: 'string',
-        },
-        {
-            name: 'value',
-            type: 'number',
+            '@type': '@builder.io/sdk:Element',
+            component: { name: 'Text', options: { text: 'Value' } },
         },
     ],
 }
+
 
 export default {
     component,
     ...config,
 }
-

@@ -1,20 +1,17 @@
-import type { ComponentInfo } from '@builder.io/sdk-react'
-import { Option } from '@mui/joy'
+import { ModalDialog } from '@mui/joy'
+import { ComponentInfo } from '@builder.io/sdk-react'
+import * as React from 'react'
 import type { JSX } from 'react'
 
 function component(props: any): JSX.Element {
-    return <Option {...props} />
+
+    return <ModalDialog {...props}/>
 }
 
 const config: ComponentInfo = {
-    name: 'Option',
+    name: 'ModalDialog',
+    noWrap: true,
     canHaveChildren: true,
-    childRequirements: {
-        message: 'You can only put Text',
-        query: {
-            'component.name': { $in: ['Text'] },
-        },
-    },
     inputs: [
         {
             name: 'color',
@@ -26,13 +23,17 @@ const config: ComponentInfo = {
             name: 'component',
             type: 'string',
         },
+		{
+			name: 'layout',
+			type: 'string',
+			enum: ['center', 'fullscreen'],
+			defaultValue: 'center'
+		},
         {
-            name: 'disabled',
-            type: 'boolean',
-        },
-        {
-            name: 'label',
-            type: 'string',
+            name: 'size',
+            type: 'text',
+            enum: ['sm', 'md', 'lg'],
+			defaultValue: 'md',
         },
         {
             name: 'slotProps',
@@ -48,7 +49,7 @@ const config: ComponentInfo = {
     defaultChildren: [
         {
             '@type': '@builder.io/sdk:Element',
-            component: { name: 'Text', options: { text: 'Option 1' } },
+            component: { name: 'ModalDialog' },
         },
     ],
 }
@@ -57,5 +58,4 @@ export default {
     component,
     ...config,
 }
-
 
