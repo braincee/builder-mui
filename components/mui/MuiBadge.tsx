@@ -8,7 +8,6 @@ function component(props: any): JSX.Element {
     return <Badge {...props}/>
 }
 
-
 const config: ComponentInfo = {
     name: 'Badge',
     noWrap: true,
@@ -67,6 +66,7 @@ const config: ComponentInfo = {
             component: { name: 'Icon', options: { text: 'Icon 1' } },
         },
     ],
+    docsLink: "https://mui.com/joy-ui/react-badge/"
 }
 
 export default {

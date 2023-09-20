@@ -8,8 +8,20 @@ function component(props: any): JSX.Element {
     return (
         <Typography
             {...rest}
-            startDecorator={<Blocks blocks={startDecorator}></Blocks>}
-            endDecorator={<Blocks blocks={endDecorator}></Blocks>}
+            startDecorator={
+                <Blocks
+                    blocks={startDecorator}
+                    parent={props.builderBlock && props.builderBlock.id}
+                    path={'component.options.startDecorator'}
+                />
+            }
+            endDecorator={
+                <Blocks
+                    blocks={endDecorator}
+                    parent={props.builderBlock && props.builderBlock.id}
+                    path={'component.options.endDecorator'}
+                />
+            }
         >
             {children}
         </Typography>
@@ -120,10 +132,10 @@ const config: any = {
             enum: ['solid', 'soft', 'outlined', 'plain'],
         },
     ],
+    docsLink: "https://mui.com/joy-ui/react-typography/"
 }
 
 export default {
     component,
     ...config,
 }
-

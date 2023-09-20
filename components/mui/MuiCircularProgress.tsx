@@ -8,7 +8,6 @@ function component(props: any): JSX.Element {
     return <CircularProgress {...props}/>
 }
 
-
 const config: ComponentInfo = {
     name: 'CircularProgress',
     noWrap: true,
@@ -59,6 +58,7 @@ const config: ComponentInfo = {
             component: { name: 'Icon' },
         },
     ],
+    docsLink: "https://mui.com/joy-ui/react-circular-progress/"
 }
 
 export default {

@@ -51,11 +51,10 @@ const config: ComponentInfo = {
             component: { name: 'Text', options: { text: 'Option 1' } },
         },
     ],
+    docsLink: "https://mui.com/joy-ui/api/option/"
 }
 
 export default {
     component,
     ...config,
 }
-
-

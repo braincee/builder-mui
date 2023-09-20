@@ -43,13 +43,13 @@ const config: ComponentInfo = {
     defaultChildren: [
         {
             '@type': '@builder.io/sdk:Element',
-            component: { name: 'MenuItem' },
+            component: { name: 'Menu' },
         },
     ],
+    docsLink: "https://mui.com/joy-ui/api/menu-item/"
 }
 
 export default {
     component,
     ...config,
 }
-

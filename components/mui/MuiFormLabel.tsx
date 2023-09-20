@@ -8,7 +8,6 @@ function component(props: any): JSX.Element {
     return <FormLabel {...props}/>
 }
 
-
 const config: ComponentInfo = {
     name: 'FormLabel',
     noWrap: true,
@@ -34,6 +33,7 @@ const config: ComponentInfo = {
 		  component: { name: 'Text', options: { text: 'Add text'} },
 		},
 	  ],
+	  docsLink: "https://mui.com/joy-ui/api/form-label/"
 }
 
 export default {

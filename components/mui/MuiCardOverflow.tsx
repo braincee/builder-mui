@@ -8,7 +8,6 @@ function component(props: any): JSX.Element {
     return <CardOverflow {...props}/>
 }
 
-
 const config: ComponentInfo = {
     name: 'CardOverflow',
     noWrap: true,
@@ -40,6 +39,7 @@ const config: ComponentInfo = {
             component: { name: 'CardCover' },
         },
     ],
+    docsLink: "https://mui.com/joy-ui/api/card-overflow/"
 }
 
 export default {

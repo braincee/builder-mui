@@ -8,7 +8,6 @@ function component(props: any): JSX.Element {
     return <IconButton {...props}/>
 }
 
-
 const config: ComponentInfo = {
     name: 'IconButton',
     noWrap: true,
@@ -55,6 +54,7 @@ const config: ComponentInfo = {
             component: { name: 'Icon' },
         },
     ],
+    docsLink: "https://mui.com/joy-ui/api/icon-button/"
 }
 
 export default {

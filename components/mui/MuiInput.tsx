@@ -1,5 +1,5 @@
-import { Input } from '@mui/joy'
 import { Blocks, ComponentInfo } from '@builder.io/sdk-react'
+import { Input } from '@mui/joy'
 import * as React from 'react'
 import type { JSX } from 'react'
 // import type { PropsWithBuilderData } from '@builder.io/sdk-react/dist/types/builder-props'
@@ -11,8 +11,20 @@ function component(props: any): JSX.Element {
     return (
         <Input
             {...rest}
-            startDecorator={<Blocks blocks={startDecorator} />}
-            endDecorator={<Blocks blocks={endDecorator} />}
+            startDecorator={
+                <Blocks
+                    blocks={startDecorator}
+                    parent={props.builderBlock && props.builderBlock.id}
+                    path={'component.options.startDecorator'}
+                />
+            }
+            endDecorator={
+                <Blocks
+                    blocks={endDecorator}
+                    parent={props.builderBlock && props.builderBlock.id}
+                    path={'component.options.endDecorator'}
+                />
+            }
         >
             {children}
         </Input>
@@ -38,6 +50,7 @@ const config: ComponentInfo = {
             name: 'endDecorator',
             type: 'blocks',
             hideFromUI: true,
+            code: true,
             helperText: 'This is an editable region.',
             defaultValue: [
                 {
@@ -109,10 +122,10 @@ const config: ComponentInfo = {
             type: 'number',
         },
     ],
+    docsLink: 'https://mui.com/joy-ui/react-input'
 }
 
 export default {
     component,
     ...config,
 }
-

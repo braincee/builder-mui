@@ -9,7 +9,6 @@ function component(props: any): JSX.Element {
   return <Checkbox {...rest}>{children}</Checkbox>
 }
 
-
 const config: ComponentInfo = {
   name: 'Checkbox',
   noWrap: true,
@@ -80,6 +79,7 @@ const config: ComponentInfo = {
       enum: ['solid', 'soft', 'outlined', 'plain'],
     },
   ],
+  docsLink: "https://mui.com/joy-ui/react-checkbox/"
 }
 
 export default {

@@ -8,7 +8,6 @@ function component(props: any): JSX.Element {
     return <List {...props}/>
 }
 
-
 const config: ComponentInfo = {
     name: 'List',
     noWrap: true,
@@ -49,12 +48,7 @@ const config: ComponentInfo = {
 			type: 'boolean',
 		},
     ],
-    defaultChildren: [
-        {
-            '@type': '@builder.io/sdk:Element',
-            component: { name: 'List' },
-        },
-    ],
+    docsLink: "https://mui.com/joy-ui/react-list/"
 }
 
 export default {

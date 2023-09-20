@@ -8,7 +8,6 @@ function component(props: any): JSX.Element {
     return <Grid {...props}/>
 }
 
-
 const config: ComponentInfo = {
     name: 'Grid',
     noWrap: true,
@@ -64,6 +63,7 @@ const config: ComponentInfo = {
             component: { name: 'Item', options: { text: 'item' } },
         },
     ],
+    docsLink: "https://mui.com/joy-ui/react-grid/"
 }
 
 export default {

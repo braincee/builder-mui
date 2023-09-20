@@ -44,10 +44,10 @@ const config: ComponentInfo = {
             component: { name: 'Chip', options: { text: 'Value' } },
         },
     ],
+    docsLink: "https://mui.com/joy-ui/react-divider/"
 }
 
 export default {
     component,
     ...config,
 }
-

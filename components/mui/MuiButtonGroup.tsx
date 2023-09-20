@@ -8,7 +8,6 @@ function component(props: any): JSX.Element {
   return <ButtonGroup {...props}/>
 }
 
-
 const config: ComponentInfo = {
   name: 'ButtonGroup',
   noWrap: true,
@@ -63,6 +62,7 @@ const config: ComponentInfo = {
       component: { name: 'Button', options: { text: 'Button 1' } },
     },
   ],
+  docsLink: "https://mui.com/joy-ui/react-button-group/"
 }
 
 export default {

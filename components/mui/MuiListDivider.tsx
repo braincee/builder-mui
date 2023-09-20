@@ -8,7 +8,6 @@ function component(props: any): JSX.Element {
     return <ListDivider {...props}/>
 }
 
-
 const config: ComponentInfo = {
     name: 'ListDivider',
     noWrap: true,
@@ -38,9 +37,10 @@ const config: ComponentInfo = {
     defaultChildren: [
         {
             '@type': '@builder.io/sdk:Element',
-            component: { name: 'ListDivider' },
+            component: { name: 'List' },
         },
     ],
+    docsLink: "https://mui.com/joy-ui/api/list-divider/"
 }
 
 export default {

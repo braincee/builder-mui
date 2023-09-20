@@ -77,17 +77,10 @@ const config: ComponentInfo = {
             enum: ['solid', 'soft', 'outlined', 'plain', 'outlined'],
         },
     ],
-
-    defaultChildren: [
-        {
-            '@type': '@builder.io/sdk:Element',
-            component: { name: 'Radio', options: { text: 'Radio Button', type: 'outlined' } },
-        },
-    ],
+    docsLink: "https://mui.com/joy-ui/api/radio/"
 }
 
 export default {
     component,
     ...config,
 }
-

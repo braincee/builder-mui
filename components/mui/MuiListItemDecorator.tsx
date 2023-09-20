@@ -8,7 +8,6 @@ function component(props: any): JSX.Element {
     return <ListItemDecorator {...props}/>
 }
 
-
 const config: ComponentInfo = {
     name: 'ListItemDecorator',
     noWrap: true,
@@ -27,9 +26,14 @@ const config: ComponentInfo = {
     defaultChildren: [
         {
             '@type': '@builder.io/sdk:Element',
-            component: { name: 'ListItemDecorator' },
+            component: { name: 'List' },
+        },
+        {
+            '@type': '@builder.io/sdk:Element',
+            component: { name: 'Item', options: {text: 'Item 1'} },
         },
     ],
+    docsLink: "https://mui.com/joy-ui/api/list-item-decorator/"
 }
 
 export default {

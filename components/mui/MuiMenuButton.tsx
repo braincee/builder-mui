@@ -125,13 +125,17 @@ const config: ComponentInfo = {
     defaultChildren: [
         {
             '@type': '@builder.io/sdk:Element',
-            component: { name: 'MenuButton', options: { text: 'Menu Button' } },
+            component: { name: 'Button', options: { text: 'Button' } },
+        },
+        {
+            '@type': '@builder.io/sdk:Element',
+            component: { name: 'Menu', options: { text: 'Button' } },
         },
     ],
+    docsLink: "https://mui.com/joy-ui/api/menu-button/"
 }
 
 export default {
     component,
     ...config,
 }
-

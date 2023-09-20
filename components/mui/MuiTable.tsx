@@ -70,11 +70,10 @@ const config: ComponentInfo = {
             defaultValue: 'plain',
         },
     ],
+    docsLink: "https://mui.com/joy-ui/react-table/"
 }
 
 export default {
     component,
     ...config,
 }
-
-

@@ -64,16 +64,10 @@ const config: ComponentInfo = {
             enum: ['solid', 'soft', 'outlined', 'plain'],
         },
     ],
-	defaultChildren: [
-        {
-            '@type': '@builder.io/sdk:Element',
-            component: { name: 'Tabs' },
-        },
-    ],
+    docsLink: "https://mui.com/joy-ui/react-tabs/"
 }
 
 export default {
     component,
     ...config,
 }
-

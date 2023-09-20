@@ -9,7 +9,6 @@ function component(props: any): JSX.Element {
     return <Avatar {...rest}>{children}</Avatar>
 }
 
-
 const config: ComponentInfo = {
     name: 'Avatar',
     noWrap: true,
@@ -58,6 +57,7 @@ const config: ComponentInfo = {
             component: { name: 'Avatar' },
         },
     ],
+    docsLink: "https://mui.com/joy-ui/react-avatar/"
 }
 
 export default {

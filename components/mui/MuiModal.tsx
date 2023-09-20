@@ -68,16 +68,10 @@ const config: ComponentInfo = {
             defaultValue: {},
         },
     ],
-    defaultChildren: [
-        {
-            '@type': '@builder.io/sdk:Element',
-            component: { name: 'Modal' },
-        },
-    ],
+    docsLink: "https://mui.com/joy-ui/react-modal/"
 }
 
 export default {
     component,
     ...config,
 }
-

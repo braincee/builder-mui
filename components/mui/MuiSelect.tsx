@@ -9,8 +9,20 @@ function component(props: any): JSX.Element {
     return (
         <Select
             {...rest}
-            startDecorator={<Blocks blocks={startDecorator}></Blocks>}
-            endDecorator={<Blocks blocks={endDecorator}></Blocks>}
+            startDecorator={
+                <Blocks
+                    blocks={startDecorator}
+                    parent={props.builderBlock && props.builderBlock.id}
+                    path={'component.options.startDecorator'}
+                />
+            }
+            endDecorator={
+                <Blocks
+                    blocks={endDecorator}
+                    parent={props.builderBlock && props.builderBlock.id}
+                    path={'component.options.endDecorator'}
+                />
+            }
         >
             {children}
         </Select>
@@ -194,10 +206,10 @@ const config: ComponentInfo = {
             ],
         },
     ],
+    docsLink: "https://mui.com/joy-ui/react-select/"
 }
 
 export default {
     component,
     ...config,
 }
-

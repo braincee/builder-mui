@@ -7,7 +7,6 @@ function component(props: any): JSX.Element {
     return <AvatarGroup {...props}/>
 }
 
-
 const config: ComponentInfo = {
     name: 'AvatarGroup',
     noWrap: true,
@@ -62,6 +61,7 @@ const config: ComponentInfo = {
             component: { name: 'Avatar' },
         },
     ],
+    docsLink: "https://mui.com/joy-ui/api/avatar-group/"
 }
 
 export default {

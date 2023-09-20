@@ -3,7 +3,7 @@ import { Blocks, ComponentInfo } from '@builder.io/sdk-react'
 import * as React from 'react'
 import type { JSX } from 'react'
 
-function  component(props: any): JSX.Element {
+function component(props: any): JSX.Element {
   const { children, startDecorator, endDecorator, ...rest } = props
 
   return (
@@ -114,12 +114,7 @@ const config: ComponentInfo = {
       enum: ['solid', 'soft', 'outlined', 'plain'],
     },
   ],
-  defaultChildren: [
-    {
-      '@type': '@builder.io/sdk:Element',
-      component: { name: 'Text', options: { text: 'Text' } },
-    },
-  ],
+  docsLink: "https://mui.com/joy-ui/api/alert/"
 }
 
 export default {

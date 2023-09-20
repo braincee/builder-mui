@@ -8,7 +8,6 @@ function component(props: any): JSX.Element {
     return <ChipDelete {...props}/>
 }
 
-
 const config: ComponentInfo = {
     name: 'ChipDelete',
     noWrap: true,
@@ -44,9 +43,10 @@ const config: ComponentInfo = {
     defaultChildren: [
         {
             '@type': '@builder.io/sdk:Element',
-            component: { name: 'Icon', options: { text: 'Icon' } },
+            component: { name: 'Chip', options: { text: 'Chip' } },
         },
     ],
+    docsLink: "https://mui.com/joy-ui/api/chip-delete/"
 }
 
 export default {

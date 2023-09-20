@@ -8,7 +8,6 @@ function component(props: any): JSX.Element {
     return <AutocompleteOption {...props}/>
 }
 
-
 const config: ComponentInfo = {
     name: 'AutocompleteListOption',
     noWrap: true,
@@ -42,9 +41,10 @@ const config: ComponentInfo = {
     defaultChildren: [
         {
             '@type': '@builder.io/sdk:Element',
-            component: { name: 'AutocompleteOption' },
+            component: { name: 'Autocomplete' },
         },
     ],
+    docsLink: "https://mui.com/joy-ui/api/autocomplete-option/"
 }
 
 export default {

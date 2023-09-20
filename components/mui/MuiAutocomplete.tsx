@@ -3,7 +3,6 @@ import { Blocks, ComponentInfo } from '@builder.io/sdk-react'
 import * as React from 'react'
 import type { JSX } from 'react'
 
-
 function component(props: any): JSX.Element {
     const { children,startDecorator, endDecorator, ...rest } = props
 
@@ -197,15 +196,18 @@ const config: ComponentInfo = {
             enum: ['outlined', 'plain', 'soft', 'solid'],
         },
     ],
-	defaultChildren: [
+    defaultChildren: [
         {
             '@type': '@builder.io/sdk:Element',
-            component: { name: 'Autocomplete' },
+            component: { name: 'Option', options: { text: 'Text 1' } },
         },
     ],
+    docsLink: "https://mui.com/joy-ui/react-autocomplete/"
 }
 
 export default {
     component,
     ...config,
 }
+
+

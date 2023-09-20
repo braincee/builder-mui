@@ -8,7 +8,6 @@ function component(props: any): JSX.Element {
     return <LinearProgress {...props}/>
 }
 
-
 const config: ComponentInfo = {
     name: 'LinearProgress',
     noWrap: true,
@@ -54,6 +53,7 @@ const config: ComponentInfo = {
             enum: ['solid', 'soft', 'outlined', 'plain'],
         },
     ],
+    docsLink: "https://mui.com/joy-ui/api/linear-progress/"
 }
 
 export default {

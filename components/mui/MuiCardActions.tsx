@@ -8,7 +8,6 @@ function component(props: any): JSX.Element {
     return <CardActions {...props}/>
 }
 
-
 const config: ComponentInfo = {
     name: 'CardActions',
     noWrap: true,
@@ -38,9 +37,10 @@ const config: ComponentInfo = {
 	defaultChildren: [
         {
             '@type': '@builder.io/sdk:Element',
-            component: { name: 'CardActions' },
+            component: { name: 'Card', options: {text: "Card 1"} },
         },
     ],
+    docsLink: "https://mui.com/joy-ui/api/card-actions/"
 }
 
 export default {

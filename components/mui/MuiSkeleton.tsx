@@ -60,16 +60,10 @@ const config: ComponentInfo = {
 			type: 'number',
 		},
     ],
-    defaultChildren: [
-        {
-            '@type': '@builder.io/sdk:Element',
-            component: { name: 'Skeleton' },
-        },
-    ],
+    docsLink: "https://mui.com/joy-ui/react-skeleton/"
 }
 
 export default {
     component,
     ...config,
 }
-

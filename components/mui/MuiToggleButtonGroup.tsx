@@ -65,13 +65,18 @@ const config: ComponentInfo = {
 	defaultChildren: [
         {
             '@type': '@builder.io/sdk:Element',
-            component: { name: 'ToggleButtonGroup' },
+            component: { name: 'Button' }
+        },
+        {
+            '@type': '@builder.io/sdk:Element',
+            component: { name: 'IconButton' }
         },
     ],
+  
+    docsLink: "https://mui.com/joy-ui/react-toggle-button-group/"
 }
 
 export default {
     component,
     ...config,
 }
-

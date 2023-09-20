@@ -3,10 +3,26 @@ import { Slider } from '@mui/joy'
 import { Blocks, ComponentInfo } from '@builder.io/sdk-react'
 
 function component(props: any): JSX.Element {
-    const { children, endDecorator, ...rest } = props
+    const { children, startDecorator, endDecorator, ...rest } = props
 
     return (
-        <Slider {...rest} endDecorator={<Blocks blocks={endDecorator} />}>
+        <Slider
+            {...rest}
+            startDecorator={
+                <Blocks
+                    blocks={startDecorator}
+                    parent={props.builderBlock && props.builderBlock.id}
+                    path={'component.options.startDecorator'}
+                />
+            }
+            endDecorator={
+                <Blocks
+                    blocks={endDecorator}
+                    parent={props.builderBlock && props.builderBlock.id}
+                    path={'component.options.endDecorator'}
+                />
+            }
+        >
             {children}
         </Slider>
     )
@@ -114,10 +130,10 @@ const config: ComponentInfo = {
             enum: ['solid', 'soft', 'outlined', 'plain'],
         },
     ],
+    docsLink: "https://mui.com/joy-ui/api/slider/"
 }
 
 export default {
     component,
     ...config,
 }
-

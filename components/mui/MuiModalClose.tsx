@@ -42,13 +42,13 @@ const config: ComponentInfo = {
     defaultChildren: [
         {
             '@type': '@builder.io/sdk:Element',
-            component: { name: 'ModalClose' },
+            component: { name: 'Modal' },
         },
     ],
+    docsLink: "https://mui.com/joy-ui/api/modal-close/"
 }
 
 export default {
     component,
     ...config,
 }
-

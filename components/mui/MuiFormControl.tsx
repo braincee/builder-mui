@@ -55,11 +55,11 @@ const config: ComponentInfo = {
             defaultValue: {},
         },
     ],
+    docsLink: "https://mui.com/joy-ui/api/form-control/"
 }
 
 export default {
     component,
     ...config,
 }
-
 
