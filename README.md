@@ -113,7 +113,7 @@ In your code editor, update `_app.tsx` with your [Public API Key](https://builde
 
 To serve your application locally, install dependencies, serve, and view your preview.
 
-1. Install dependencies by entering the follw\owing at the command line.
+1. Install dependencies by entering the following at the command line.
 
    ```
    npm install
