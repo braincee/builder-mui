@@ -41,9 +41,10 @@ const config: ComponentInfo = {
     defaultChildren: [
         {
             '@type': '@builder.io/sdk:Element',
-            component: { name: 'AutocompleteListbox' },
+            component: { name: 'Autocomplete' },
         },
     ],
+    docsLink: "https://mui.com/joy-ui/api/autocomplete-listbox/"
 }
 
 export default {

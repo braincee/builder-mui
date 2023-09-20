@@ -73,13 +73,7 @@ const config: ComponentInfo = {
             type: 'string',
         },
     ],
-
-    defaultChildren: [
-        {
-            '@type': '@builder.io/sdk:Element',
-            component: { name: 'Text', options: { text: 'SvgIcon', type: 'outlined' } },
-        },
-    ],
+    docsLink: "https://mui.com/joy-ui/api/svg-icon/"
 }
 
 export default {

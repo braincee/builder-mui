@@ -123,9 +123,10 @@ const config: ComponentInfo = {
     defaultChildren: [
         {
             '@type': '@builder.io/sdk:Element',
-            component: { name: 'Text', options: { text: 'Button' } },
+            component: { name: 'Button', options: { text: 'Button' } },
         },
     ],
+    docsLink: "https://mui.com/joy-ui/react-button/"
 }
 
 export default {

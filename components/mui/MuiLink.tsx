@@ -136,6 +136,7 @@ const config: ComponentInfo = {
       enum: ['solid', 'soft', 'outlined', 'plain'],
     },
   ],
+  docsLink: "https://mui.com/joy-ui/react-link/"
 }
 
 export default {

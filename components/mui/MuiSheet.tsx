@@ -38,12 +38,8 @@ const config: ComponentInfo = {
             enum: ['solid', 'soft', 'outlined', 'plain'],
         },
     ],
-    defaultChildren: [
-        {
-            '@type': '@builder.io/sdk:Element',
-            component: { name: 'Sheet', options: { text: 'Value' } },
-        },
-    ],
+    
+    docsLink: "https://mui.com/joy-ui/react-sheet/"
 }
 
 export default {

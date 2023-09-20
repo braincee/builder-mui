@@ -44,6 +44,7 @@ const config: ComponentInfo = {
             component: { name: 'MenuList' },
         },
     ],
+    docsLink: "https://mui.com/joy-ui/api/menu-list/"
 }
 
 export default {

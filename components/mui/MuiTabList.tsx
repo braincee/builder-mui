@@ -62,9 +62,10 @@ const config: ComponentInfo = {
     defaultChildren: [
         {
             '@type': '@builder.io/sdk:Element',
-            component: { name: 'TabList' },
+            component: { name: 'Tab' },
         },
     ],
+    docsLink: "https://mui.com/joy-ui/api/tab-list/"
 }
 
 

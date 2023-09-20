@@ -39,6 +39,7 @@ const config: ComponentInfo = {
             component: { name: 'CardCover' },
         },
     ],
+    docsLink: "https://mui.com/joy-ui/api/card-overflow/"
 }
 
 export default {

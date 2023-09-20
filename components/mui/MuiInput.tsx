@@ -122,6 +122,7 @@ const config: ComponentInfo = {
             type: 'number',
         },
     ],
+    docsLink: 'https://mui.com/joy-ui/react-input'
 }
 
 export default {

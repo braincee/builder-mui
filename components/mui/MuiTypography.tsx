@@ -132,6 +132,7 @@ const config: any = {
             enum: ['solid', 'soft', 'outlined', 'plain'],
         },
     ],
+    docsLink: "https://mui.com/joy-ui/react-typography/"
 }
 
 export default {

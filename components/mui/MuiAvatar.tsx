@@ -57,6 +57,7 @@ const config: ComponentInfo = {
             component: { name: 'Avatar' },
         },
     ],
+    docsLink: "https://mui.com/joy-ui/react-avatar/"
 }
 
 export default {

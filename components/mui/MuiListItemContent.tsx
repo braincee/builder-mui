@@ -26,9 +26,14 @@ const config: ComponentInfo = {
     defaultChildren: [
         {
             '@type': '@builder.io/sdk:Element',
-            component: { name: 'ListItemContent' },
+            component: { name: 'List' },
+        },
+        {
+            '@type': '@builder.io/sdk:Element',
+            component: { name: 'Item', options: {text: "Item 1"} },
         },
     ],
+    docsLink: "https://mui.com/joy-ui/api/list-item-content/"
 }
 
 export default {

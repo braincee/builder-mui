@@ -39,6 +39,7 @@ const config: ComponentInfo = {
             component: { name: 'Item', options: { text: 'item 1' } },
         },
     ],
+    docsLink: "https://mui.com/joy-ui/api/stack/"
 }
 
 export default {

@@ -33,6 +33,7 @@ const config: ComponentInfo = {
 		  component: { name: 'Text', options: { text: 'Add text'} },
 		},
 	  ],
+	  docsLink: "https://mui.com/joy-ui/api/form-label/"
 }
 
 export default {

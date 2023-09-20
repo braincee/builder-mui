@@ -196,12 +196,13 @@ const config: ComponentInfo = {
             enum: ['outlined', 'plain', 'soft', 'solid'],
         },
     ],
-	defaultChildren: [
+    defaultChildren: [
         {
             '@type': '@builder.io/sdk:Element',
-            component: { name: 'Autocomplete' },
+            component: { name: 'Option', options: { text: 'Text 1' } },
         },
     ],
+    docsLink: "https://mui.com/joy-ui/react-autocomplete/"
 }
 
 export default {

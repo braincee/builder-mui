@@ -28,13 +28,7 @@ const config: ComponentInfo = {
 			defaultValue: {},
 		},
 	],
-	defaultChildren: [
-        {
-            '@type': '@builder.io/sdk:Element',
-            component: { name: 'Breadcrumbs' },
-        },
-    ],
-	
+	docsLink: "https://mui.com/joy-ui/react-breadcrumbs/"
 }
 
 export default {

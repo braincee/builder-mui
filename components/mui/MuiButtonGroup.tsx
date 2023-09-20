@@ -62,6 +62,7 @@ const config: ComponentInfo = {
       component: { name: 'Button', options: { text: 'Button 1' } },
     },
   ],
+  docsLink: "https://mui.com/joy-ui/react-button-group/"
 }
 
 export default {

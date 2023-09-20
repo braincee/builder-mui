@@ -54,6 +54,7 @@ const config: ComponentInfo = {
             component: { name: 'Icon' },
         },
     ],
+    docsLink: "https://mui.com/joy-ui/api/icon-button/"
 }
 
 export default {

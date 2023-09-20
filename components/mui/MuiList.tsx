@@ -48,12 +48,7 @@ const config: ComponentInfo = {
 			type: 'boolean',
 		},
     ],
-    defaultChildren: [
-        {
-            '@type': '@builder.io/sdk:Element',
-            component: { name: 'List' },
-        },
-    ],
+    docsLink: "https://mui.com/joy-ui/react-list/"
 }
 
 export default {

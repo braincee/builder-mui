@@ -206,6 +206,7 @@ const config: ComponentInfo = {
             ],
         },
     ],
+    docsLink: "https://mui.com/joy-ui/react-select/"
 }
 
 export default {

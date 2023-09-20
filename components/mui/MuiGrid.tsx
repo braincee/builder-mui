@@ -63,6 +63,7 @@ const config: ComponentInfo = {
             component: { name: 'Item', options: { text: 'item' } },
         },
     ],
+    docsLink: "https://mui.com/joy-ui/react-grid/"
 }
 
 export default {

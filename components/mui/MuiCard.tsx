@@ -59,6 +59,7 @@ const config: ComponentInfo = {
             component: { name: 'Card', options: { text: 'Card 2' } },
         },
     ],
+    docsLink: "https://mui.com/joy-ui/react-card/"
 }
 
 export default {

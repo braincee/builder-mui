@@ -49,9 +49,10 @@ const config: ComponentInfo = {
     defaultChildren: [
         {
             '@type': '@builder.io/sdk:Element',
-            component: { name: 'ModalDialog' },
+            component: { name: 'Modal' },
         },
     ],
+    docsLink: "https://mui.com/joy-ui/api/modal-dialog/"
 }
 
 export default {

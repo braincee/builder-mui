@@ -84,6 +84,7 @@ const config: ComponentInfo = {
             component: { name: 'Radio', options: { text: 'RadioButton3', type: 'outlined' } },
         },
     ],
+    docsLink: "https://mui.com/joy-ui/api/radio-group/"
 }
 
 export default {

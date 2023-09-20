@@ -114,12 +114,7 @@ const config: ComponentInfo = {
       enum: ['solid', 'soft', 'outlined', 'plain'],
     },
   ],
-  defaultChildren: [
-    {
-      '@type': '@builder.io/sdk:Element',
-      component: { name: 'Text', options: { text: 'Text' } },
-    },
-  ],
+  docsLink: "https://mui.com/joy-ui/api/alert/"
 }
 
 export default {

@@ -26,9 +26,10 @@ const config: ComponentInfo = {
     defaultChildren: [
         {
             '@type': '@builder.io/sdk:Element',
-            component: { name: 'CardCover' },
+            component: { name: 'Card', options: {text: 'card 1'} },
         },
     ],
+    docsLink: "https://mui.com/joy-ui/api/card-cover/"
 }
 
 export default {

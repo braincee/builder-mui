@@ -51,9 +51,10 @@ const config: ComponentInfo = {
     defaultChildren: [
         {
             '@type': '@builder.io/sdk:Element',
-            component: { name: 'TabPanel' },
+            component: { name: 'Tabs' },
         },
     ],
+    docsLink: "https://mui.com/joy-ui/api/tab-panel/"
 }
 
 export default {

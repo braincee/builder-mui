@@ -58,12 +58,7 @@ const config: ComponentInfo = {
             enum: ['solid', 'soft', 'outlined', 'plain'],
         },
     ],
-    defaultChildren: [
-        {
-            '@type': '@builder.io/sdk:Element',
-            component: { name: 'Menu' },
-        },
-    ],
+    docsLink: "https://mui.com/joy-ui/api/menu/"
 }
 
 export default {
