@@ -4,46 +4,54 @@ import * as React from 'react'
 import type { JSX } from 'react'
 
 function component(props: any): JSX.Element {
-
-    return <CardActions {...props}/>
+  return <CardActions {...props} />
 }
 
 const config: ComponentInfo = {
-    name: 'CardActions',
-    noWrap: true,
-    canHaveChildren: true,
-	inputs: [
-		{
-			name: 'buttonFlex',
-			type: 'number',
-		},
-		{
-			name: 'component',
-			type: 'string',
-		},
-		{
-            name: 'orientation',
-            type: 'text',
-            enum: ['horizontal', 'vertical'],
-            defaultValue: 'horizontal',
-        },
-        {
-            name: 'slotProps',
-            type: 'object',
-            defaultValue: {},
-        },
-		
-	],
-	defaultChildren: [
-        {
-            '@type': '@builder.io/sdk:Element',
-            component: { name: 'Card', options: {text: "Card 1"} },
-        },
-    ],
-    docsLink: "https://mui.com/joy-ui/api/card-actions/"
+  name: 'CardActions',
+  noWrap: true,
+  canHaveChildren: true,
+  requiresParent: {
+    message: 'CardActions must be within a Card',
+    query: {
+      'component.name': { $in: ['Card'] },
+    },
+  },
+  inputs: [
+    {
+      name: 'buttonFlex',
+      type: 'number',
+    },
+    {
+      name: 'component',
+      type: 'string',
+    },
+    {
+      name: 'orientation',
+      type: 'text',
+      enum: ['horizontal', 'vertical'],
+      defaultValue: 'horizontal',
+    },
+    {
+      name: 'slotProps',
+      type: 'object',
+      defaultValue: {},
+    },
+  ],
+  defaultChildren: [
+    {
+      '@type': '@builder.io/sdk:Element',
+      component: { name: 'Button', options: { text: 'Action 1' } },
+    },
+    {
+      '@type': '@builder.io/sdk:Element',
+      component: { name: 'Button', options: { text: 'Action 2' } },
+    },
+  ],
+  docsLink: 'https://mui.com/joy-ui/api/card-actions/',
 }
 
 export default {
-    component,
-    ...config,
+  component,
+  ...config,
 }

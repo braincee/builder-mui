@@ -4,41 +4,46 @@ import * as React from 'react'
 import type { JSX } from 'react'
 
 function component(props: any): JSX.Element {
-
-    return <CardContent {...props}/>
+  return <CardContent {...props} />
 }
 
 const config: ComponentInfo = {
-    name: 'CardContent',
-    noWrap: true,
-    canHaveChildren: true,
-    inputs: [
-        {
-            name: 'component',
-            type: 'string',
-        },
-        {
-            name: 'orientation',
-            type: 'text',
-            enum: ['horizontal', 'vertical'],
-            defaultValue: 'horizontal',
-        },
-        {
-            name: 'slotProps',
-            type: 'object',
-            defaultValue: {},
-        },
-    ],
-    defaultChildren: [
-        {
-            '@type': '@builder.io/sdk:Element',
-            component: { name: 'Card', options: {text: "Card 1"} },
-        },
-    ],
-    docsLink: "https://mui.com/joy-ui/api/card-content/"
+  name: 'CardContent',
+  noWrap: true,
+  canHaveChildren: true,
+  requiresParent: {
+    message: 'CardContent must be within a Card',
+    query: {
+      'component.name': { $in: ['Card'] },
+    },
+  },
+  inputs: [
+    {
+      name: 'component',
+      type: 'string',
+    },
+    {
+      name: 'orientation',
+      type: 'text',
+      enum: ['horizontal', 'vertical'],
+      defaultValue: 'horizontal',
+    },
+    {
+      name: 'slotProps',
+      type: 'object',
+      defaultValue: {},
+    },
+  ],
+  defaultChildren: [
+    {
+      '@type': '@builder.io/sdk:Element',
+      component: { name: 'Typography', options: { text: 'Text' } },
+    },
+  ],
+  docsLink: 'https://mui.com/joy-ui/api/card-content/',
 }
 
 export default {
-    component,
-    ...config,
+  component,
+  ...config,
 }
