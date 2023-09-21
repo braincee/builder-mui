@@ -4,8 +4,7 @@ import * as React from 'react'
 import type { JSX } from 'react'
 
 function component(props: any): JSX.Element {
-
-  return <ButtonGroup {...props}/>
+  return <ButtonGroup {...props} />
 }
 
 const config: ComponentInfo = {
@@ -61,8 +60,18 @@ const config: ComponentInfo = {
       '@type': '@builder.io/sdk:Element',
       component: { name: 'Button', options: { text: 'Button 1' } },
     },
+    {
+      '@type': '@builder.io/sdk:Element',
+      component: { name: 'IconButton', options: { text: 'Button 2' } },
+    },
   ],
-  docsLink: "https://mui.com/joy-ui/react-button-group/"
+  childRequirements: {
+    message: 'You can only put Button, IconButton or Tooltip in a Button Group',
+    query: {
+      'component.name': { $in: ['Button', 'IconButton', 'Tooltip'] },
+    },
+  },
+  docsLink: 'https://mui.com/joy-ui/react-button-group/',
 }
 
 export default {
