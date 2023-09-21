@@ -4,83 +4,82 @@ import * as React from 'react'
 import type { JSX } from 'react'
 
 function component(props: any): JSX.Element {
-
-    return <Radio {...props}/>
+  return <Radio {...props} />
 }
 
 const config: ComponentInfo = {
-    name: 'Radio',
-    noWrap: true,
-    canHaveChildren: true,
-    inputs: [
-        {
-            name: 'checked',
-            type: 'boolean',
-        },
-        {
-            name: 'className',
-            type: 'string',
-        },
+  name: 'Radio',
+  noWrap: true,
+  canHaveChildren: false,
+  inputs: [
+    {
+      name: 'checked',
+      type: 'boolean',
+    },
+    {
+      name: 'className',
+      type: 'string',
+    },
 
-        {
-            name: 'color',
-            type: 'text',
-            enum: ['danger', 'info', 'neutral', 'primary', 'success', 'warning'],
-        },
-        {
-            name: 'component',
-            type: 'string',
-        },
-        {
-            name: 'disabled',
-            type: 'string',
-        },
-        {
-            name: 'disableIcon',
-            type: 'boolean',
-        },
-        {
-            name: 'name',
-            type: 'string',
-        },
-        {
-            name: 'overlay',
-            type: 'boolean',
-        },
-        {
-            name: 'readOnly',
-            type: 'boolean',
-        },
-        {
-            name: 'required',
-            type: 'boolean',
-        },
-        {
-            name: 'size',
-            type: 'text',
-            enum: ['sm', 'md', 'lg'],
-        },
-        {
-            name: 'slotProps',
-            type: 'object',
-            defaultValue: {},
-        },
+    {
+      name: 'color',
+      type: 'text',
+      enum: ['danger', 'info', 'neutral', 'primary', 'success', 'warning'],
+    },
+    {
+      name: 'component',
+      type: 'string',
+    },
+    {
+      name: 'disabled',
+      type: 'string',
+    },
+    {
+      name: 'disableIcon',
+      type: 'boolean',
+    },
+    {
+      name: 'name',
+      type: 'string',
+    },
+    {
+      name: 'overlay',
+      type: 'boolean',
+    },
+    {
+      name: 'readOnly',
+      type: 'boolean',
+    },
+    {
+      name: 'required',
+      type: 'boolean',
+    },
+    {
+      name: 'size',
+      type: 'text',
+      enum: ['sm', 'md', 'lg'],
+    },
+    {
+      name: 'slotProps',
+      type: 'object',
+      defaultValue: {},
+    },
 
-        {
-            name: 'value',
-            type: 'string',
-        },
+    {
+      name: 'value',
+      type: 'string',
+    },
 
-        {
-            name: 'variant',
-            type: 'text',
-            enum: ['solid', 'soft', 'outlined', 'plain', 'outlined'],
-        },
-    ],
-    docsLink: "https://mui.com/joy-ui/api/radio/"
+    {
+      name: 'variant',
+      type: 'text',
+      enum: ['solid', 'soft', 'outlined', 'plain', 'outlined'],
+    },
+  ],
+  docsLink: 'https://mui.com/joy-ui/api/radio/',
 }
 
 export default {
-    component,
-    ...config,
+  component,
+  ...config,
 }
